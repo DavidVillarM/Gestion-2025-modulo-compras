@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Facultad\\INGE\\Gestion 2025\\BackendApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\backendapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\backendapp\\controllers\\recepcionescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:controllers\\recepcionescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\backendapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\backendapp\\controllers\\recepcionescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:controllers\\recepcionescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\backendapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\backendapp\\controllers\\hellocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -62,21 +62,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\BackendApp\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\BackendApp\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-04-22T03:53:57.592Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 5,
@@ -87,8 +74,7 @@
               "RelativeToolTip": "Models\\NotaDeDevolucion.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T03:48:37.265Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-22T03:48:37.265Z"
             },
             {
               "$type": "Document",
@@ -100,8 +86,7 @@
               "RelativeToolTip": "Models\\Stock.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T03:48:11.226Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-22T03:48:11.226Z"
             },
             {
               "$type": "Document",
@@ -113,7 +98,32 @@
               "RelativeToolTip": "Models\\Factura.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T03:48:02.26Z",
+              "WhenOpened": "2025-04-22T03:48:02.26Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RecepcionesController.cs",
+              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\BackendApp\\Controllers\\RecepcionesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\RecepcionesController.cs",
+              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\BackendApp\\Controllers\\RecepcionesController.cs",
+              "RelativeToolTip": "Controllers\\RecepcionesController.cs",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAcwGMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-22T03:37:28.724Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\BackendApp\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\BackendApp\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-04-22T03:53:57.592Z",
               "EditorCaption": ""
             },
             {
@@ -126,8 +136,7 @@
               "RelativeToolTip": "Models\\DetalleOrdenCompra.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T03:47:00.595Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-22T03:47:00.595Z"
             },
             {
               "$type": "Document",
@@ -139,8 +148,7 @@
               "RelativeToolTip": "Models\\OrdenCompra.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T03:46:42.974Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-22T03:46:42.974Z"
             },
             {
               "$type": "Document",
@@ -152,8 +160,7 @@
               "RelativeToolTip": "Models\\Producto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T03:45:15.499Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-22T03:45:15.499Z"
             },
             {
               "$type": "Document",
@@ -165,21 +172,7 @@
               "RelativeToolTip": "Models\\AppDbContext.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABAAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T03:44:04.648Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "RecepcionesController.cs",
-              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\BackendApp\\Controllers\\RecepcionesController.cs",
-              "RelativeDocumentMoniker": "Controllers\\RecepcionesController.cs",
-              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\BackendApp\\Controllers\\RecepcionesController.cs",
-              "RelativeToolTip": "Controllers\\RecepcionesController.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAowE4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T03:37:28.724Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-22T03:44:04.648Z"
             },
             {
               "$type": "Document",
@@ -191,8 +184,7 @@
               "RelativeToolTip": "Controllers\\HelloController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T03:33:50.514Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-22T03:33:50.514Z"
             },
             {
               "$type": "Document",
@@ -202,7 +194,7 @@
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\BackendApp\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-22T03:38:12.725Z",
               "EditorCaption": ""
@@ -217,21 +209,19 @@
               "RelativeToolTip": "Models\\Proveedor.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T03:45:23.898Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-22T03:45:23.898Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 12,
-              "Title": "BackendApp",
+              "Title": "BackendApp.csproj",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\BackendApp\\BackendApp.csproj",
               "RelativeDocumentMoniker": "BackendApp.csproj",
               "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\BackendApp\\BackendApp.csproj",
               "RelativeToolTip": "BackendApp.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-04-22T03:43:17.988Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-22T03:43:17.988Z"
             }
           ]
         }
