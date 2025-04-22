@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export const SideBar = () => {
   return (
-    <div className="flex h-screen">
+    <div className="flex h-screen fix-top">
       {/* Sidebar */}
       <aside className="w-64 bg-sky-600 text-white p-4">
         <div className="flex justify-center mb-6">

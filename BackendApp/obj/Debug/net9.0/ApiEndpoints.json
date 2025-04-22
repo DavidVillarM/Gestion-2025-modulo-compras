@@ -1,21 +1,54 @@
 [
   {
-    "ContainingType": "Program\u002B\u003C\u003Ec__DisplayClass0_0",
-    "Method": "\u003C\u003CMain\u003E$\u003Eb__2",
-    "RelativePath": "weatherforecast",
+    "ContainingType": "HelloController",
+    "Method": "Get",
+    "RelativePath": "api/Hello",
     "HttpMethod": "GET",
-    "IsController": false,
+    "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": [
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BackendApp.Controllers.RecepcionesController",
+    "Method": "GetOrdenesPendientes",
+    "RelativePath": "api/Recepciones/ordenes-pendientes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BackendApp.Controllers.RecepcionesController",
+    "Method": "RechazarRecepcion",
+    "RelativePath": "api/Recepciones/rechazar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
       {
-        "Type": "WeatherForecast[]",
-        "MediaTypes": [
-          "application/json"
-        ],
-        "StatusCode": 200
+        "Name": "dto",
+        "Type": "BackendApp.Controllers.RechazoRecepcionDTO",
+        "IsRequired": true
       }
     ],
-    "EndpointName": "GetWeatherForecast"
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BackendApp.Controllers.RecepcionesController",
+    "Method": "RegistrarRecepcion",
+    "RelativePath": "api/Recepciones/registrar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "BackendApp.Controllers.RecepcionDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

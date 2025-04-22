@@ -5,19 +5,57 @@ const RecepcionProductos = () => {
   const [ordenes, setOrdenes] = useState([]);
   const [ordenSeleccionada, setOrdenSeleccionada] = useState(null);
   const [facturaInfo, setFacturaInfo] = useState({ numero: '', timbrado: '' });
+  const [motivoRechazo, setMotivoRechazo] = useState('');
+
 
   useEffect(() => {
     cargarOrdenes();
   }, []);
 
-  const cargarOrdenes = async () => {
+  /*const cargarOrdenes = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/recepciones/ordenes-pendientes');
+      const res = await axios.get('http://localhost:5001/api/recepciones/ordenes-pendientes');
       setOrdenes(res.data);
     } catch (err) {
       console.error('Error cargando órdenes pendientes', err);
     }
+  };*/
+  const cargarOrdenes = async () => {
+    // Datos estáticos de prueba
+    const datosFalsos = Array.from({ length: 20 }, (_, i) => ({
+      id: i + 1,
+      proveedorNombre: `Proveedor ${i + 1}`,
+      fecha: new Date(2025, 3, i + 1).toISOString(),
+      productos: [
+        {
+          id: i * 3 + 1,
+          nombre: `Producto A${i + 1}`,
+          cantidadSolicitada: Math.floor(Math.random() * 20) + 1,
+        },
+        {
+          id: i * 3 + 2,
+          nombre: `Producto B${i + 1}`,
+          cantidadSolicitada: Math.floor(Math.random() * 20) + 1,
+        },
+        {
+          id: i * 3 + 3,
+          nombre: `Producto C${i + 1}`,
+          cantidadSolicitada: Math.floor(Math.random() * 20) + 1,
+        }
+      ]
+    }));
+  
+    setOrdenes(datosFalsos);
   };
+
+  const [paginaActual, setPaginaActual] = useState(1);
+  const ordenesPorPagina = 10;
+  const indexUltimaOrden = paginaActual * ordenesPorPagina;
+  const indexPrimeraOrden = indexUltimaOrden - ordenesPorPagina;
+  const ordenesActuales = ordenes.slice(indexPrimeraOrden, indexUltimaOrden);
+  const totalPaginas = Math.ceil(ordenes.length / ordenesPorPagina);
+
+  
 
   const seleccionarOrden = (orden) => {
     setOrdenSeleccionada({
@@ -57,6 +95,29 @@ const RecepcionProductos = () => {
       alert('Ocurrió un error al confirmar la recepción');
     }
   };
+  const rechazarRecepcion = async () => {
+    if (!motivoRechazo.trim()) {
+      alert('Por favor, escriba el motivo del rechazo.');
+      return;
+    }
+  
+    const payload = {
+      ordenId: ordenSeleccionada.id,
+      motivo: motivoRechazo
+    };
+  
+    try {
+      await axios.post('http://localhost:5000/api/recepciones/rechazar', payload);
+      alert('Orden rechazada correctamente');
+      setOrdenSeleccionada(null);
+      setMotivoRechazo('');
+      cargarOrdenes();
+    } catch (err) {
+      console.error('Error al rechazar recepción', err);
+      alert('Ocurrió un error al rechazar la orden');
+    }
+  };
+  
 
   return (
     <div className="p-4">
@@ -66,7 +127,7 @@ const RecepcionProductos = () => {
         <div>
           <h2 className="text-xl mb-2">Órdenes de Compra Pendientes</h2>
           <ul className="divide-y">
-            {ordenes.map((orden) => (
+            {ordenesActuales.map((orden) => (
               <li key={orden.id} className="py-2 flex justify-between items-center">
                 <div>
                   <strong>Proveedor:</strong> {orden.proveedorNombre} <br />
@@ -143,8 +204,37 @@ const RecepcionProductos = () => {
           >
             Confirmar Recepción
           </button>
+          <div className="mt-6">
+          <label className="block font-semibold mb-1">Motivo de Rechazo</label>
+          <textarea
+            className="border rounded w-full p-2"
+            rows="3"
+            placeholder="Describa el motivo del rechazo"
+            value={motivoRechazo}
+            onChange={(e) => setMotivoRechazo(e.target.value)}
+          ></textarea>
+
+          <button
+            className="mt-2 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
+            onClick={rechazarRecepcion}
+          >
+            Rechazar Recepción
+          </button>
+        </div>
+
         </div>
       )}
+      <div className="flex justify-center mt-4 gap-2">
+        {Array.from({ length: totalPaginas }, (_, i) => (
+          <button
+            key={i}
+            className={`px-3 py-1 rounded ${paginaActual === i + 1 ? 'bg-blue-700 text-white' : 'bg-gray-200 text-black hover:bg-gray-300'}`}
+            onClick={() => setPaginaActual(i + 1)}
+          >
+            {i + 1}
+          </button>
+        ))}
+      </div>
     </div>
   );
 };

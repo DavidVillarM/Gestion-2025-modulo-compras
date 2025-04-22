@@ -24,7 +24,7 @@ namespace BackendApp.Controllers
                 .Include(o => o.Proveedor)
                 .Include(o => o.Detalles)
                     .ThenInclude(d => d.Producto)
-                .Where(o => o.Detalles.Any(d => d.CantidadRecibida < d.CantidadSolicitada))
+                .Where(o => o.Estado != "Rechazada" && o.Detalles.Any(d => d.CantidadRecibida < d.CantidadSolicitada))
                 .ToListAsync();
 
             return Ok(ordenes);
@@ -80,6 +80,20 @@ namespace BackendApp.Controllers
             await _context.SaveChangesAsync();
             return Ok("Recepción registrada");
         }
+        [HttpPost("rechazar")]
+        public async Task<IActionResult> RechazarRecepcion([FromBody] RechazoRecepcionDTO dto)
+        {
+            var orden = await _context.OrdenesCompra.FirstOrDefaultAsync(o => o.Id == dto.OrdenId);
+
+            if (orden == null)
+                return NotFound("Orden no encontrada");
+
+            orden.Estado = "Rechazada";
+            orden.MotivoRechazo = dto.Motivo;
+
+            await _context.SaveChangesAsync();
+            return Ok("Orden rechazada correctamente");
+        }
     }
 
     public class RecepcionDTO
@@ -96,4 +110,10 @@ namespace BackendApp.Controllers
         public int CantidadRecibida { get; set; }
         public string MotivoDevolucion { get; set; }
     }
+    public class RechazoRecepcionDTO
+    {
+        public int OrdenId { get; set; }
+        public string Motivo { get; set; }
+    }
+
 }

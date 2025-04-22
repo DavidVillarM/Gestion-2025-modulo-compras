@@ -11,5 +11,8 @@ namespace BackendApp.Models
         public DateTime Fecha { get; set; }
 
         public List<DetalleOrdenCompra> Detalles { get; set; }
+        public string Estado { get; set; } = "Pendiente"; // Pendiente, Aceptada, Rechazada, etc.
+        public string MotivoRechazo { get; set; }
+
     }
 }
