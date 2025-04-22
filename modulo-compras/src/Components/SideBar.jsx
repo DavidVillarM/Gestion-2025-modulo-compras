@@ -28,6 +28,14 @@ export const SideBar = () => {
             Stock
           </Link>
 
+          <Link to="/productos" className="text-left hover:bg-sky-800 p-2 rounded text-[20px]">
+            Productos
+          </Link>
+
+          <Link to="/categorias" className="text-left hover:bg-sky-800 p-2 rounded text-[20px]">
+            Categorias
+          </Link>
+
           <Link to="/historial" className="text-left hover:bg-sky-800 p-2 rounded text-[20px]">
             Historial
           </Link>
