@@ -118,12 +118,28 @@ export const Products = () => {
 
 
     return (
-        <div class="bg-gray-200 w-full h-screen">Products
-            <div class="rounded  pl-4">
-                <button class="text-black bg-gray-100 rounded p-2 hover:bg-sky-600">General</button>
-                <button class="rounded p-2 ">Pedidos</button>
-                <button class="rounded p-2 ">Poco Stock</button>
+        <div class="bg-gray-200 w-full h-screen">
+            <h2 class="m-2">Stock</h2>
+            <div class="flex justify-between m-2 items-center">
+                <div class="rounded  pl-4">
+                    <button class="text-black bg-gray-100 rounded p-2 hover:bg-sky-600">General</button>
+                    <button class="text-black bg-gray-100 rounded p-2 hover:bg-sky-600">Pedidos</button>
+                    <button class="text-black bg-gray-100 rounded p-2 hover:bg-sky-600 ">Poco Stock</button>
+                </div>
+                <div class=" flex justify-end m-2 items-center">
+                    <label htmlFor="categorias" className="block mb-1 text-sm font-medium text-gray-700">
+                        Categorias
+                    </label>
+                    <input type="text" class="bg-white m-2" />
+                    <label htmlFor="buscar" className="block mb-1 text-sm font-medium text-gray-700">
+                        Buscar
+                    </label>
+                    <input id='buscar' type="text" class="bg-white m-2" />
+                </div>
+
             </div>
+
+
             <div>
                 <div className="pl-4 pr-4 rounded-lg">
                     <DataTable
