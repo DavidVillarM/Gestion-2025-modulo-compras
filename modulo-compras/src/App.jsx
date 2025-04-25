@@ -7,9 +7,10 @@ import {SideBar} from './Components/SideBar.jsx'
 import {Products} from './Pages/Products.jsx'
 import { Categorias } from './Pages/Categorias.jsx'
 import RecepcionProductos from './Pages/RecepcionProductos.jsx'
-import Dashboard from './Pages/Dashboard.jsx';
-
-
+import { OrdenesPago } from './Pages/OrdenesPago.jsx'
+import { OrdenesPresupuesto } from './Pages/OrdenesPresupuesto.jsx'
+import { OrdenesPresupuestoFinal } from './Pages/OrdenesPresupuestoFinal.jsx'
+import { OrdenesVista } from './Pages/OrdenesVista.jsx'
 
 function App() {
   return (
@@ -22,6 +23,11 @@ function App() {
             <Route path="/categorias" element={<Categorias />} />
             <Route path="/productos" element={<Products />} />
             <Route path="/recepcion" element={<RecepcionProductos />} />
+            <Route path="/ordenes-pago" element={<OrdenesPago />} />
+            <Route path="/ordenes-presupuesto/:id" element={<OrdenesPresupuesto />} />
+            <Route path="/ordenes-vista" element={<OrdenesVista />} />
+            <Route path="/ordenes-presupuesto-final/:id" element={<OrdenesPresupuestoFinal />} />
+            {/* Agregá más rutas si las tenés */}
           </Routes>
         </div>
       </div>
