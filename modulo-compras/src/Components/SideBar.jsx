@@ -40,9 +40,9 @@ export const SideBar = () => {
             Historial
           </Link>
 
-          <Link to="/ordenes-pago" className="text-left hover:bg-sky-800 p-2 rounded text-[20px]">
-            Ordenes de pago
-          </Link>
+          <Link to="/ordenes-pago" className="hover:bg-sky-800 p-2 rounded text-[20px]">
+                    Ordenes de pago
+                </Link
 
           {/* Nueva opción para recepción de productos */}
           <Link to="/recepcion" className="flex items-center text-left hover:bg-sky-800 p-2 rounded text-[20px]">
