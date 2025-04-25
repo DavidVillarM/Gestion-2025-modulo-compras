@@ -61,7 +61,7 @@ export const OrdenesPago = () => {
           className={`cursor-pointer ${row.estado === 'Sin realizar' ? 'text-red-600 underline' : ''}`}
           onClick={() => {
             if (row.estado === 'Sin realizar') {
-              navigate(`/Ordenes_Presupuesto/${row.id}`, { state: { orden: row } });
+              navigate(`OrdenesPresupuesto/${row.id}`, { state: { orden: row } });
             }
           }}
         >
@@ -74,7 +74,7 @@ export const OrdenesPago = () => {
       name: 'Acciones',
       cell: row => (
         <div className="flex gap-2">
-          <button onClick={() => navigate(`/Vistas/`)} className="text-blue-600 text-xl hover:text-blue-800">
+          <button onClick={() => navigate(`Vistas/`)} className="text-blue-600 text-xl hover:text-blue-800">
             <FaEye />
           </button>
           <button onClick={() => handleEliminar(row.id)} className="text-red-600 text-xl hover:text-red-800">

@@ -1,5 +1,6 @@
 import React from 'react'
-import { SideBar } from '../../components/SideBar'
+import { SideBar } from '../../Components/SideBar.jsx';
+
 import { Outlet } from 'react-router-dom'
 
 export const Home = () => {
@@ -9,7 +10,7 @@ export const Home = () => {
             <SideBar />
  
             <div className="w-screen">
-                <Outlet /> {/* Las rutas hijas se renderizarán aquí */}
+                <Outlet /> 
             </div>
         </div>
     )

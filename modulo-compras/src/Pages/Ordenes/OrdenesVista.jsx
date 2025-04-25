@@ -49,7 +49,7 @@ export const OrdenesVista = () => {
 
       <div className="mt-6 text-right">
         <button
-          onClick={() => navigate('/')}
+          onClick={() => navigate('/Ordenes')}
           className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
         >
           Volver al Inicio

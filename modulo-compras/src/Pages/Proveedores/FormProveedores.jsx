@@ -53,7 +53,7 @@ export const FormProveedores = () => {
                 </div>
 
             </div>
-            <div class="flex w-full justify-center border-t-1">
+            <div class="flex w-full justify-center mt-10">
                 <button class="m-4 bg-gray-400 rounded h-[30px] w-[100px] hover:scale-110">Cancelar</button>
                 <button class="m-4 bg-sky-400 rounded h-[30px] w-[100px] hover:scale-110">Aceptar</button>
             </div>

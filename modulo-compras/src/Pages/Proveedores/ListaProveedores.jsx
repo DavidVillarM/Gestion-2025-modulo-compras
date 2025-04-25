@@ -4,7 +4,7 @@ import { FaRegEdit } from "react-icons/fa"
 import { FiTrash2 } from "react-icons/fi"
 import { Link, Outlet } from 'react-router-dom'
 
-export const Proveedores = () => {
+export const ListaProveedores = () => {
     const columns = [
         {
             name: 'Nombre',
@@ -98,7 +98,7 @@ export const Proveedores = () => {
                 />
             </div>
             <div class="flex w-full justify-center ">
-                <Link to="/AgregarProveedor">
+                <Link to="AgregarProveedor">
                     <button class="m-4 bg-sky-400 rounded h-[30px] w-[200px] hover:scale-110">Nuevo Proveedor</button>
                 </Link>
             </div>
