@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export const FormProveedores = () => {
     return (
@@ -54,8 +55,12 @@ export const FormProveedores = () => {
 
             </div>
             <div class="flex w-full justify-center mt-10">
-                <button class="m-4 bg-gray-400 rounded h-[30px] w-[100px] hover:scale-110">Cancelar</button>
-                <button class="m-4 bg-sky-400 rounded h-[30px] w-[100px] hover:scale-110">Aceptar</button>
+                <Link to="/Proveedores">
+                    <button class="m-4 bg-gray-400 rounded h-[30px] w-[100px] hover:scale-110">Cancelar</button>
+                </Link>
+                <Link to="/Proveedores">
+                    <button class="m-4 bg-sky-400 rounded h-[30px] w-[100px] hover:scale-110">Aceptar</button>
+                </Link>
             </div>
         </div>
     )

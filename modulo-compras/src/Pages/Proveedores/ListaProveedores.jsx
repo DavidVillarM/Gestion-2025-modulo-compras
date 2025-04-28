@@ -99,7 +99,7 @@ export const ListaProveedores = () => {
             </div>
             <div class="flex w-full justify-center ">
                 <Link to="AgregarProveedor">
-                    <button class="m-4 bg-sky-400 rounded h-[30px] w-[200px] hover:scale-110">Nuevo Proveedor</button>
+                    <button class="text-white m-4 bg-sky-400 rounded h-[30px] w-[200px] hover:scale-110">Nuevo Proveedor</button>
                 </Link>
             </div>
         </div>

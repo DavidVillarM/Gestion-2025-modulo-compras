@@ -138,7 +138,7 @@ export const OrdenesPresupuesto = () => {
       <div className="mt-6 text-right">
         <button
           onClick={() =>
-            navigate(`/Ordenes_Presupuesto_Final/${id}`, {
+            navigate(`OrdenesPresupuestoFinal/${id}`, {
               state: {
                 orden,
                 productosBase,
