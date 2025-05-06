@@ -1,5 +1,75 @@
 [
   {
+    "ContainingType": "BackendApp.Controllers.DashboardController",
+    "Method": "GetComprasMensuales",
+    "RelativePath": "api/Dashboard/compras-mensuales",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BackendApp.Controllers.DashboardController",
+    "Method": "GetOrdenesPendientes",
+    "RelativePath": "api/Dashboard/ordenes-pendientes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BackendApp.Controllers.DashboardController",
+    "Method": "GetPagosPendientes",
+    "RelativePath": "api/Dashboard/pagos-pendientes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BackendApp.Controllers.DashboardController",
+    "Method": "GetPedidosEnCurso",
+    "RelativePath": "api/Dashboard/pedidos-en-curso",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BackendApp.Controllers.DashboardController",
+    "Method": "GetProductosMasPedidos",
+    "RelativePath": "api/Dashboard/productos-mas-pedidos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BackendApp.Controllers.DashboardController",
+    "Method": "GetProductosMenosPedidos",
+    "RelativePath": "api/Dashboard/productos-menos-pedidos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BackendApp.Controllers.DashboardController",
+    "Method": "GetProductosPorMes",
+    "RelativePath": "api/Dashboard/productos-por-mes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "HelloController",
     "Method": "Get",
     "RelativePath": "api/Hello",
