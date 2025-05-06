@@ -1,47 +1,58 @@
-import React from 'react'
+import React, { use, useEffect, useState } from 'react'
 import DataTable from 'react-data-table-component';
 import { MdOutlineDelete } from "react-icons/md";
-import { FaRegEdit } from "react-icons/fa";
+import { FaEye, FaRegEdit } from "react-icons/fa";
 import { FiTrash2 } from "react-icons/fi";
+import axios from "../../axios";
 
 export const Products = () => {
+    const [productos, setProductos] = useState([]);
     const columns = [
         {
             name: 'ID',
-            selector: row => row.id,  // clave de la propiedad de datos
+            selector: row => row.idProducto,  // clave de la propiedad de datos
             sortable: true,  // habilita la ordenación
+            width: "80px"
         },
         {
             name: 'Nombre',
             selector: row => row.nombre,
             sortable: true,
+            width: "300px"
+        },
+        {
+            name: 'Marca',
+            selector: row => row.marca,
+            sortable: true,
+            width: "200px"
         },
         {
             name: 'Categoria',
-            selector: row => row.categoria,
+            selector: row => row.IdCategoria,
             sortable: true,
+            width: "200px"
 
         },
         {
             name: 'Cantidad',
-            selector: row => row.cantidad,
+            selector: row => row.cantidadTotal,
             sortable: true,
+            width: "200px"
 
         },
-        {
-            name: 'Ultima Compra',
-            selector: row => row.ultimaCompra,
-            sortable: true,
 
-        },
         {
             name: 'Acciones',
             cell: row => (
                 <div className="flex gap-2">
                     <button
-                        className="text-black px-2 py-1 rounded-lg text-[23px] hover:text-blue-500"
+                        className="text-black px-2 py-1 rounded-lg text-[23px] hover:text-green-500"
 
                     >
+                        <FaEye />
+                    </button>
+                    <button
+                        className="text-black px-2 py-1 rounded-lg text-[23px] hover:text-blue-500"                   >
                         <FaRegEdit />
                     </button>
                     <button
@@ -56,82 +67,30 @@ export const Products = () => {
             button: true,
         },
     ];
+    useEffect(() => {
+        axios.get("Producto").then((response) => {
+            console.log(response.data);
+            setProductos(response.data);
 
-    const data = [
-        {
-            id: 1,
-            nombre: 'Jabón líquido para manos',
-            categoria: 'Higiene personal',
-            cantidad: 30,
-            ultimaCompra: '2025-03-20',
-        },
-        {
-            id: 2,
-            nombre: 'Toallas de baño',
-            categoria: 'Ropa blanca',
-            cantidad: 50,
-            ultimaCompra: '2025-03-18',
-        },
-        {
-            id: 3,
-            nombre: 'Desinfectante multisuperficie',
-            categoria: 'Limpieza',
-            cantidad: 20,
-            ultimaCompra: '2025-03-15',
-        },
-        {
-            id: 4,
-            nombre: 'Camas queen size',
-            categoria: 'Muebles',
-            cantidad: 5,
-            ultimaCompra: '2025-02-28',
-        },
-        {
-            id: 5,
-            nombre: 'Shampoo y acondicionador',
-            categoria: 'Higiene personal',
-            cantidad: 40,
-            ultimaCompra: '2025-03-22',
-        },
-        {
-            id: 6,
-            nombre: 'Papel higiénico',
-            categoria: 'Higiene personal',
-            cantidad: 100,
-            ultimaCompra: '2025-03-19',
-        },
-        {
-            id: 7,
-            nombre: 'Sillas de comedor',
-            categoria: 'Muebles',
-            cantidad: 12,
-            ultimaCompra: '2025-03-05',
-        },
-        {
-            id: 8,
-            nombre: 'Detergente para pisos',
-            categoria: 'Limpieza',
-            cantidad: 25,
-            ultimaCompra: '2025-03-12',
-        }
-    ];
+        }).catch((error) => { console.log("Hubo un error", error) });
+    }, []);
 
 
     return (
         <div class="bg-gray-200 w-full h-screen">
-            <h2 class="m-2">Stock</h2>
-            <div class="flex justify-between m-2 items-center">
+
+            <div class="flex justify-between pt-8  items-center  ">
                 <div class="rounded  pl-4">
                     <button class="text-black bg-gray-100 rounded p-2 hover:bg-sky-600">General</button>
                     <button class="text-black bg-gray-100 rounded p-2 hover:bg-sky-600">Pedidos</button>
                     <button class="text-black bg-gray-100 rounded p-2 hover:bg-sky-600 ">Poco Stock</button>
                 </div>
                 <div class=" flex justify-end m-2 items-center">
-                    <label htmlFor="categorias" className="block mb-1 text-sm font-medium text-gray-700">
+                    <label htmlFor="categorias" class="block mb-1 text-sm font-medium text-gray-700">
                         Categorias
                     </label>
                     <input type="text" class="bg-white m-2" />
-                    <label htmlFor="buscar" className="block mb-1 text-sm font-medium text-gray-700">
+                    <label htmlFor="buscar" class="block mb-1 text-sm font-medium text-gray-700">
                         Buscar
                     </label>
                     <input id='buscar' type="text" class="bg-white m-2" />
@@ -141,11 +100,11 @@ export const Products = () => {
 
 
             <div>
-                <div className="pl-4 pr-4 rounded-lg">
-                    <DataTable
+                <div className="pl-4 pr-4  rounded-lg">
+                    <DataTable className='shadow-lg/20 rounded-lg'
                         //title="Productos"
                         columns={columns}
-                        data={data}
+                        data={productos}
 
                         highlightOnHover
                         responsive

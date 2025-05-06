@@ -10,7 +10,7 @@ export const FormProveedores = () => {
                 <div class="flex flex-col h-64 w-90 mt-10 ml-12">
                     <p class="flex items-center m-2 justify-between">
                         <label htmlFor="nombre" class="font-medium">Nombre:</label>
-                        <input id='nombre' class="ml-8 bg-gray-300 rounded-sm   h-8" type="text" />
+                        <input id='nombre' class="ml-8 border border-gray-400 bg-gray-100 rounded-sm   h-8" type="text" />
 
                     </p>
                     <p class="flex items-center m-2 justify-between">

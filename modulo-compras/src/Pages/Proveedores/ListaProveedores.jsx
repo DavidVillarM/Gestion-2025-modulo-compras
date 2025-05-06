@@ -1,10 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import DataTable from 'react-data-table-component'
 import { FaRegEdit } from "react-icons/fa"
 import { FiTrash2 } from "react-icons/fi"
 import { Link, Outlet } from 'react-router-dom'
+import { ModalProveedores } from './ModalProveedores'
+import { MdAddCircle } from "react-icons/md";
+
+
 
 export const ListaProveedores = () => {
+
+    const [isOpen, setIsOpen] = useState(false); // Estado para controlar la visibilidad del modal
+
+    const openModal = () => setIsOpen(true);  // Función para abrir el modal
+    const closeModal = () => setIsOpen(false); // Función para cerrar el modal
+
     const columns = [
         {
             name: 'Nombre',
@@ -89,8 +99,8 @@ export const ListaProveedores = () => {
                 </div>
             </div>
 
-            <div className="pl-4 pr-4 rounded-lg pb-10">
-                <DataTable
+            <div className="pl-4 pr-4 rounded-lg pb-10 ">
+                <DataTable className='shadow-lg/20 rounded-lg'
                     columns={columns}
                     data={data}
                     highlightOnHover
@@ -98,9 +108,13 @@ export const ListaProveedores = () => {
                 />
             </div>
             <div class="flex w-full justify-center ">
-                <Link to="AgregarProveedor">
-                    <button class="text-white m-4 bg-sky-400 rounded h-[30px] w-[200px] hover:scale-110">Nuevo Proveedor</button>
-                </Link>
+
+                <button onClick={openModal} className="flex items-center justify-center gap-2 text-white m-4 bg-sky-400 rounded h-[30px] w-[200px] hover:scale-110 shadow-xl">
+                    <MdAddCircle size={20} />
+                    <h2 className="text-sm font-medium"> Nuevo Proveedor</h2>
+                </button>
+
+                {isOpen && <ModalProveedores onClose={closeModal} />}
             </div>
         </div>
     )

@@ -13,59 +13,78 @@ import { ListaProveedores } from './Pages/Proveedores/ListaProveedores.jsx';
 import { FormProveedores } from './Pages/Proveedores/FormProveedores.jsx'
 import { OrdenesPago } from './Pages/Ordenes/OrdenesPago.jsx';
 import { OrdenesVista } from './Pages/Ordenes/OrdenesVista.jsx';
-import { OrdenesPresupuestoFinal} from './Pages/Ordenes/OrdenesPresupuestoFinal.jsx';
-import { OrdenesPresupuesto} from './Pages/Ordenes/OrdenesPresupuesto.jsx';
+import { OrdenesPresupuestoFinal } from './Pages/Ordenes/OrdenesPresupuestoFinal.jsx';
+import { OrdenesPresupuesto } from './Pages/Ordenes/OrdenesPresupuesto.jsx';
 import { Ordenes } from './Pages/Ordenes/index.jsx';
+import { Stock } from './Pages/Stock/index.jsx';
+import { Products } from './Pages/Stock/General.jsx';
+import { ModalProveedores } from './Pages/Proveedores/ModalProveedores.jsx';
+
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
-    children: [{
-      path: "Proveedores",
-      element: <Proveedores />,
-      children: [
-        {
+    children: [
+
+      {
+        path: "Proveedores",
+        element: <Proveedores />,
+        children: [
+          {
+            path: "",
+            element: <ListaProveedores />
+          },
+          {/*
+            path: "AgregarProveedor",
+            element: <ModalProveedores />,
+*/
+          }
+        ],
+
+
+      },
+      {
+        path: "Ordenes",
+        element: <Ordenes />,
+        children: [
+          {
+            path: "",
+            element: <OrdenesPago />
+          },
+          {
+            path: "Vistas",
+            element: <OrdenesVista />,
+          },
+          {
+            path: "OrdenesPresupuesto/:id",
+            element: <OrdenesPresupuesto />,
+          },
+          {
+            path: "/OrdenesPresupuestoFinal/:id",
+            element: <OrdenesPresupuestoFinal />,
+          }
+        ],
+
+
+      },
+      {
+        path: "Stock",
+        element: <Stock />,
+        children: [{
           path: "",
-          element: <ListaProveedores />
-        },
-        {
-          path: "AgregarProveedor",
-          element: <FormProveedores />,
-        }
-      ],
-
-
-    },
-    {
-      path: "Ordenes",
-      element: <Ordenes />,
-      children: [
-        {
-          path: "",
-          element: <OrdenesPago/>
-        },
-        {
-          path: "Vistas",
-          element: <OrdenesVista />,
-        },
-        {
-          path: "OrdenesPresupuesto/:id",
-          element: <OrdenesPresupuesto />,  
-        },
-        {
-          path: "/OrdenesPresupuestoFinal/:id",
-          element: <OrdenesPresupuestoFinal />,
-        }
-      ],
-
-
-    }]
+          element: <Products />,
+        }]
+      }]
   },
 
 ]);
 function App() {
+
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <RouterProvider router={router} />
+
   );
 }
 
