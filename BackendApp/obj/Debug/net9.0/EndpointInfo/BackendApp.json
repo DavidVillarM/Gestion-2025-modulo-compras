@@ -100,7 +100,7 @@
         "properties": {
           "productoId": {
             "type": "integer",
-            "format": "int32"
+            "format": "int64"
           },
           "cantidadRecibida": {
             "type": "integer",
@@ -118,13 +118,21 @@
         "properties": {
           "ordenId": {
             "type": "integer",
-            "format": "int32"
+            "format": "int64"
           },
           "numeroFactura": {
             "type": "string",
             "nullable": true
           },
           "timbrado": {
+            "type": "string",
+            "nullable": true
+          },
+          "ruc": {
+            "type": "string",
+            "nullable": true
+          },
+          "nombreProveedor": {
             "type": "string",
             "nullable": true
           },
@@ -143,7 +151,7 @@
         "properties": {
           "ordenId": {
             "type": "integer",
-            "format": "int32"
+            "format": "int64"
           },
           "motivo": {
             "type": "string",

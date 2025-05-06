@@ -5,22 +5,27 @@ const RecepcionProductos = () => {
   const [ordenes, setOrdenes] = useState([]);
   const [ordenSeleccionada, setOrdenSeleccionada] = useState(null);
   const [facturaInfo, setFacturaInfo] = useState({ numero: '', timbrado: '' });
-  const [motivoRechazo, setMotivoRechazo] = useState('');
+  //const [motivoRechazo, setMotivoRechazo] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
 
   useEffect(() => {
     cargarOrdenes();
   }, []);
 
-  /*const cargarOrdenes = async () => {
+  const cargarOrdenes = async () => {
+    setIsLoading(true);
     try {
-      const res = await axios.get('http://localhost:5001/api/recepciones/ordenes-pendientes');
+      const res = await axios.get('http://localhost:5000/api/recepciones/ordenes-pendientes');
+      console.log("Respuesta:", res.data); 
       setOrdenes(res.data);
     } catch (err) {
       console.error('Error cargando órdenes pendientes', err);
     }
-  };*/
-  const cargarOrdenes = async () => {
+    setIsLoading(false);
+  };
+  
+  /*const cargarOrdenes = async () => {
     // Datos estáticos de prueba
     const datosFalsos = Array.from({ length: 20 }, (_, i) => ({
       id: i + 1,
@@ -46,21 +51,22 @@ const RecepcionProductos = () => {
     }));
   
     setOrdenes(datosFalsos);
-  };
+  };*/
 
-  const [paginaActual, setPaginaActual] = useState(1);
-  const ordenesPorPagina = 10;
-  const indexUltimaOrden = paginaActual * ordenesPorPagina;
-  const indexPrimeraOrden = indexUltimaOrden - ordenesPorPagina;
-  const ordenesActuales = ordenes.slice(indexPrimeraOrden, indexUltimaOrden);
-  const totalPaginas = Math.ceil(ordenes.length / ordenesPorPagina);
-
-  
+  useEffect(() => {
+    cargarOrdenes();
+  }, []);
 
   const seleccionarOrden = (orden) => {
     setOrdenSeleccionada({
       ...orden,
-      productos: orden.productos.map(prod => ({ ...prod, cantidadRecibida: 0 }))
+      productos: orden.ordenDetalles.map(det => ({
+        id: det.idProducto,
+        nombre: det.idProductoNavigation?.nombre || 'Sin nombre',
+        cantidadSolicitada: det.cantidad,
+        cantidadRecibida: 0,
+        motivoDevolucion: ''
+      }))
     });
   };
 
@@ -73,19 +79,20 @@ const RecepcionProductos = () => {
 
   const confirmarRecepcion = async () => {
     const payload = {
-      ordenId: ordenSeleccionada.id,
+      ordenId: ordenSeleccionada.idOrden,
+      numeroFactura: facturaInfo.numero,
+      timbrado: facturaInfo.timbrado,
+      ruc: '80000000-0', // puedes reemplazar si necesario
+      nombreProveedor: ordenSeleccionada.proveedorNombre || 'Proveedor desconocido',
       productos: ordenSeleccionada.productos.map(p => ({
         productoId: p.id,
-        cantidadRecibida: p.cantidadRecibida
-      })),
-      factura: {
-        numero: facturaInfo.numero,
-        timbrado: facturaInfo.timbrado
-      }
+        cantidadRecibida: p.cantidadRecibida,
+        motivoDevolucion: p.motivoDevolucion
+      }))
     };
 
     try {
-      await axios.post('http://localhost:5000/api/recepciones/confirmar', payload);
+      await axios.post('http://localhost:5000/api/recepciones/registrar', payload);
       alert('Recepción registrada correctamente');
       setOrdenSeleccionada(null);
       setFacturaInfo({ numero: '', timbrado: '' });
@@ -95,22 +102,16 @@ const RecepcionProductos = () => {
       alert('Ocurrió un error al confirmar la recepción');
     }
   };
+
   const rechazarRecepcion = async () => {
-    if (!motivoRechazo.trim()) {
-      alert('Por favor, escriba el motivo del rechazo.');
-      return;
-    }
-  
     const payload = {
-      ordenId: ordenSeleccionada.id,
-      motivo: motivoRechazo
+      ordenId: ordenSeleccionada.id
     };
   
     try {
       await axios.post('http://localhost:5000/api/recepciones/rechazar', payload);
       alert('Orden rechazada correctamente');
       setOrdenSeleccionada(null);
-      setMotivoRechazo('');
       cargarOrdenes();
     } catch (err) {
       console.error('Error al rechazar recepción', err);
@@ -118,30 +119,66 @@ const RecepcionProductos = () => {
     }
   };
   
+  const [paginaActual, setPaginaActual] = useState(1);
+  const ordenesPorPagina = 10;
+  const indexUltimaOrden = paginaActual * ordenesPorPagina;
+  const indexPrimeraOrden = indexUltimaOrden - ordenesPorPagina;
+  //console.log("ORDENES:", ordenes); 
+  const ordenesActuales = Array.isArray(ordenes) ? ordenes.slice(indexPrimeraOrden, indexUltimaOrden): [];
+  const totalPaginas = ordenes?.length ? Math.ceil(ordenes.length / ordenesPorPagina) : 1;
 
   return (
-    <div className="p-4">
+    <div className="p-6">
       <h1 className="text-2xl font-bold mb-4">Recepción de Productos</h1>
 
-      {!ordenSeleccionada ? (
+      {isLoading ? (
+        <div className="text-center py-10 text-gray-600">Cargando órdenes...</div>
+      ) : !ordenSeleccionada ? (
         <div>
           <h2 className="text-xl mb-2">Órdenes de Compra Pendientes</h2>
           <ul className="divide-y">
-            {ordenesActuales.map((orden) => (
-              <li key={orden.id} className="py-2 flex justify-between items-center">
-                <div>
-                  <strong>Proveedor:</strong> {orden.proveedorNombre} <br />
-                  <strong>Fecha:</strong> {new Date(orden.fecha).toLocaleDateString()}
-                </div>
-                <button
-                  className="bg-blue-600 text-white px-4 py-1 rounded hover:bg-blue-700"
-                  onClick={() => seleccionarOrden(orden)}
-                >
-                  Recibir
-                </button>
-              </li>
-            ))}
+            {ordenesActuales.map((orden) => {
+              const detalles = orden.ordenDetalles;
+              const total = detalles.reduce((acc, d) => acc + (d.cantidad || 0), 0);
+              const recibidos = detalles.reduce((acc, d) => acc + (d.cantidadRecibida || 0), 0);
+              let estado = 'Incompleta';
+              if (recibidos === total) estado = 'Completa';
+              if (orden.estado === 'Rechazada') estado = 'Rechazada';
+
+              const estadoColor = {
+                Completa: 'text-green-600',
+                Incompleta: 'text-yellow-600',
+                Rechazada: 'text-red-600'
+              };
+
+              return (
+                <li key={orden.idOrden} className="py-3 px-2 flex justify-between items-center bg-white shadow-sm rounded mb-2">
+                  <div>
+                    <div><strong>Proveedor:</strong> {orden.proveedorNombre || 'N/A'}</div>
+                    <div><strong>Fecha:</strong> {new Date(orden.fecha || Date.now()).toLocaleDateString()}</div>
+                    <div className={`font-semibold ${estadoColor[estado]}`}>Estado: {estado}</div>
+                  </div>
+                  <button
+                    className="bg-blue-600 text-white px-4 py-1 rounded hover:bg-blue-700"
+                    onClick={() => seleccionarOrden(orden)}
+                  >
+                    Recibir
+                  </button>
+                </li>
+              );
+            })}
           </ul>
+          <div className="flex justify-center mt-4 gap-2">
+            {Array.from({ length: totalPaginas }, (_, i) => (
+              <button
+                key={i}
+                className={`px-3 py-1 rounded ${paginaActual === i + 1 ? 'bg-blue-700 text-white' : 'bg-gray-200 hover:bg-gray-300'}`}
+                onClick={() => setPaginaActual(i + 1)}
+              >
+                {i + 1}
+              </button>
+            ))}
+          </div>
         </div>
       ) : (
         <div>
@@ -152,7 +189,7 @@ const RecepcionProductos = () => {
             ← Volver a órdenes
           </button>
 
-          <h2 className="text-xl mb-2">Recepcionando orden #{ordenSeleccionada.id}</h2>
+          <h2 className="text-xl mb-2">Recepcionando orden #{ordenSeleccionada.idOrden}</h2>
           <div className="mb-4">
             <label className="block">N° Factura</label>
             <input
@@ -170,12 +207,13 @@ const RecepcionProductos = () => {
             />
           </div>
 
-          <table className="w-full border mt-4">
+          <table className="w-full border mt-4 text-sm">
             <thead>
               <tr className="bg-gray-100">
                 <th className="border px-2 py-1">Producto</th>
                 <th className="border px-2 py-1">Cantidad Solicitada</th>
                 <th className="border px-2 py-1">Cantidad Recibida</th>
+                <th className="border px-2 py-1">Motivo Devolución (opcional)</th>
               </tr>
             </thead>
             <tbody>
@@ -193,48 +231,39 @@ const RecepcionProductos = () => {
                       onChange={(e) => manejarCambioCantidad(prod.id, e.target.value)}
                     />
                   </td>
+                  <td className="border px-2 py-1">
+                    <input
+                      type="text"
+                      className="w-full border rounded px-2 py-1"
+                      placeholder="Motivo si aplica"
+                      value={prod.motivoDevolucion}
+                      onChange={(e) => manejarCambioMotivo(prod.id, e.target.value)}
+                    />
+                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
 
-          <button
-            className="mt-4 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
-            onClick={confirmarRecepcion}
-          >
-            Confirmar Recepción
-          </button>
-          <div className="mt-6">
-          <label className="block font-semibold mb-1">Motivo de Rechazo</label>
-          <textarea
-            className="border rounded w-full p-2"
-            rows="3"
-            placeholder="Describa el motivo del rechazo"
-            value={motivoRechazo}
-            onChange={(e) => setMotivoRechazo(e.target.value)}
-          ></textarea>
+          <div className="flex gap-4 mt-4">
+            <button
+              className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+              onClick={confirmarRecepcion}
+            >
+              Confirmar Recepción
+            </button>
 
-          <button
-            className="mt-2 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
-            onClick={rechazarRecepcion}
-          >
-            Rechazar Recepción
-          </button>
-        </div>
-
+            <div className="flex-1">
+            <button
+              className="mt-4 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
+              onClick={rechazarRecepcion}
+            >
+              Rechazar Recepción
+            </button>
+            </div>
+          </div>
         </div>
       )}
-      <div className="flex justify-center mt-4 gap-2">
-        {Array.from({ length: totalPaginas }, (_, i) => (
-          <button
-            key={i}
-            className={`px-3 py-1 rounded ${paginaActual === i + 1 ? 'bg-blue-700 text-white' : 'bg-gray-200 text-black hover:bg-gray-300'}`}
-            onClick={() => setPaginaActual(i + 1)}
-          >
-            {i + 1}
-          </button>
-        ))}
-      </div>
     </div>
   );
 };

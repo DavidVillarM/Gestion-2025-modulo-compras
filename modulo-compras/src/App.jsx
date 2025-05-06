@@ -12,9 +12,9 @@ import RecepcionProductos from './Pages/RecepcionProductos.jsx'
 function App() {
   return (
     <Router>
-      <div className="flex">
+      <div className="flex h-screen overflow-hidden">
         <SideBar />
-        <div className="flex-1 p-4">
+        <div className="flex-1 overflow-y-auto bg-gray-100">
           <Routes>
             <Route path="/categorias" element={<Categorias />} />
             <Route path="/productos" element={<Products />} />

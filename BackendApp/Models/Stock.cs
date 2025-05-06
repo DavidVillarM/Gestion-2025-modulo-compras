@@ -1,11 +1,17 @@
-﻿namespace BackendApp.Models
-{
-    public class Stock
-    {
-        public int Id { get; set; }
-        public int ProductoId { get; set; }
-        public Producto Producto { get; set; }
+﻿using System;
+using System.Collections.Generic;
 
-        public int Cantidad { get; set; }
-    }
+namespace BackendApp.Models;
+
+public partial class Stock
+{
+    public long IdStock { get; set; }
+
+    public long? IdPersonal { get; set; }
+
+    public string? Ubicacion { get; set; }
+
+    public virtual Personal? IdPersonalNavigation { get; set; }
+
+    public virtual ICollection<Producto> Productos { get; set; } = new List<Producto>();
 }
