@@ -60,12 +60,11 @@ const RecepcionProductos = () => {
   const seleccionarOrden = (orden) => {
     setOrdenSeleccionada({
       ...orden,
-      productos: orden.ordenDetalles.map(det => ({
-        id: det.idProducto,
-        nombre: det.idProductoNavigation?.nombre || 'Sin nombre',
-        cantidadSolicitada: det.cantidad,
-        cantidadRecibida: 0,
-        motivoDevolucion: ''
+      productos: orden.productos.map(det => ({
+        id: det.id,
+        nombre: det.nombre,
+        cantidadSolicitada: det.cantidadSolicitada,
+        cantidadRecibida: 0
       }))
     });
   };
@@ -77,17 +76,20 @@ const RecepcionProductos = () => {
     setOrdenSeleccionada({ ...ordenSeleccionada, productos: productosActualizados });
   };
 
+
   const confirmarRecepcion = async () => {
+    const exceso = ordenSeleccionada.productos.find(p => p.cantidadRecibida > p.cantidadSolicitada);
+      if (exceso) {
+        alert(`La cantidad recibida del producto "${exceso.nombre}" supera la cantidad solicitada.`);
+        return;
+      }
     const payload = {
       ordenId: ordenSeleccionada.idOrden,
       numeroFactura: facturaInfo.numero,
       timbrado: facturaInfo.timbrado,
-      ruc: '80000000-0', // puedes reemplazar si necesario
-      nombreProveedor: ordenSeleccionada.proveedorNombre || 'Proveedor desconocido',
       productos: ordenSeleccionada.productos.map(p => ({
         productoId: p.id,
         cantidadRecibida: p.cantidadRecibida,
-        motivoDevolucion: p.motivoDevolucion
       }))
     };
 
@@ -105,7 +107,7 @@ const RecepcionProductos = () => {
 
   const rechazarRecepcion = async () => {
     const payload = {
-      ordenId: ordenSeleccionada.id
+      ordenId: ordenSeleccionada.idOrden
     };
   
     try {
@@ -124,7 +126,8 @@ const RecepcionProductos = () => {
   const indexUltimaOrden = paginaActual * ordenesPorPagina;
   const indexPrimeraOrden = indexUltimaOrden - ordenesPorPagina;
   //console.log("ORDENES:", ordenes); 
-  const ordenesActuales = Array.isArray(ordenes) ? ordenes.slice(indexPrimeraOrden, indexUltimaOrden): [];
+  const ordenesFiltradas = ordenes.filter(o => o.estado === 'Pendiente' || o.estado === 'Incompleta');
+  const ordenesActuales = ordenesFiltradas.slice(indexPrimeraOrden, indexUltimaOrden);
   const totalPaginas = ordenes?.length ? Math.ceil(ordenes.length / ordenesPorPagina) : 1;
 
   return (
@@ -137,20 +140,16 @@ const RecepcionProductos = () => {
         <div>
           <h2 className="text-xl mb-2">Órdenes de Compra Pendientes</h2>
           <ul className="divide-y">
-            {ordenesActuales.map((orden) => {
-              const detalles = orden.ordenDetalles;
-              const total = detalles.reduce((acc, d) => acc + (d.cantidad || 0), 0);
-              const recibidos = detalles.reduce((acc, d) => acc + (d.cantidadRecibida || 0), 0);
-              let estado = 'Incompleta';
-              if (recibidos === total) estado = 'Completa';
-              if (orden.estado === 'Rechazada') estado = 'Rechazada';
+          {ordenesActuales.map((orden) => {
+            const detalles = orden.ordenDetalles;
+            const estado = orden.estado;
 
-              const estadoColor = {
-                Completa: 'text-green-600',
-                Incompleta: 'text-yellow-600',
-                Rechazada: 'text-red-600'
-              };
-
+            const estadoColor = {
+              Completa: 'text-green-600',
+              Incompleta: 'text-yellow-600',
+              Rechazada: 'text-red-600',
+              Pendiente: 'text-gray-600'
+            };
               return (
                 <li key={orden.idOrden} className="py-3 px-2 flex justify-between items-center bg-white shadow-sm rounded mb-2">
                   <div>
@@ -213,7 +212,6 @@ const RecepcionProductos = () => {
                 <th className="border px-2 py-1">Producto</th>
                 <th className="border px-2 py-1">Cantidad Solicitada</th>
                 <th className="border px-2 py-1">Cantidad Recibida</th>
-                <th className="border px-2 py-1">Motivo Devolución (opcional)</th>
               </tr>
             </thead>
             <tbody>
@@ -231,15 +229,6 @@ const RecepcionProductos = () => {
                       onChange={(e) => manejarCambioCantidad(prod.id, e.target.value)}
                     />
                   </td>
-                  <td className="border px-2 py-1">
-                    <input
-                      type="text"
-                      className="w-full border rounded px-2 py-1"
-                      placeholder="Motivo si aplica"
-                      value={prod.motivoDevolucion}
-                      onChange={(e) => manejarCambioMotivo(prod.id, e.target.value)}
-                    />
-                  </td>
                 </tr>
               ))}
             </tbody>
@@ -253,9 +242,9 @@ const RecepcionProductos = () => {
               Confirmar Recepción
             </button>
 
-            <div className="flex-1">
+            <div className="flex">
             <button
-              className="mt-4 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
+              className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
               onClick={rechazarRecepcion}
             >
               Rechazar Recepción

@@ -3,12 +3,32 @@
   "WorkspaceRootPath": "C:\\Facultad\\INGE\\Gestion 2025\\BackendApp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\backendapp\\controllers\\recepcionescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:controllers\\recepcionescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\backendapp\\models\\postgrescontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\postgrescontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\backendapp\\models\\notacreditodetalle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\notacreditodetalle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\backendapp\\models\\ordendetalle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\ordendetalle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\backendapp\\backendapp.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:backendapp.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\backendapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\backendapp\\controllers\\recepcionescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:controllers\\recepcionescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\backendapp\\models\\ordene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\ordene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\backendapp\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -17,14 +37,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\backendapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\backendapp\\models\\postgrescontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\postgrescontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\backendapp\\backendapp.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:backendapp.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\backendapp\\backendapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
@@ -38,11 +50,50 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
+              "Title": "NotaCreditoDetalle.cs",
+              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\BackendApp\\Models\\NotaCreditoDetalle.cs",
+              "RelativeDocumentMoniker": "Models\\NotaCreditoDetalle.cs",
+              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\BackendApp\\Models\\NotaCreditoDetalle.cs",
+              "RelativeToolTip": "Models\\NotaCreditoDetalle.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T14:37:55.634Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "OrdenDetalle.cs",
+              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\BackendApp\\Models\\OrdenDetalle.cs",
+              "RelativeDocumentMoniker": "Models\\OrdenDetalle.cs",
+              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\BackendApp\\Models\\OrdenDetalle.cs",
+              "RelativeToolTip": "Models\\OrdenDetalle.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T12:00:29.129Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Ordene.cs",
+              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\BackendApp\\Models\\Ordene.cs",
+              "RelativeDocumentMoniker": "Models\\Ordene.cs",
+              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\BackendApp\\Models\\Ordene.cs",
+              "RelativeToolTip": "Models\\Ordene.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T12:08:43.996Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "PostgresContext.cs",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\BackendApp\\Models\\PostgresContext.cs",
               "RelativeDocumentMoniker": "Models\\PostgresContext.cs",
@@ -55,7 +106,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "BackendApp.http",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\BackendApp\\BackendApp.http",
               "RelativeDocumentMoniker": "BackendApp.http",
@@ -63,11 +114,12 @@
               "RelativeToolTip": "BackendApp.http",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2025-05-06T01:06:51.807Z"
+              "WhenOpened": "2025-05-06T01:06:51.807Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\BackendApp\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -75,38 +127,37 @@
               "RelativeToolTip": "appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-05-06T01:05:06.664Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-06T01:05:06.664Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "RecepcionesController.cs",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\BackendApp\\Controllers\\RecepcionesController.cs",
               "RelativeDocumentMoniker": "Controllers\\RecepcionesController.cs",
               "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\BackendApp\\Controllers\\RecepcionesController.cs",
               "RelativeToolTip": "Controllers\\RecepcionesController.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAHYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAFwAAAAAAAAAAIAwwGwAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-06T01:01:50.388Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\BackendApp\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\BackendApp\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAADAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAADYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-06T00:59:56.825Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "BackendApp.csproj",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\BackendApp\\BackendApp.csproj",
               "RelativeDocumentMoniker": "BackendApp.csproj",
@@ -118,7 +169,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "launchSettings.json",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\BackendApp\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "Properties\\launchSettings.json",
@@ -126,8 +177,7 @@
               "RelativeToolTip": "Properties\\launchSettings.json",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-05-06T00:58:44.39Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-06T00:58:44.39Z"
             }
           ]
         }

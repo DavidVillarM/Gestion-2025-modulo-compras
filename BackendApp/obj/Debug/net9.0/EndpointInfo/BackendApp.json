@@ -105,10 +105,6 @@
           "cantidadRecibida": {
             "type": "integer",
             "format": "int32"
-          },
-          "motivoDevolucion": {
-            "type": "string",
-            "nullable": true
           }
         },
         "additionalProperties": false
@@ -128,14 +124,6 @@
             "type": "string",
             "nullable": true
           },
-          "ruc": {
-            "type": "string",
-            "nullable": true
-          },
-          "nombreProveedor": {
-            "type": "string",
-            "nullable": true
-          },
           "productos": {
             "type": "array",
             "items": {
@@ -152,10 +140,6 @@
           "ordenId": {
             "type": "integer",
             "format": "int64"
-          },
-          "motivo": {
-            "type": "string",
-            "nullable": true
           }
         },
         "additionalProperties": false

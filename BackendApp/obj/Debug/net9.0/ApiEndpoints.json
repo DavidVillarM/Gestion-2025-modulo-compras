@@ -29,7 +29,7 @@
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "BackendApp.Controllers.RechazoRecepcionDTO",
+        "Type": "BackendApp.Controllers.RecepcionesController\u002BRechazoRecepcionDTO",
         "IsRequired": true
       }
     ],
@@ -45,7 +45,7 @@
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "BackendApp.Controllers.RecepcionDTO",
+        "Type": "BackendApp.Controllers.RecepcionesController\u002BRecepcionDTO",
         "IsRequired": true
       }
     ],
