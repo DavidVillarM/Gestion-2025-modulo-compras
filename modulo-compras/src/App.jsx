@@ -8,6 +8,8 @@ import { SideBar } from './Components/SideBar.jsx'
 
 import RecepcionProductos from './Pages/RecepcionProductos.jsx'
 import { Home } from './Pages/HomePage/Home'
+import Dashboard from './Pages/HomePage/Dashboard.jsx';
+
 import { Proveedores } from './Pages/Proveedores/index.jsx'
 import { ListaProveedores } from './Pages/Proveedores/ListaProveedores.jsx';
 import { FormProveedores } from './Pages/Proveedores/FormProveedores.jsx'
@@ -20,11 +22,13 @@ import { Stock } from './Pages/Stock/index.jsx';
 import { Products } from './Pages/Stock/General.jsx';
 import { ModalProveedores } from './Pages/Proveedores/ModalProveedores.jsx';
 
+
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
     children: [
+      {path: "", element: <Dashboard/>},
 
       {
         path: "Proveedores",
