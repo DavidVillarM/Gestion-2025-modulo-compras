@@ -13,6 +13,11 @@ builder.Services.AddControllers().AddJsonOptions(x =>
 });
 
 builder.Services.AddScoped<DashboardService>();
+<<<<<<< HEAD
+=======
+builder.Services.AddScoped<OrdenPagoService>();
+
+>>>>>>> b4ab145 (mensaje)
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
