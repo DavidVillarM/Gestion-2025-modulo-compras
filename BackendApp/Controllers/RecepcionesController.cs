@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using BackendApp.Models; // Ajustalo a tu namespace real
+using BackendApp.Models;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -10,9 +10,9 @@ namespace BackendApp.Controllers
     [ApiController]
     public class RecepcionesController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        private readonly PostgresContext _context;
 
-        public RecepcionesController(AppDbContext context)
+        public RecepcionesController(PostgresContext context)
         {
             _context = context;
         }
@@ -20,100 +20,155 @@ namespace BackendApp.Controllers
         [HttpGet("ordenes-pendientes")]
         public async Task<IActionResult> GetOrdenesPendientes()
         {
-            var ordenes = await _context.OrdenesCompra
-                .Include(o => o.Proveedor)
-                .Include(o => o.Detalles)
-                    .ThenInclude(d => d.Producto)
-                .Where(o => o.Estado != "Rechazada" && o.Detalles.Any(d => d.CantidadRecibida < d.CantidadSolicitada))
-                .ToListAsync();
+            var ordenes = await (
+                from orden in _context.Ordenes
+                join pedido in _context.Pedidos on orden.IdOrden equals pedido.IdOrden
+                join proveedor in _context.Proveedores on pedido.IdProveedor equals proveedor.IdProveedor
+                where orden.Estado != "Rechazada"
+                select new
+                {
+                    orden.IdOrden,
+                    Estado = orden.Estado, 
+                    FechaPedido = pedido.FechaPedido.HasValue ? pedido.FechaPedido.Value.ToString("yyyy-MM-dd") : null,
+                    ProveedorNombre = proveedor.Nombre,
+                    ProveedorRuc = proveedor.Ruc,
+                    Productos = orden.OrdenDetalles.Select(d => new
+                    {
+                        Id = d.IdProducto,
+                        Nombre = d.IdProductoNavigation.Nombre,
+                        CantidadSolicitada = d.Cantidad
+                    })
+                }
+            ).ToListAsync();
 
             return Ok(ordenes);
         }
 
+
+
         [HttpPost("registrar")]
         public async Task<IActionResult> RegistrarRecepcion([FromBody] RecepcionDTO dto)
         {
-            var orden = await _context.OrdenesCompra
-                .Include(o => o.Detalles)
-                .FirstOrDefaultAsync(o => o.Id == dto.OrdenId);
+            var orden = await _context.Ordenes
+                .Include(o => o.OrdenDetalles)
+                .FirstOrDefaultAsync(o => o.IdOrden == dto.OrdenId);
 
             if (orden == null)
                 return NotFound("Orden no encontrada");
 
+            var pedido = await _context.Pedidos.FirstOrDefaultAsync(p => p.IdOrden == dto.OrdenId);
+            if (pedido == null)
+                return NotFound("Pedido no encontrado");
+
+            var proveedor = await _context.Proveedores.FirstOrDefaultAsync(p => p.IdProveedor == pedido.IdProveedor);
+            if (proveedor == null)
+                return NotFound("Proveedor no encontrado");
+
+            var nombreProveedor = proveedor.Nombre ?? "N/A";
+            var ruc = proveedor.Ruc ?? "N/A";
+
+            NotasCredito? notaCredito = null;
+            bool huboDevolucion = false;
+            bool todoRecibido = true;
+
             foreach (var recibido in dto.Productos)
             {
-                var detalle = orden.Detalles.FirstOrDefault(d => d.ProductoId == recibido.ProductoId);
+                var detalle = orden.OrdenDetalles.FirstOrDefault(d => d.IdProducto == recibido.ProductoId);
                 if (detalle == null) continue;
 
-                int restante = detalle.CantidadSolicitada - detalle.CantidadRecibida;
-                if (recibido.CantidadRecibida > restante)
-                    return BadRequest("Cantidad mayor a la solicitada");
+                if (recibido.CantidadRecibida > detalle.Cantidad)
+                    return BadRequest($"Cantidad mayor a la solicitada para el producto ID {recibido.ProductoId}");
 
-                detalle.CantidadRecibida += recibido.CantidadRecibida;
-
-                var stock = await _context.Stock.FirstOrDefaultAsync(s => s.ProductoId == recibido.ProductoId);
-                if (stock != null)
+                var producto = await _context.Productos.FirstOrDefaultAsync(p => p.IdProducto == recibido.ProductoId);
+                if (producto != null && producto.CantidadTotal.HasValue)
                 {
-                    stock.Cantidad += recibido.CantidadRecibida;
+                    producto.CantidadTotal += recibido.CantidadRecibida;
                 }
 
-                if (!string.IsNullOrWhiteSpace(recibido.MotivoDevolucion))
+                if (detalle.Cantidad.HasValue && recibido.CantidadRecibida < detalle.Cantidad.Value)
                 {
-                    _context.NotasDeDevolucion.Add(new NotaDeDevolucion
+                    todoRecibido = false;
+
+                    if (notaCredito == null)
                     {
-                        ProductoId = recibido.ProductoId,
-                        OrdenId = orden.Id,
-                        Motivo = recibido.MotivoDevolucion,
-                        Fecha = DateTime.Now
+                        notaCredito = new NotasCredito
+                        {
+                            IdPedido = orden.IdOrden,
+                            Fecha = DateOnly.FromDateTime(DateTime.Today),
+                            Ruc = ruc,
+                            NombreProveedor = nombreProveedor,
+                            Timbrado = dto.Timbrado,
+                            Estado = "Generada"
+                        };
+                        _context.NotasCreditos.Add(notaCredito);
+                        await _context.SaveChangesAsync();
+                    }
+
+                    _context.NotaCreditoDetalles.Add(new NotaCreditoDetalle
+                    {
+                        //IdFacturaDetalle = notaCredito.IdFactura, 
+                        IdProducto = recibido.ProductoId,
+                        Cantidad = detalle.Cantidad.Value - recibido.CantidadRecibida,
+                        Precio = detalle.Cotizacion ?? 0,
+                        Iva10 = detalle.Iva ?? 0
                     });
+
+                    huboDevolucion = true;
                 }
             }
 
             _context.Facturas.Add(new Factura
             {
-                OrdenCompraId = dto.OrdenId,
-                Numero = dto.NumeroFactura,
+                IdPedido = orden.IdOrden,
                 Timbrado = dto.Timbrado,
-                Fecha = DateTime.Now
+                Fecha = DateOnly.FromDateTime(DateTime.Today),
+                Ruc = ruc,
+                NombreProveedor = nombreProveedor
             });
 
+            orden.Estado = todoRecibido ? "Completa" : "Incompleta";
+
             await _context.SaveChangesAsync();
-            return Ok("Recepción registrada");
+
+            string mensaje = "Recepción registrada correctamente";
+            if (huboDevolucion)
+                mensaje += " con devolución registrada";
+
+            return Ok(mensaje);
         }
+
+
         [HttpPost("rechazar")]
         public async Task<IActionResult> RechazarRecepcion([FromBody] RechazoRecepcionDTO dto)
         {
-            var orden = await _context.OrdenesCompra.FirstOrDefaultAsync(o => o.Id == dto.OrdenId);
+            var orden = await _context.Ordenes.FirstOrDefaultAsync(o => o.IdOrden == dto.OrdenId);
 
             if (orden == null)
                 return NotFound("Orden no encontrada");
 
             orden.Estado = "Rechazada";
-            orden.MotivoRechazo = dto.Motivo;
 
             await _context.SaveChangesAsync();
             return Ok("Orden rechazada correctamente");
         }
-    }
 
-    public class RecepcionDTO
-    {
-        public int OrdenId { get; set; }
-        public string NumeroFactura { get; set; }
-        public string Timbrado { get; set; }
-        public List<ProductoRecibidoDTO> Productos { get; set; }
-    }
+        public class RecepcionDTO
+        {
+            public long OrdenId { get; set; }
+            public string NumeroFactura { get; set; }
+            public string Timbrado { get; set; }
+            public List<ProductoRecibidoDTO> Productos { get; set; }
+        }
 
-    public class ProductoRecibidoDTO
-    {
-        public int ProductoId { get; set; }
-        public int CantidadRecibida { get; set; }
-        public string MotivoDevolucion { get; set; }
-    }
-    public class RechazoRecepcionDTO
-    {
-        public int OrdenId { get; set; }
-        public string Motivo { get; set; }
-    }
+        public class ProductoRecibidoDTO
+        {
+            public long ProductoId { get; set; }
+            public int CantidadRecibida { get; set; }
+        }
 
+        public class RechazoRecepcionDTO
+        {
+            public long OrdenId { get; set; }
+        }
+    }
 }
