@@ -75,6 +75,10 @@
       "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:services\\ordenpagoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\services\\dashboardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:services\\dashboardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\controllers\\ordenespagocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:controllers\\ordenespagocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -97,10 +101,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\backendapp.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
       "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:backendapp.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\services\\dashboardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:services\\dashboardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -179,6 +179,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
+<<<<<<< HEAD
 <<<<<<< HEAD
           "SelectedChildIndex": 2,
           "Children": [
@@ -329,19 +330,10 @@
               "DocumentIndex": 14,
 =======
           "SelectedChildIndex": 1,
+=======
+          "SelectedChildIndex": 0,
+>>>>>>> 7793c4f (davidpto)
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "HelloController.cs",
-              "DocumentMoniker": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Controllers\\HelloController.cs",
-              "RelativeDocumentMoniker": "Controllers\\HelloController.cs",
-              "ToolTip": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Controllers\\HelloController.cs",
-              "RelativeToolTip": "Controllers\\HelloController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T19:34:28.007Z"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -350,14 +342,14 @@
               "RelativeDocumentMoniker": "Services\\OrdenPagoService.cs",
               "ToolTip": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Services\\OrdenPagoService.cs",
               "RelativeToolTip": "Services\\OrdenPagoService.cs",
-              "ViewState": "AgIAADQAAAAAAAAAAAAnwEIAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAACkAAAAAAAAAAAAkwDsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-09T18:53:15.69Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "RecepcionesController.cs",
               "DocumentMoniker": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Controllers\\RecepcionesController.cs",
               "RelativeDocumentMoniker": "Controllers\\RecepcionesController.cs",
@@ -369,7 +361,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "OrdenesPagoController.cs",
               "DocumentMoniker": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Controllers\\OrdenesPagoController.cs",
               "RelativeDocumentMoniker": "Controllers\\OrdenesPagoController.cs",
@@ -381,7 +373,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "DashboardController.cs",
               "DocumentMoniker": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Controllers\\DashboardController.cs",
               "RelativeDocumentMoniker": "Controllers\\DashboardController.cs",
@@ -393,7 +385,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -405,8 +397,37 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 6,
 >>>>>>> b4ab145 (mensaje)
+=======
+              "DocumentIndex": 1,
+              "Title": "DashboardService.cs",
+              "DocumentMoniker": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Services\\DashboardService.cs",
+              "RelativeDocumentMoniker": "Services\\DashboardService.cs",
+              "ToolTip": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Services\\DashboardService.cs",
+              "RelativeToolTip": "Services\\DashboardService.cs",
+              "ViewState": "AgIAAGcAAAAAAAAAAAAkwBMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T16:09:48.287Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "HelloController.cs",
+              "DocumentMoniker": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Controllers\\HelloController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HelloController.cs",
+              "ToolTip": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Controllers\\HelloController.cs",
+              "RelativeToolTip": "Controllers\\HelloController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T19:34:28.007Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+>>>>>>> 7793c4f (davidpto)
               "Title": "BackendApp.http",
               "DocumentMoniker": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\BackendApp.http",
               "RelativeDocumentMoniker": "BackendApp.http",
@@ -433,18 +454,6 @@
               "$type": "Document",
               "DocumentIndex": 5,
 =======
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "DashboardService.cs",
-              "DocumentMoniker": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Services\\DashboardService.cs",
-              "RelativeDocumentMoniker": "Services\\DashboardService.cs",
-              "ToolTip": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Services\\DashboardService.cs",
-              "RelativeToolTip": "Services\\DashboardService.cs",
-              "ViewState": "AgIAAGcAAAAAAAAAAAAkwBMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-06T16:09:48.287Z"
             },
             {
               "$type": "Document",

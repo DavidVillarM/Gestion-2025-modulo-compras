@@ -41,31 +41,32 @@ namespace BackendApp.Services
         /// </summary>
         public async Task<bool> DeleteOrdenAsync(long idOrden)
         {
-            // 1) Traer la orden junto con sus pedidos
             var orden = await _context.Ordenes
                 .Include(o => o.Pedidos)
                 .FirstOrDefaultAsync(o => o.IdOrden == idOrden);
 
             if (orden == null)
-                return false;  // no existe
+                return false;
 
-            // 2) Eliminar pedidos asociados
+            // Eliminar pedidos si existen
             if (orden.Pedidos.Any())
             {
                 _context.Pedidos.RemoveRange(orden.Pedidos);
+                await _context.SaveChangesAsync(); // ✅ Guardar eliminación de pedidos antes
             }
 
-            // 3) Comprobar de nuevo si hay pedidos (por seguridad)
+            // Verificar si aún quedan pedidos en la base de datos
             var quedanPedidos = await _context.Pedidos.AnyAsync(p => p.IdOrden == idOrden);
 
-            // 4) Si ya no hay pedidos, eliminar la orden
+            // Si no quedan, eliminar la orden
             if (!quedanPedidos)
             {
                 _context.Ordenes.Remove(orden);
+                await _context.SaveChangesAsync(); // ✅ Guardar eliminación de orden
             }
 
-            await _context.SaveChangesAsync();
             return true;
         }
+
     }
 }

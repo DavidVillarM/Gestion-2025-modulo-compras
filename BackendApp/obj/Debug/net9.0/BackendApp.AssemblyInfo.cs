@@ -20,10 +20,14 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 <<<<<<< HEAD
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ac7e03d8262515ae9761524a4eee8f6c1940dcf4")]
 =======
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+89ab9715b4e3ec2c5b4aee847c3d77b892c9224f")]
 >>>>>>> b4ab145 (mensaje)
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b4ab145dfd3c9c330a7f35bd00b6f31fbd18b048")]
+>>>>>>> 7793c4f (davidpto)
 [assembly: System.Reflection.AssemblyProductAttribute("BackendApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BackendApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

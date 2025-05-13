@@ -42,16 +42,21 @@ export const OrdenesPago = () => {
     setData(resultado);
   }, [search, estadoFiltro, dataOriginal]);
 
-  const handleEliminar = async (id) => {
-    if (!window.confirm('¿Confirma la eliminación de esta orden?')) return;
-  
-    try {
-      await axios.delete(`http://localhost:5000/api/OrdenesPago/${id}`);
-      setDataOriginal(prev => prev.filter(item => item.id !== id));
-    } catch (error) {
-      console.error('Error al eliminar la orden:', error);
-    }
-  };
+const handleEliminar = async (id) => {
+  if (!window.confirm('¿Confirma la eliminación de esta orden?')) return;
+
+  try {
+    await axios.delete(`http://localhost:5000/api/OrdenesPago/${id}`);
+
+    // Elimina de dataOriginal (fuente de verdad)
+    setDataOriginal(prev => prev.filter(item => item.id !== id));
+
+    // También elimina de data (lo visible en pantalla)
+    setData(prev => prev.filter(item => item.id !== id));
+  } catch (error) {
+    console.error('Error al eliminar la orden:', error);
+  }
+};
   const columns = [
     { name: 'Nro Orden', selector: row => row.nroOrden, sortable: true },
     { name: 'Fecha', selector: row => row.fecha, sortable: true },
@@ -92,7 +97,7 @@ export const OrdenesPago = () => {
 
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
-      <h2 className="text-2xl font-semibold mb-4">Órdenes de Pago</h2>
+      <h2 className="text-2xl font-semibold mb-4">Ordenes</h2>
 
       <div className="flex flex-wrap gap-4 mb-4">
         <input
