@@ -34,3 +34,4 @@ public partial class Bucket
 
     public virtual ICollection<S3MultipartUploadsPart> S3MultipartUploadsParts { get; set; } = new List<S3MultipartUploadsPart>();
 }
+

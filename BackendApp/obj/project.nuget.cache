@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aJy8fO4syec=",
+  "dgSpecHash": "gqIF/3tp4OQ=",
   "success": true,
-  "projectFilePath": "C:\\Facultad\\INGE\\Gestion 2025\\BackendApp\\BackendApp.csproj",
+  "projectFilePath": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\BackendApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DaviM\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\DaviM\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.0\\microsoft.aspnetcore.openapi.9.0.0.nupkg.sha512",

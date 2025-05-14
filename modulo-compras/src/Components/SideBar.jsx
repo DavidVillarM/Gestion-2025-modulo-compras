@@ -1,56 +1,55 @@
-import React from 'react';
-import { FaHome, FaHotel, FaPeopleCarry, FaBoxes } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react'
+import { FaHistory, FaHome, FaHotel, FaPeopleCarry } from 'react-icons/fa'
+import { FaCartShopping } from "react-icons/fa6"
+import { RiFileList3Fill } from "react-icons/ri"
+import { Link } from 'react-router-dom'
 
 export const SideBar = () => {
-  return (
-    <div className="flex h-screen fix-top">
-      {/* Sidebar */}
-      <aside className="w-64 bg-sky-600 text-white p-4">
-        <div className="flex justify-center mb-6">
-          <h1 className="text-[100px] text-black">
-            <FaHotel />
-          </h1>
-        </div>
+    const [show, setShow] = useState(true)
 
-        <nav className="flex flex-col gap-4">
-          <Link to="/" className="flex items-center text-left hover:bg-sky-800 p-2 rounded text-[20px]">
-            <FaHome className="mr-2" />
-            <span>Inicio</span>
-          </Link>
+    // Clases comunes reutilizables
+    const navItemClass = "flex items-center hover:bg-sky-800 p-2 rounded text-[20px]"
+    const iconClass = "mr-[10px]"
 
-          <Link to="/proveedores" className="flex items-center text-left hover:bg-sky-800 p-2 rounded text-[20px]">
-            <FaPeopleCarry className="mr-2" />
-            <span>Proveedores</span>
-          </Link>
+    return (
+        <aside className="w-64 bg-sky-600 text-white p-4 h-full">
+            <div className="flex mb-[10px] items-center justify-center">
+                <h1 className="text-[100px] text-white"><FaHotel /></h1>
+            </div>
 
-          <Link to="/stock" className="text-left hover:bg-sky-800 p-2 rounded text-[20px]">
-            Stock
-          </Link>
+            <nav className="flex flex-col gap-4 mt-15">
 
-          <Link to="/productos" className="text-left hover:bg-sky-800 p-2 rounded text-[20px]">
-            Productos
-          </Link>
+                <Link to="/" className={navItemClass}>
+                    <FaHome className={iconClass} />
+                    <span>Inicio</span>
+                </Link>
 
-          <Link to="/categorias" className="text-left hover:bg-sky-800 p-2 rounded text-[20px]">
-            Categorias
-          </Link>
+                <Link to="/Proveedores" className={navItemClass}>
+                    <FaPeopleCarry className={iconClass} />
+                    <span>Proveedores</span>
+                </Link>
 
-          <Link to="/historial" className="text-left hover:bg-sky-800 p-2 rounded text-[20px]">
-            Historial
-          </Link>
+                <Link to="/Stock" className={navItemClass}>
+                    <FaCartShopping className={iconClass} />
+                    <span>Stock</span>
+                </Link>
 
-          <Link to="/ordenes-pago" className="text-left hover:bg-sky-800 p-2 rounded text-[20px]">
-            Ordenes de pago
-          </Link>
+                <button className={navItemClass}>
+                    <FaHistory className={iconClass} />
+                    <span>Historial</span>
+                </button>
 
-          {/* Nueva opción para recepción de productos */}
-          <Link to="/recepcion" className="flex items-center text-left hover:bg-sky-800 p-2 rounded text-[20px]">
-            <FaBoxes className="mr-2" />
-            <span>Recepción</span>
-          </Link>
-        </nav>
-      </aside>
-    </div>
-  );
-};
+                <Link to="/Ordenes" className={navItemClass}>
+                    <RiFileList3Fill className={iconClass} />
+                    <span>Ordenes</span>
+                </Link>
+
+                <Link to="/Recepciones" className={navItemClass}>
+                    <RiFileList3Fill className={iconClass} />
+                    <span>Recepciones</span>
+                </Link>
+
+            </nav>
+        </aside>
+    )
+}
