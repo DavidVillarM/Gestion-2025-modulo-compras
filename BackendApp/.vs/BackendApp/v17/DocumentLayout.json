@@ -110,8 +110,7 @@
               "RelativeToolTip": "Models\\Bucket.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T19:25:06.874Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-13T19:25:06.874Z"
             },
             {
               "$type": "Document",
@@ -135,8 +134,7 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAABsAAAAAAAAAAAAAADMAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-06T00:59:56.825Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-06T00:59:56.825Z"
             },
             {
               "$type": "Document",
@@ -218,7 +216,7 @@
               "RelativeDocumentMoniker": "Controllers\\RecepcionesController.cs",
               "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Controllers\\RecepcionesController.cs",
               "RelativeToolTip": "Controllers\\RecepcionesController.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAjwBcAAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAwwBcAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-06T01:01:50.388Z",
               "EditorCaption": ""
@@ -233,8 +231,7 @@
               "RelativeToolTip": "Controllers\\DashboardController.cs",
               "ViewState": "AgIAAEMAAAAAAAAAAAAAACwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-06T16:04:53.434Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-06T16:04:53.434Z"
             },
             {
               "$type": "Document",
@@ -246,8 +243,7 @@
               "RelativeToolTip": "Data\\AppDbContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T18:51:54.657Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-13T18:51:54.657Z"
             },
             {
               "$type": "Document",
