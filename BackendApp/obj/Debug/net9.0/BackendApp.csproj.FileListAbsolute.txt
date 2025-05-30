@@ -398,11 +398,21 @@ C:\Users\Catbe\Desktop\git\Gestion-2025-modulo-compras\BackendApp\obj\Debug\net9
 C:\Users\Catbe\Desktop\git\Gestion-2025-modulo-compras\BackendApp\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.BackendApp.props
 C:\Users\Catbe\Desktop\git\Gestion-2025-modulo-compras\BackendApp\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.BackendApp.props
 C:\Users\Catbe\Desktop\git\Gestion-2025-modulo-compras\BackendApp\obj\Debug\net9.0\staticwebassets.pack.json
-C:\Users\Catbe\Desktop\git\Gestion-2025-modulo-compras\BackendApp\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 C:\Users\Catbe\Desktop\git\Gestion-2025-modulo-compras\BackendApp\obj\Debug\net9.0\BackendApp.csproj.Up2Date
 C:\Users\Catbe\Desktop\git\Gestion-2025-modulo-compras\BackendApp\obj\Debug\net9.0\BackendApp.dll
 C:\Users\Catbe\Desktop\git\Gestion-2025-modulo-compras\BackendApp\obj\Debug\net9.0\refint\BackendApp.dll
 C:\Users\Catbe\Desktop\git\Gestion-2025-modulo-compras\BackendApp\obj\Debug\net9.0\BackendApp.pdb
 C:\Users\Catbe\Desktop\git\Gestion-2025-modulo-compras\BackendApp\obj\Debug\net9.0\BackendApp.genruntimeconfig.cache
 C:\Users\Catbe\Desktop\git\Gestion-2025-modulo-compras\BackendApp\obj\Debug\net9.0\ref\BackendApp.dll
+<<<<<<< HEAD
 >>>>>>> b4ab145 (mensaje)
+=======
+C:\Users\Catbe\Desktop\git\Gestion-2025-modulo-compras\BackendApp\bin\Debug\net9.0\Microsoft.Extensions.Configuration.dll
+C:\Users\Catbe\Desktop\git\Gestion-2025-modulo-compras\BackendApp\bin\Debug\net9.0\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Users\Catbe\Desktop\git\Gestion-2025-modulo-compras\BackendApp\bin\Debug\net9.0\Microsoft.Extensions.Configuration.Json.dll
+C:\Users\Catbe\Desktop\git\Gestion-2025-modulo-compras\BackendApp\bin\Debug\net9.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\Catbe\Desktop\git\Gestion-2025-modulo-compras\BackendApp\bin\Debug\net9.0\Microsoft.Extensions.FileProviders.Physical.dll
+C:\Users\Catbe\Desktop\git\Gestion-2025-modulo-compras\BackendApp\bin\Debug\net9.0\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\Users\Catbe\Desktop\git\Gestion-2025-modulo-compras\BackendApp\bin\Debug\net9.0\System.Text.Json.dll
+C:\Users\Catbe\Desktop\git\Gestion-2025-modulo-compras\BackendApp\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+>>>>>>> 3aaea8b (ordenes)

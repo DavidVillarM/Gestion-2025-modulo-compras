@@ -89,7 +89,33 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "Type": "System.Collections.Generic.List\u00601[[BackendApp.Services.OrdenPagoDto, BackendApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BackendApp.Controllers.OrdenesPagoController",
+    "Method": "GetOrdenPagoById",
+    "RelativePath": "api/OrdenesPago/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "BackendApp.Services.OrdenPagoDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -116,45 +142,91 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "BackendApp.Controllers.RecepcionesController",
-    "Method": "GetOrdenesPendientes",
-    "RelativePath": "api/Recepciones/ordenes-pendientes",
+    "ContainingType": "BackendApp.Controllers.OrdenesPagoController",
+    "Method": "GetOrdenDetalles",
+    "RelativePath": "api/OrdenesPago/{id}/detalles",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[BackendApp.Models.OrdenDetalle, BackendApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BackendApp.Controllers.OrdenesPagoController",
+    "Method": "CreatePresupuesto",
+    "RelativePath": "api/OrdenesPago/presupuesto",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "BackendApp.Services.PresupuestoDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BackendApp.Controllers.ProductosController",
+    "Method": "GetAll",
+    "RelativePath": "api/Productos",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[BackendApp.Models.Producto, BackendApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
-    "ContainingType": "BackendApp.Controllers.RecepcionesController",
-    "Method": "RechazarRecepcion",
-    "RelativePath": "api/Recepciones/rechazar",
-    "HttpMethod": "POST",
+    "ContainingType": "BackendApp.Controllers.ProductosController",
+    "Method": "GetById",
+    "RelativePath": "api/Productos/{id}",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "dto",
-        "Type": "BackendApp.Controllers.RecepcionesController\u002BRechazoRecepcionDTO",
+        "Name": "id",
+        "Type": "System.Int64",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "BackendApp.Controllers.RecepcionesController",
-    "Method": "RegistrarRecepcion",
-    "RelativePath": "api/Recepciones/registrar",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
+    "ReturnTypes": [
       {
-        "Name": "dto",
-        "Type": "BackendApp.Controllers.RecepcionesController\u002BRecepcionDTO",
-        "IsRequired": true
+        "Type": "BackendApp.Models.Producto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
       }
-    ],
-    "ReturnTypes": []
+    ]
   }
 ]

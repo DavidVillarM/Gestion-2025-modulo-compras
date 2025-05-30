@@ -16,6 +16,7 @@ builder.Services.AddScoped<DashboardService>();
 <<<<<<< HEAD
 =======
 builder.Services.AddScoped<OrdenPagoService>();
+builder.Services.AddScoped<ProductoService>();
 
 >>>>>>> b4ab145 (mensaje)
 

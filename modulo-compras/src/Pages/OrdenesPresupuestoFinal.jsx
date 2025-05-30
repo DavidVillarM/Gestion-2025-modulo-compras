@@ -1,96 +1,151 @@
-import React from 'react';
+// File: OrdenesPresupuestoFinal.jsx
+import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 export const OrdenesPresupuestoFinal = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const {
-    orden,
-    productosBase,
-    preciosProveedores,
-    seleccionados,
-    proveedorActivo,
-  } = location.state || {};
+  const ordenId = location.state?.ordenId || localStorage.getItem('ordenId');
 
-  if (!orden || !productosBase || !preciosProveedores || !seleccionados) {
-    return <div className="p-6">Faltan datos para mostrar el resumen.</div>;
-  }
+  const initialDetalles = location.state?.detalles || [];
+  const [lineas, setLineas] = useState(initialDetalles);
+  const [productNames, setProductNames] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+  const [showDialog, setShowDialog] = useState(false);
 
-  const resumen = productosBase
-    .map((producto, i) => {
-      if (seleccionados[i]) {
-        const precio = preciosProveedores[proveedorActivo].precios[i];
-        const cantidad = producto.cantidades;
-        const subtotal = precio * cantidad;
-        return {
-          nombre: producto.nombre,
-          cantidad,
-          subtotal,
-          proveedor: `Proveedor ${proveedorActivo + 1}`,
-          fechaEntrega: preciosProveedores[proveedorActivo].fechaEntrega,
-        };
+  useEffect(() => {
+    if (initialDetalles.length > 0) {
+      localStorage.setItem('detalles', JSON.stringify(initialDetalles));
+      setLineas(initialDetalles);
+    } else {
+      const saved = localStorage.getItem('detalles');
+      if (saved) setLineas(JSON.parse(saved));
+      else setError('No hay detalles disponibles. Regresa y selecciona al menos un producto.');
+    }
+    setLoading(false);
+  }, [initialDetalles]);
+
+  useEffect(() => {
+    const ids = [...new Set(lineas.map(d => d.idProducto))];
+    ids.forEach(async id => {
+      try {
+        const resp = await axios.get(`http://localhost:5000/api/Productos/${id}`);
+        setProductNames(prev => ({ ...prev, [id]: resp.data.nombre }));
+      } catch (e) {
+        console.error('Error al cargar nombre de producto', e);
       }
-      return null;
-    })
-    .filter(Boolean);
-
-  const totalSubtotal = resumen.reduce((acc, item) => acc + item.subtotal, 0);
-  const iva = totalSubtotal * 0.11;
-  const total = totalSubtotal + iva;
-
-  const realizarOrden = () => {
-  
-    alert('Orden realizada correctamente. Se actualizará el estado a Incompleto.');
-
-    
-    navigate('/ordenes-pago', {
-      state: {
-        nroOrden: orden.nroOrden,
-        nuevoEstado: 'Incompleta',
-        total,
-      },
     });
+  }, [lineas]);
+
+  const estimatedDate = () => {
+    const date = new Date();
+    date.setDate(date.getDate() + 7);
+    return date.toLocaleDateString('es-PE');
   };
 
+  const confirmDialog = () => setShowDialog(true);
+
+  const handleConfirm = async () => {
+    setShowDialog(false);
+    setError('');
+    try {
+      await axios.post('http://localhost:5000/api/OrdenesPago/presupuesto', {
+        ordenId: parseInt(ordenId),
+        detalles: lineas
+      });
+      localStorage.removeItem('detalles');
+      navigate('/ordenes-pago');
+    } catch (e) {
+      console.error(e);
+      setError('Error al confirmar pedido.');
+    }
+  };
+
+  if (loading) return <p>Cargando resumen...</p>;
+  if (error) return <p className="text-red-600">{error}</p>;
+
+  const totalGeneral = lineas.reduce(
+    (sum, d) => sum + (d.cotizacion * d.cantidad + d.iva),
+    0
+  );
+
   return (
-    <div className="p-6 bg-white min-h-screen">
-      <h2 className="text-2xl font-bold mb-4">Resumen de Pedido - Orden {orden.nroOrden}</h2>
+    <div className="p-6 bg-white min-h-screen flex flex-col">
+      <h2 className="text-2xl font-semibold mb-4">Resumen Final Orden #{ordenId}</h2>
 
-      <table className="min-w-full border">
-        <thead className="bg-gray-100">
-          <tr>
-            <th className="border px-4 py-2">Producto</th>
-            <th className="border px-4 py-2">Cantidad</th>
-            <th className="border px-4 py-2">Subtotal</th>
-            <th className="border px-4 py-2">Proveedor</th>
-            <th className="border px-4 py-2">Fecha de Entrega</th>
-          </tr>
-        </thead>
-        <tbody>
-          {resumen.map((item, index) => (
-            <tr key={index}>
-              <td className="border px-4 py-2">{item.nombre}</td>
-              <td className="border px-4 py-2">{item.cantidad}</td>
-              <td className="border px-4 py-2">${item.subtotal.toFixed(2)}</td>
-              <td className="border px-4 py-2">{item.proveedor}</td>
-              <td className="border px-4 py-2">{item.fechaEntrega}</td>
+      <div className="flex-1 overflow-auto">
+        <table className="w-full border">
+          <thead>
+            <tr className="bg-gray-100">
+              <th className="p-2 border">Producto</th>
+              <th className="p-2 border">Proveedor</th>
+              <th className="p-2 border">Cotizacion</th>
+              <th className="p-2 border">Cantidad</th>
+              <th className="p-2 border">IVA</th>
+              <th className="p-2 border">Subtotal</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-
-      <div className="mt-6 text-right space-y-2">
-        <p><strong>Subtotal:</strong> ${totalSubtotal.toFixed(2)}</p>
-        <p><strong>IVA (21%):</strong> ${iva.toFixed(2)}</p>
-        <p className="text-lg"><strong>Total:</strong> ${total.toFixed(2)}</p>
-
-        <button
-          onClick={realizarOrden}
-          className="mt-4 px-6 py-2 bg-green-600 text-white rounded hover:bg-green-700"
-        >
-          Realizar Orden
-        </button>
+          </thead>
+          <tbody>
+            {lineas.map((d, idx) => (
+              <tr key={idx} className="hover:bg-gray-50">
+                <td className="p-2 border">{productNames[d.idProducto] || 'Cargando...'}</td>
+                <td className="p-2 border">{d.idProveedor}</td>
+                <td className="p-2 border">${d.cotizacion.toFixed(2)}</td>
+                <td className="p-2 border">{d.cantidad}</td>
+                <td className="p-2 border">${d.iva.toFixed(2)}</td>
+                <td className="p-2 border">${(d.cotizacion * d.cantidad + d.iva).toFixed(2)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
+
+<div className="mt-2 flex justify-between items-start gap-4">
+  <div className="text-sm leading-tight">
+    <p className="text-lg font-medium">Total General: ${totalGeneral.toFixed(2)}</p>
+    <p>Fecha estimada de entrega: {estimatedDate()}</p>
+  </div>
+  <div className="flex gap-2">
+    <button
+      onClick={() => navigate(-1)}
+      className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 text-sm"
+    >
+      Volver
+    </button>
+    <button
+      onClick={confirmDialog}
+      className="px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 text-sm"
+    >
+      Hacer Pedido
+    </button>
+  </div>
+</div>
+
+
+
+      {showDialog && (
+        <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-96">
+            <p className="mb-4 text-center">Confirmar pedido?</p>
+            <div className="flex justify-end space-x-4">
+              <button
+                onClick={() => setShowDialog(false)}
+                className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
+              >
+                Cancelar
+              </button>
+              <button
+                onClick={handleConfirm}
+                className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
+              >
+                Confirmar Pedido
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -27,9 +27,9 @@ function App() {
             <Route path="/productos" element={<Products />} />
             <Route path="/recepcion" element={<RecepcionProductos />} />
             <Route path="/ordenes-pago" element={<OrdenesPago />} />
-            <Route path="/ordenes-presupuesto/:id" element={<OrdenesPresupuesto />} />
-            <Route path="/ordenes-vista" element={<OrdenesVista />} />
-            <Route path="/ordenes-presupuesto-final/:id" element={<OrdenesPresupuestoFinal />} />
+            <Route path="/ordenes-presupuesto/" element={<OrdenesPresupuesto />} />
+            <Route path="/ordenes-vista/:id" element={<OrdenesVista />} />
+           <Route path="/ordenes-presupuesto-final" element={<OrdenesPresupuestoFinal />} />
           </Routes>
         </div>
       </div>
