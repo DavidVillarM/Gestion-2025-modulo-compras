@@ -138,7 +138,7 @@ const RecepcionProductos = () => {
         <div className="text-center py-10 text-gray-600">Cargando órdenes...</div>
       ) : !ordenSeleccionada ? (
         <div>
-          <h2 className="text-xl mb-2">Órdenes de Compra Pendientes</h2>
+          <h2 className="text-xl mb-2">Ordenes de Compra Pendientes</h2>
           <ul className="divide-y">
           {ordenesActuales.map((orden) => {
             const detalles = orden.ordenDetalles;

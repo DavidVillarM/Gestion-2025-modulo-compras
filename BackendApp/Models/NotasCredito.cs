@@ -29,7 +29,5 @@ public partial class NotasCredito
 
     public string? Estado { get; set; }
 
-    public virtual Pedido? IdPedidoNavigation { get; set; }
-
     public virtual Proveedore? IdProveedorNavigation { get; set; }
 }

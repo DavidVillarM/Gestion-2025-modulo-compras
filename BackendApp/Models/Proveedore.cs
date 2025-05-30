@@ -23,9 +23,11 @@ public partial class Proveedore
 
     public virtual ICollection<NotasCredito> NotasCreditos { get; set; } = new List<NotasCredito>();
 
-    public virtual ICollection<Pedido> Pedidos { get; set; } = new List<Pedido>();
+    public virtual ICollection<PedidoDetalle> PedidoDetalles { get; set; } = new List<PedidoDetalle>();
 
     public virtual ICollection<Presupuesto> Presupuestos { get; set; } = new List<Presupuesto>();
+
+    public virtual ICollection<PresupuestosProveedore> PresupuestosProveedores { get; set; } = new List<PresupuestosProveedore>();
 
     public virtual ICollection<ProductoProveedor> ProductoProveedors { get; set; } = new List<ProductoProveedor>();
 }

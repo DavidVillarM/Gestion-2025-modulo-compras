@@ -1,3 +1,4 @@
+/* OrdenesPago.jsx */
 import React, { useState, useEffect } from 'react';
 import DataTable from 'react-data-table-component';
 import { FiTrash2 } from 'react-icons/fi';
@@ -30,8 +31,9 @@ export const OrdenesPago = () => {
     let resultado = [...dataOriginal];
 
     if (search.trim()) {
+      // Buscar sobre el campo idOrden convertido a string
       resultado = resultado.filter(item =>
-        item.nroOrden.toLowerCase().includes(search.toLowerCase())
+        item.idOrden.toString().includes(search.trim())
       );
     }
 
@@ -42,49 +44,57 @@ export const OrdenesPago = () => {
     setData(resultado);
   }, [search, estadoFiltro, dataOriginal]);
 
-const handleEliminar = async (id) => {
-  if (!window.confirm('¿Confirma la eliminación de esta orden?')) return;
+  const handleEliminar = async (idOrden) => {
+    if (!window.confirm('¿Confirma la eliminación de esta orden?')) return;
+    try {
+      await axios.delete(`http://localhost:5000/api/OrdenesPago/${idOrden}`);
+      setDataOriginal(prev => prev.filter(item => item.idOrden !== idOrden));
+      setData(prev => prev.filter(item => item.idOrden !== idOrden));
+    } catch (error) {
+      console.error('Error al eliminar la orden:', error);
+    }
+  };
 
-  try {
-    await axios.delete(`http://localhost:5000/api/OrdenesPago/${id}`);
-
-    // Elimina de dataOriginal (fuente de verdad)
-    setDataOriginal(prev => prev.filter(item => item.id !== id));
-
-    // También elimina de data (lo visible en pantalla)
-    setData(prev => prev.filter(item => item.id !== id));
-  } catch (error) {
-    console.error('Error al eliminar la orden:', error);
-  }
-};
   const columns = [
-    { name: 'Nro Orden', selector: row => row.nroOrden, sortable: true },
-    { name: 'Fecha', selector: row => row.fecha, sortable: true },
-    { name: 'Total', selector: row => row.total, sortable: true },
+    { name: 'Nro Orden', selector: row => row.idOrden, sortable: true },
+    { name: 'Fecha', selector: row => row.fechaPedido, sortable: true },
+    { name: 'Total', selector: row => row.montoTotal, sortable: true },
     {
       name: 'Estado',
       cell: row => (
         <span
-          className={`cursor-pointer ${row.estado === 'Sin realizar' ? 'text-red-600 underline' : ''}`}
+          className={`cursor-pointer ${row.estado === 'Incompleta' ? 'text-red-600 underline' : ''}`}
           onClick={() => {
-            if (row.estado === 'Sin realizar') {
-              navigate(`/ordenes-presupuesto/${row.id}`, { state: { orden: row } });
+            if (row.estado === 'Incompleta') {
+              // Si necesitas mantener la orden para otra pantalla:
+              localStorage.setItem('ordenId', row.idOrden);
+              navigate(`/ordenes-presupuesto`, { state: { orden: row } });
             }
           }}
         >
           {row.estado}
         </span>
       ),
-      sortable: true
+      sortable: true,
+      ignoreRowClick: true,
+      allowOverflow: true,
+      button: true,
     },
     {
       name: 'Acciones',
       cell: row => (
         <div className="flex gap-2">
-          <button onClick={() => navigate(`/ordenes-vista/${row.id}`, { state: { orden: row } })} className="text-blue-600 text-xl hover:text-blue-800">
+          {/* Aquí cambiamos row.id por row.idOrden */}
+          <button
+            onClick={() => navigate(`/ordenes-vista/${row.idOrden}`)}
+            className="text-blue-600 text-xl hover:text-blue-800"
+          >
             <FaEye />
           </button>
-          <button onClick={() => handleEliminar(row.id)} className="text-red-600 text-xl hover:text-red-800">
+          <button
+            onClick={() => handleEliminar(row.idOrden)}
+            className="text-red-600 text-xl hover:text-red-800"
+          >
             <FiTrash2 />
           </button>
         </div>
@@ -104,19 +114,18 @@ const handleEliminar = async (id) => {
           type="text"
           placeholder="Buscar por Nro de Orden"
           value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={e => setSearch(e.target.value)}
           className="px-4 py-2 border rounded shadow-sm"
         />
 
         <select
           value={estadoFiltro}
-          onChange={(e) => setEstadoFiltro(e.target.value)}
+          onChange={e => setEstadoFiltro(e.target.value)}
           className="px-4 py-2 border rounded shadow-sm"
         >
           <option value="">Todos los estados</option>
           <option value="Completa">Completa</option>
           <option value="Incompleta">Incompleta</option>
-          <option value="Sin realizar">Sin realizar</option>
           <option value="Pendiente">Pendiente</option>
         </select>
       </div>

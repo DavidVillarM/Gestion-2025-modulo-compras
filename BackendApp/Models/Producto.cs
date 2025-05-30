@@ -33,6 +33,8 @@ public partial class Producto
 
     public virtual ICollection<OrdenDetalle> OrdenDetalles { get; set; } = new List<OrdenDetalle>();
 
+    public virtual ICollection<PedidoDetalle> PedidoDetalles { get; set; } = new List<PedidoDetalle>();
+
     public virtual ICollection<Precio> Precios { get; set; } = new List<Precio>();
 
     public virtual ICollection<PresupuestoDetalle> PresupuestoDetalles { get; set; } = new List<PresupuestoDetalle>();

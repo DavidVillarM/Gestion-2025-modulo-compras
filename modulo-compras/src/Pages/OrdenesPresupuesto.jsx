@@ -1,159 +1,184 @@
-import React, { useState } from 'react';
-import { useParams, useNavigate, useLocation } from 'react-router-dom';
+// File: OrdenesPresupuesto.jsx
+import React, { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
+
+// Datos de ejemplo: proveedores y productos
+const proveedores = [
+  {
+    id: 1,
+    nombre: 'Proveedor A',
+    fechaEnvio: '2025-06-05',
+    productos: [
+      { id: 1, nombre: 'Producto A', cantidad: 20, precio: 100 },
+      { id: 2, nombre: 'Producto B', cantidad: 25, precio: 200 },
+      { id: 3, nombre: 'Producto C', cantidad: 30, precio: 150 },
+    ],
+  },
+  {
+    id: 2,
+    nombre: 'Proveedor B',
+    fechaEnvio: '2025-06-07',
+    productos: [
+      { id: 1, nombre: 'Producto A', cantidad: 20, precio: 110 },
+      { id: 2, nombre: 'Producto B', cantidad: 25, precio: 195 },
+      { id: 3, nombre: 'Producto C', cantidad: 30, precio: 160 },
+    ],
+  },
+  {
+    id: 3,
+    nombre: 'Proveedor C',
+    fechaEnvio: '2025-06-10',
+    productos: [
+      { id: 1, nombre: 'Producto A', cantidad: 20, precio: 105 },
+      { id: 2, nombre: 'Producto B', cantidad: 25, precio: 210 },
+      { id: 3, nombre: 'Producto C', cantidad: 30, precio: 155 },
+    ],
+  },
+];
+
+const IVA = 0.12;
 
 export const OrdenesPresupuesto = () => {
-  const { id } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
-  const orden = location.state?.orden;
 
-  const proveedores = ['Proveedor 1', 'Proveedor 2', 'Proveedor 3'];
-  const [proveedorActivo, setProveedorActivo] = useState(0);
+  const idFromState = location.state?.ordenId;
+  const idStored = localStorage.getItem('ordenId');
+  const ordenId = idFromState || idStored;
 
-  const productosBase = [
-    { nombre: 'Producto A', cantidades: 10 },
-    { nombre: 'Producto B', cantidades: 5 },
-    { nombre: 'Producto C', cantidades: 8 },
-  ];
+  useEffect(() => {
+    if (idFromState) localStorage.setItem('ordenId', idFromState);
+  }, [idFromState]);
 
-  const preciosProveedores = [
-    {
-      fechaEntrega: '2025-05-01',
-      precios: [100, 200, 150],
-    },
-    {
-      fechaEntrega: '2025-05-03',
-      precios: [110, 190, 160],
-    },
-    {
-      fechaEntrega: '2025-05-05',
-      precios: [105, 195, 155],
-    },
-  ];
-
-  // Estado para almacenar que productos estan seleccionados por proveedor
-  const [seleccionesPorProveedor, setSeleccionesPorProveedor] = useState(
-    Array.from({ length: proveedores.length }, () => Array(productosBase.length).fill(false))
-  );
-
-  if (!orden) return <div className="p-6">No se encontró la orden.</div>;
-
-  const toggleSeleccion = (index) => {
-    // Desmarcar el producto en todos los proveedores
-    const copia = [...seleccionesPorProveedor];
-
-    // Desmarcar en los otros proveedores antes de marcar en el proveedor activo
-    copia.forEach((selecciones, proveedorIndex) => {
-      if (proveedorIndex !== proveedorActivo) {
-        selecciones[index] = false;
-      }
+  const initialSelections = proveedores.reduce((acc, prov) => {
+    acc[prov.id] = {};
+    prov.productos.forEach(p => {
+      acc[prov.id][p.id] = false;
     });
+    return acc;
+  }, {});
 
-    // Marcar el producto en el proveedor activo
-    copia[proveedorActivo][index] = !copia[proveedorActivo][index];
+  const [selections, setSelections] = useState(initialSelections);
+  const [activeTab, setActiveTab] = useState(0);
+  const [error, setError] = useState('');
 
-    setSeleccionesPorProveedor(copia);
+  const isDisabled = (provId, prodId) =>
+    proveedores.some(p => p.id !== provId && selections[p.id][prodId]);
+
+  const toggleSelection = (provId, prodId) => {
+    setSelections(prev => ({
+      ...prev,
+      [provId]: { ...prev[provId], [prodId]: !prev[provId][prodId] }
+    }));
   };
 
-  const calcularSubtotal = (precio, cantidad) => precio * cantidad;
-
-  const calcularTotales = () => {
+  const calcTotals = prov => {
     let subtotal = 0;
-    seleccionesPorProveedor[proveedorActivo].forEach((sel, i) => {
-      if (sel) {
-        const precio = preciosProveedores[proveedorActivo].precios[i];
-        const cantidad = productosBase[i].cantidades;
-        subtotal += calcularSubtotal(precio, cantidad);
-      }
+    prov.productos.forEach(p => {
+      if (selections[prov.id][p.id]) subtotal += p.precio * p.cantidad;
     });
-    const iva = subtotal * 0.11;
-    const total = subtotal + iva;
-    return { subtotal, iva, total };
+    const iva = subtotal * IVA;
+    return { subtotal, iva, total: subtotal + iva };
   };
 
-  const { subtotal, iva, total } = calcularTotales();
+  // Al presionar Siguiente, enviamos los detalles seleccionados a la siguiente pantalla
+  const handleSiguiente = () => {
+    const detalles = [];
+    proveedores.forEach(prov => {
+      prov.productos.forEach(prod => {
+        if (selections[prov.id][prod.id]) {
+          const subtotal = prod.precio * prod.cantidad;
+          detalles.push({
+            idProducto: prod.id,
+            idProveedor: prov.id,
+            cotizacion: prod.precio,
+            cantidad: prod.cantidad,
+            iva: parseFloat((subtotal * IVA).toFixed(2))
+          });
+        }
+      });
+    });
+
+    if (detalles.length > 0) {
+      setError('');
+      // Navegamos a la pantalla de resumen final pasando toda la información necesaria
+      navigate('/ordenes-presupuesto-final', { state: { ordenId, detalles } });
+    } else {
+      setError('Debes seleccionar al menos un producto.');
+    }
+  };
 
   return (
-    <div className="p-6 bg-white min-h-screen">
-      <h2 className="text-2xl font-bold mb-4">Orden de Presupuesto: {orden.nroOrden}</h2>
+    <div className="p-8 bg-white min-h-screen">
+      <h2 className="text-3xl font-bold mb-6">Presupuesto Orden #{ordenId}</h2>
+      {error && <p className="text-red-600 mb-4">{error}</p>}
 
-      <div className="flex gap-4 mb-4">
-        {proveedores.map((prov, index) => {
-          return (
-            <button
-              key={index}
-              onClick={() => setProveedorActivo(index)}
-              className={`px-4 py-2 rounded ${
-                proveedorActivo === index ? 'bg-blue-600 text-white' : 'bg-gray-200'
-              }`}
+      <Tabs selectedIndex={activeTab} onSelect={setActiveTab}>
+        <TabList className="flex space-x-4 border-b mb-4">
+          {proveedores.map(p => (
+            <Tab
+              key={p.id}
+              selectedClassName="border-b-2 border-blue-600 font-semibold"
             >
-              {prov}
-            </button>
+              {p.nombre}
+            </Tab>
+          ))}
+        </TabList>
+
+        {proveedores.map(prov => {
+          const { subtotal, iva, total } = calcTotals(prov);
+          return (
+            <TabPanel key={prov.id}>
+              <table className="w-full mb-4 table-auto border border-gray-200">
+                <thead>
+                  <tr className="bg-gray-100">
+                    <th className="p-2 border">Seleccionar</th>
+                    <th className="p-2 border">Producto</th>
+                    <th className="p-2 border">Cantidad</th>
+                    <th className="p-2 border">Precio Unitario</th>
+                    <th className="p-2 border">Subtotal</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {prov.productos.map(prod => (
+                    <tr key={prod.id}>
+                      <td className="p-2 border text-center">
+                        <input
+                          type="checkbox"
+                          checked={selections[prov.id][prod.id]}
+                          disabled={isDisabled(prov.id, prod.id)}
+                          onChange={() => toggleSelection(prov.id, prod.id)}
+                        />
+                      </td>
+                      <td className="p-2 border">{prod.nombre}</td>
+                      <td className="p-2 border">{prod.cantidad}</td>
+                      <td className="p-2 border">{prod.precio}</td>
+                      <td className="p-2 border">
+                        {(prod.precio * prod.cantidad).toFixed(2)}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+
+              <div className="flex justify-between items-center mb-6">
+                <p><strong>Subtotal:</strong> {subtotal.toFixed(2)}</p>
+                <p><strong>IVA:</strong> {iva.toFixed(2)}</p>
+                <p className="font-semibold"><strong>Total:</strong> {total.toFixed(2)}</p>
+              </div>
+            </TabPanel>
           );
         })}
-      </div>
+      </Tabs>
 
-      <table className="min-w-full border">
-        <thead>
-          <tr className="bg-gray-100">
-            <th className="border px-4 py-2">Producto</th>
-            <th className="border px-4 py-2">Precio Unitario</th>
-            <th className="border px-4 py-2">Cantidad</th>
-            <th className="border px-4 py-2">Pedir</th>
-            <th className="border px-4 py-2">IVA</th>
-            <th className="border px-4 py-2">Subtotal</th>
-          </tr>
-        </thead>
-        <tbody>
-          {productosBase.map((producto, index) => {
-            const precio = preciosProveedores[proveedorActivo].precios[index];
-            const cantidad = producto.cantidades;
-            const estaSeleccionado = seleccionesPorProveedor[proveedorActivo][index];
-            const sub = calcularSubtotal(precio, cantidad);
-            return (
-              <tr key={index}>
-                <td className="border px-4 py-2">{producto.nombre}</td>
-                <td className="border px-4 py-2">${precio}</td>
-                <td className="border px-4 py-2">{cantidad}</td>
-                <td className="border px-4 py-2 text-center">
-                  <input
-                    type="checkbox"
-                    checked={estaSeleccionado}
-                    onChange={() => toggleSeleccion(index)}
-                  />
-                </td>
-                <td className="border px-4 py-2">${(sub * 0.21).toFixed(2)}</td>
-                <td className="border px-4 py-2">${sub.toFixed(2)}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-
-      <div className="mt-6">
-        <p><strong>Fecha de Entrega:</strong> {preciosProveedores[proveedorActivo].fechaEntrega}</p>
-        <p><strong>IVA:</strong> ${iva.toFixed(2)}</p>
-        <p><strong>Total:</strong> ${total.toFixed(2)}</p>
-      </div>
-
-      <div className="mt-6 text-right">
-        <button
-          onClick={() =>
-            navigate(`/ordenes-presupuesto-final/${id}`, {
-              state: {
-                orden,
-                productosBase,
-                preciosProveedores,
-                seleccionados: seleccionesPorProveedor[proveedorActivo],
-                proveedorActivo,
-              },
-            })
-          }
-          className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-        >
-          Siguiente ➜
-        </button>
-      </div>
+      <button
+        onClick={handleSiguiente}
+        className="mt-4 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+      >
+        Siguiente: Resumen Final
+      </button>
     </div>
   );
 };

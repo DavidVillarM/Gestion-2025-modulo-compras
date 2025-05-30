@@ -7,9 +7,9 @@ public partial class PresupuestoDetalle
 {
     public long IdPresupuestoDetalle { get; set; }
 
-    public long? IdPresupuesto { get; set; }
+    public long IdPresupuesto { get; set; }
 
-    public long? IdProducto { get; set; }
+    public long IdProducto { get; set; }
 
     public int? Cantidad { get; set; }
 
@@ -19,7 +19,7 @@ public partial class PresupuestoDetalle
 
     public decimal? Iva10 { get; set; }
 
-    public virtual Presupuesto? IdPresupuestoNavigation { get; set; }
+    public virtual Presupuesto IdPresupuestoNavigation { get; set; } = null!;
 
-    public virtual Producto? IdProductoNavigation { get; set; }
+    public virtual Producto IdProductoNavigation { get; set; } = null!;
 }

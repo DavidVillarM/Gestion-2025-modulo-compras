@@ -7,9 +7,9 @@ public partial class Presupuesto
 {
     public long IdPresupuesto { get; set; }
 
-    public long? IdOrden { get; set; }
+    public long IdOrden { get; set; }
 
-    public long? IdProveedor { get; set; }
+    public long IdProveedor { get; set; }
 
     public DateOnly? FechaEntrega { get; set; }
 
@@ -21,9 +21,9 @@ public partial class Presupuesto
 
     public decimal? Total { get; set; }
 
-    public virtual Ordene? IdOrdenNavigation { get; set; }
+    public virtual Ordene IdOrdenNavigation { get; set; } = null!;
 
-    public virtual Proveedore? IdProveedorNavigation { get; set; }
+    public virtual Proveedore IdProveedorNavigation { get; set; } = null!;
 
     public virtual ICollection<PresupuestoDetalle> PresupuestoDetalles { get; set; } = new List<PresupuestoDetalle>();
 }
