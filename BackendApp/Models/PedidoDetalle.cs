@@ -11,8 +11,6 @@ public partial class PedidoDetalle
 
     public long IdProducto { get; set; }
 
-    public long IdProveedor { get; set; }
-
     public decimal? Cotizacion { get; set; }
 
     public int? Cantidad { get; set; }
@@ -22,6 +20,4 @@ public partial class PedidoDetalle
     public virtual Pedido IdPedidoNavigation { get; set; } = null!;
 
     public virtual Producto IdProductoNavigation { get; set; } = null!;
-
-    public virtual Proveedore IdProveedorNavigation { get; set; } = null!;
 }

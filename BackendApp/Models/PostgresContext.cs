@@ -726,6 +726,7 @@ public partial class PostgresContext : DbContext
                 .UseIdentityAlwaysColumn()
                 .HasColumnName("id_orden");
             entity.Property(e => e.Estado).HasColumnName("estado");
+            entity.Property(e => e.Fecha).HasColumnName("fecha");
         });
 
         modelBuilder.Entity<Pedido>(entity =>
@@ -741,6 +742,7 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.FechaEntrega).HasColumnName("fecha_entrega");
             entity.Property(e => e.FechaPedido).HasColumnName("fecha_pedido");
             entity.Property(e => e.IdOrden).HasColumnName("id_orden");
+            entity.Property(e => e.IdProveedor).HasColumnName("id_proveedor");
             entity.Property(e => e.MontoTotal)
                 .HasPrecision(12, 2)
                 .HasColumnName("monto_total");
@@ -748,6 +750,10 @@ public partial class PostgresContext : DbContext
             entity.HasOne(d => d.IdOrdenNavigation).WithMany(p => p.Pedidos)
                 .HasForeignKey(d => d.IdOrden)
                 .HasConstraintName("fk_pedidos_orden");
+
+            entity.HasOne(d => d.IdProveedorNavigation).WithMany(p => p.Pedidos)
+                .HasForeignKey(d => d.IdProveedor)
+                .HasConstraintName("fk_pedidos_proveedor");
         });
 
         modelBuilder.Entity<PedidoDetalle>(entity =>
@@ -765,7 +771,6 @@ public partial class PostgresContext : DbContext
                 .HasColumnName("cotizacion");
             entity.Property(e => e.IdPedido).HasColumnName("id_pedido");
             entity.Property(e => e.IdProducto).HasColumnName("id_producto");
-            entity.Property(e => e.IdProveedor).HasColumnName("id_proveedor");
             entity.Property(e => e.Iva)
                 .HasPrecision(5, 2)
                 .HasColumnName("iva");
@@ -777,10 +782,6 @@ public partial class PostgresContext : DbContext
             entity.HasOne(d => d.IdProductoNavigation).WithMany(p => p.PedidoDetalles)
                 .HasForeignKey(d => d.IdProducto)
                 .HasConstraintName("fk_pedido_detalles_producto");
-
-            entity.HasOne(d => d.IdProveedorNavigation).WithMany(p => p.PedidoDetalles)
-                .HasForeignKey(d => d.IdProveedor)
-                .HasConstraintName("fk_pedido_detalles_proveedor");
         });
 
         modelBuilder.Entity<Personal>(entity =>
@@ -855,10 +856,6 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.Total)
                 .HasPrecision(12, 2)
                 .HasColumnName("total");
-
-            entity.HasOne(d => d.IdOrdenNavigation).WithMany(p => p.Presupuestos)
-                .HasForeignKey(d => d.IdOrden)
-                .HasConstraintName("fk_presupuestos_orden");
 
             entity.HasOne(d => d.IdProveedorNavigation).WithMany(p => p.Presupuestos)
                 .HasForeignKey(d => d.IdProveedor)

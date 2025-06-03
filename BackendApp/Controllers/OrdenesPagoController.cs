@@ -6,10 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BackendApp.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("api/[controller]")]
     public class OrdenesPagoController : ControllerBase
     {
@@ -57,6 +59,16 @@ namespace BackendApp.Controllers
             if (!success)
                 return BadRequest("No se pudo procesar el presupuesto. Orden inválida.");
             return CreatedAtAction(nameof(GetOrdenPagoById), new { id = dto.OrdenId }, null);
+        }
+
+
+        [HttpGet("{id}/pedidos-con-detalles")]
+        public async Task<ActionResult<List<PedidoConDetallesDto>>> GetPedidosConDetalles(long id)
+        {
+            var resultado = await _ordenPagoService.GetPedidosConDetallesByOrdenAsync(id);
+            if (resultado == null || resultado.Count == 0)
+                return NotFound();
+            return Ok(resultado);
         }
 
         // DELETE api/OrdenesPago/{id}
