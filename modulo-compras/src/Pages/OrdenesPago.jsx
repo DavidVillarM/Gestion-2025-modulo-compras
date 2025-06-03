@@ -14,14 +14,21 @@ export const OrdenesPago = () => {
   const [estadoFiltro, setEstadoFiltro] = useState('');
 
   const fetchOrdenes = async () => {
-    try {
-      const response = await axios.get('http://localhost:5000/api/OrdenesPago');
-      setDataOriginal(response.data);
-      setData(response.data);
-    } catch (error) {
-      console.error('Error al obtener órdenes:', error);
-    }
-  };
+  try {
+    const token = localStorage.getItem('token');
+    const response = await axios.get('http://localhost:5000/api/OrdenesPago', {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+    setDataOriginal(response.data);
+    setData(response.data);
+  } catch (error) {
+    console.error('Error al obtener órdenes:', error);
+  }
+};
+  
+  
 
   useEffect(() => {
     fetchOrdenes();
@@ -45,7 +52,7 @@ export const OrdenesPago = () => {
   }, [search, estadoFiltro, dataOriginal]);
 
   const handleEliminar = async (idOrden) => {
-    if (!window.confirm('¿Confirma la eliminación de esta orden?')) return;
+    if (!window.confirm('¿Confirma la eliminacion de esta orden?')) return;
     try {
       await axios.delete(`http://localhost:5000/api/OrdenesPago/${idOrden}`);
       setDataOriginal(prev => prev.filter(item => item.idOrden !== idOrden));
@@ -137,7 +144,7 @@ export const OrdenesPago = () => {
         highlightOnHover
         responsive
         striped
-        noDataComponent="No se encontraron órdenes"
+        noDataComponent="No se encontraron ordenes"
       />
     </div>
   );

@@ -415,4 +415,15 @@ C:\Users\Catbe\Desktop\git\Gestion-2025-modulo-compras\BackendApp\bin\Debug\net9
 C:\Users\Catbe\Desktop\git\Gestion-2025-modulo-compras\BackendApp\bin\Debug\net9.0\Microsoft.Extensions.FileSystemGlobbing.dll
 C:\Users\Catbe\Desktop\git\Gestion-2025-modulo-compras\BackendApp\bin\Debug\net9.0\System.Text.Json.dll
 C:\Users\Catbe\Desktop\git\Gestion-2025-modulo-compras\BackendApp\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+<<<<<<< HEAD
 >>>>>>> 3aaea8b (ordenes)
+=======
+C:\Users\Catbe\Desktop\git\Gestion-2025-modulo-compras\BackendApp\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Catbe\Desktop\git\Gestion-2025-modulo-compras\BackendApp\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Catbe\Desktop\git\Gestion-2025-modulo-compras\BackendApp\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Catbe\Desktop\git\Gestion-2025-modulo-compras\BackendApp\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Catbe\Desktop\git\Gestion-2025-modulo-compras\BackendApp\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Catbe\Desktop\git\Gestion-2025-modulo-compras\BackendApp\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Catbe\Desktop\git\Gestion-2025-modulo-compras\BackendApp\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Catbe\Desktop\git\Gestion-2025-modulo-compras\BackendApp\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+>>>>>>> 31717cc (marteskilombofarra)

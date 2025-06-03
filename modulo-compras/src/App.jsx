@@ -12,28 +12,30 @@ import { OrdenesPago } from './Pages/OrdenesPago.jsx'
 import { OrdenesPresupuesto } from './Pages/OrdenesPresupuesto.jsx'
 import { OrdenesPresupuestoFinal } from './Pages/OrdenesPresupuestoFinal.jsx'
 import { OrdenesVista } from './Pages/OrdenesVista.jsx'
-
-
+import {Login} from './Pages/login.jsx';
+import { useLocation } from "react-router-dom";
 
 function App() {
+  const location = useLocation();
+  const isLoginPage = location.pathname === '/login';
+
   return (
-    <Router>
-      <div className="flex h-screen overflow-hidden">
-        <SideBar />
-        <div className="flex-1 overflow-y-auto bg-gray-100">
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/categorias" element={<Categorias />} />
-            <Route path="/productos" element={<Products />} />
-            <Route path="/recepcion" element={<RecepcionProductos />} />
-            <Route path="/ordenes-pago" element={<OrdenesPago />} />
-            <Route path="/ordenes-presupuesto/" element={<OrdenesPresupuesto />} />
-            <Route path="/ordenes-vista/:id" element={<OrdenesVista />} />
-           <Route path="/ordenes-presupuesto-final" element={<OrdenesPresupuestoFinal />} />
-          </Routes>
-        </div>
+    <div className="flex h-screen overflow-hidden">
+      {!isLoginPage && <SideBar />}
+      <div className="flex-1 overflow-y-auto bg-gray-100">
+        <Routes>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/categorias" element={<Categorias />} />
+          <Route path="/productos" element={<Products />} />
+          <Route path="/recepcion" element={<RecepcionProductos />} />
+          <Route path="/ordenes-pago" element={<OrdenesPago />} />
+          <Route path="/ordenes-presupuesto/" element={<OrdenesPresupuesto />} />
+          <Route path="/ordenes-vista/:id" element={<OrdenesVista />} />
+          <Route path="/ordenes-presupuesto-final" element={<OrdenesPresupuestoFinal />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
       </div>
-    </Router>
+    </div>
   );
 }
 

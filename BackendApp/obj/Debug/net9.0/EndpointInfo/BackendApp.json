@@ -6,6 +6,37 @@
     "version": "v1"
   },
   "paths": {
+    "/api/Auth/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Dashboard/compras-mensuales": {
       "get": {
         "tags": [
@@ -281,6 +312,55 @@
         }
       }
     },
+    "/api/OrdenesPago/{id}/pedidos-con-detalles": {
+      "get": {
+        "tags": [
+          "OrdenesPago"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PedidoConDetallesDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PedidoConDetallesDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PedidoConDetallesDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Productos": {
       "get": {
         "tags": [
@@ -355,6 +435,80 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/api/Recepciones/ordenes-pendientes": {
+      "get": {
+        "tags": [
+          "Recepciones"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Recepciones/registrar": {
+      "post": {
+        "tags": [
+          "Recepciones"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RecepcionDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RecepcionDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RecepcionDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Recepciones/rechazar": {
+      "post": {
+        "tags": [
+          "Recepciones"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RechazoRecepcionDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RechazoRecepcionDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RechazoRecepcionDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       }
@@ -622,6 +776,20 @@
         },
         "additionalProperties": false
       },
+      "LoginRequest": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "NotaCreditoDetalle": {
         "type": "object",
         "properties": {
@@ -787,6 +955,11 @@
             "type": "string",
             "nullable": true
           },
+          "fecha": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
           "ordenDetalles": {
             "type": "array",
             "items": {
@@ -798,13 +971,6 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Pedido"
-            },
-            "nullable": true
-          },
-          "presupuestos": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Presupuesto"
             },
             "nullable": true
           }
@@ -819,6 +985,10 @@
             "format": "int64"
           },
           "idOrden": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idProveedor": {
             "type": "integer",
             "format": "int64"
           },
@@ -844,12 +1014,49 @@
           "idOrdenNavigation": {
             "$ref": "#/components/schemas/Ordene"
           },
+          "idProveedorNavigation": {
+            "$ref": "#/components/schemas/Proveedore"
+          },
           "pedidoDetalles": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/PedidoDetalle"
             },
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PedidoConDetallesDto": {
+        "type": "object",
+        "properties": {
+          "idPedido": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "proveedor": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaPedido": {
+            "type": "string",
+            "format": "date"
+          },
+          "fechaEntrega": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "detalles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PedidoDetalleSimpleDto"
+            },
+            "nullable": true
+          },
+          "montoTotal": {
+            "type": "number",
+            "format": "double"
           }
         },
         "additionalProperties": false
@@ -866,10 +1073,6 @@
             "format": "int64"
           },
           "idProducto": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "idProveedor": {
             "type": "integer",
             "format": "int64"
           },
@@ -893,9 +1096,36 @@
           },
           "idProductoNavigation": {
             "$ref": "#/components/schemas/Producto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PedidoDetalleSimpleDto": {
+        "type": "object",
+        "properties": {
+          "idPedidoDetalle": {
+            "type": "integer",
+            "format": "int64"
           },
-          "idProveedorNavigation": {
-            "$ref": "#/components/schemas/Proveedore"
+          "producto": {
+            "type": "string",
+            "nullable": true
+          },
+          "cotizacion": {
+            "type": "number",
+            "format": "double"
+          },
+          "cantidad": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "iva": {
+            "type": "number",
+            "format": "double"
+          },
+          "subtotal": {
+            "type": "number",
+            "format": "double"
           }
         },
         "additionalProperties": false
@@ -1044,9 +1274,6 @@
             "type": "number",
             "format": "double",
             "nullable": true
-          },
-          "idOrdenNavigation": {
-            "$ref": "#/components/schemas/Ordene"
           },
           "idProveedorNavigation": {
             "$ref": "#/components/schemas/Proveedore"
@@ -1323,6 +1550,20 @@
         },
         "additionalProperties": false
       },
+      "ProductoRecibidoDTO": {
+        "type": "object",
+        "properties": {
+          "productoId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "cantidadRecibida": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
       "Proveedore": {
         "type": "object",
         "properties": {
@@ -1371,10 +1612,10 @@
             },
             "nullable": true
           },
-          "pedidoDetalles": {
+          "pedidos": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/PedidoDetalle"
+              "$ref": "#/components/schemas/Pedido"
             },
             "nullable": true
           },
@@ -1398,6 +1639,41 @@
               "$ref": "#/components/schemas/ProductoProveedor"
             },
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RecepcionDTO": {
+        "type": "object",
+        "properties": {
+          "ordenId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "numeroFactura": {
+            "type": "string",
+            "nullable": true
+          },
+          "timbrado": {
+            "type": "string",
+            "nullable": true
+          },
+          "productos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductoRecibidoDTO"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RechazoRecepcionDTO": {
+        "type": "object",
+        "properties": {
+          "ordenId": {
+            "type": "integer",
+            "format": "int64"
           }
         },
         "additionalProperties": false

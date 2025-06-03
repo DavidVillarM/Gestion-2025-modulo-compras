@@ -42,7 +42,7 @@ namespace BackendApp.Services
 
         public async Task<List<object>> GetProductosMasPedidos()
         {
-            return await _context.OrdenDetalles
+            return await _context.PedidoDetalles
                 .GroupBy(d => d.IdProducto)
                 .Select(g => new
                 {
@@ -67,7 +67,7 @@ namespace BackendApp.Services
 
         public async Task<List<object>> GetProductosMenosPedidos()
         {
-            return await _context.OrdenDetalles
+            return await _context.PedidoDetalles
                 .GroupBy(d => d.IdProducto)
                 .Select(g => new
                 {
@@ -92,15 +92,13 @@ namespace BackendApp.Services
 
         public async Task<List<object>> GetProductosPedidosPorMes()
         {
-            var datos = await _context.OrdenDetalles
-                .Where(d => d.IdOrdenNavigation.Pedidos.Any(p => p.FechaPedido.HasValue))
-                .SelectMany(d => d.IdOrdenNavigation.Pedidos
-                    .Where(p => p.FechaPedido.HasValue)
-                    .Select(p => new
-                    {
-                        Mes = new DateTime(p.FechaPedido.Value.Year, p.FechaPedido.Value.Month, 1),
-                        Cantidad = d.Cantidad ?? 0
-                    }))
+            var datos = await _context.PedidoDetalles
+                .Where(d => d.IdPedidoNavigation.FechaPedido.HasValue)
+                .Select(d => new
+                {
+                    Mes = new DateTime(d.IdPedidoNavigation.FechaPedido.Value.Year, d.IdPedidoNavigation.FechaPedido.Value.Month, 1),
+                    Cantidad = d.Cantidad ?? 0
+                })
                 .ToListAsync();
 
             return datos
