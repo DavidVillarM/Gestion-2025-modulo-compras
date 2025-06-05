@@ -17,5 +17,9 @@ public partial class FacturaDetalle
 
     public decimal? Iva10 { get; set; }
 
+    public long IdFactura { get; set; }
+
     public virtual Producto? IdProductoNavigation { get; set; }
+    public virtual Factura Factura { get; set; } = null!;
 }
+    

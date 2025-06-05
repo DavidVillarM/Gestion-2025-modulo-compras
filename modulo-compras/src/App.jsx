@@ -12,6 +12,7 @@ import { OrdenesPago } from './Pages/OrdenesPago.jsx'
 import { OrdenesPresupuesto } from './Pages/OrdenesPresupuesto.jsx'
 import { OrdenesPresupuestoFinal } from './Pages/OrdenesPresupuestoFinal.jsx'
 import { OrdenesVista } from './Pages/OrdenesVista.jsx'
+import FacturaForm from './Pages/FacturaForm';
 import {Login} from './Pages/login.jsx';
 import { useLocation } from "react-router-dom";
 
@@ -27,6 +28,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/categorias" element={<Categorias />} />
           <Route path="/productos" element={<Products />} />
+          <Route path="/facturas/nueva" element={<FacturaForm />} />
           <Route path="/recepcion" element={<RecepcionProductos />} />
           <Route path="/ordenes-pago" element={<OrdenesPago />} />
           <Route path="/ordenes-presupuesto/" element={<OrdenesPresupuesto />} />

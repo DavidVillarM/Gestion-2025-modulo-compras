@@ -1,8 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\",
+  "WorkspaceRootPath": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\",
   "Documents": [
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -89,186 +90,110 @@
       "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:services\\iproductoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
 =======
       "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\controllers\\ordenespagocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+=======
+      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras\\backendapp\\controllers\\ordenespagocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+>>>>>>> a6a4f18 (actualizacion factura)
       "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:controllers\\ordenespagocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
 >>>>>>> 31717cc (marteskilombofarra)
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\services\\ordenpagoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:services\\ordenpagoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\controllers\\recepcionescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:controllers\\recepcionescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\dtos\\loginresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:dtos\\loginresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\dtos\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:dtos\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\models\\pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\services\\dashboardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:services\\dashboardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\backendapp.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:backendapp.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\backendapp.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:backendapp.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\models\\presupuestosproveedore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\presupuestosproveedore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\migrations\\20250422144112_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:migrations\\20250422144112_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\controllers\\hellocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:controllers\\hellocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\services\\iproductoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:services\\iproductoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\models\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\models\\proveedore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\proveedore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\models\\proveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\proveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\models\\pedidodetalle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\pedidodetalle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\models\\serviciosproductosutilizado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\serviciosproductosutilizado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\models\\postgrescontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\postgrescontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\models\\serviciosrealizado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\serviciosrealizado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\models\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\models\\bucket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\bucket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\models\\ordendetalle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\ordendetalle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\models\\personal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\personal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\migrations\\appdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:migrations\\appdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Catbe\\AppData\\Local\\SourceServer\\8adbd76e7db79db9f4eb883a4ee90d401531b0e12c2a8eddfb6ba9e820c8efa2\\BackendApp\\Controllers\\OrdenesPagoController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\models\\refreshtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\refreshtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\models\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\models\\samlrelaystate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\samlrelaystate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\models\\schemamigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\schemamigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\models\\schemamigration1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\schemamigration1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\models\\precio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\precio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\models\\ordene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\ordene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\backendapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:backendapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\models\\facturadetalle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras\\backendapp\\models\\facturadetalle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\facturadetalle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\models\\factura.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras\\backendapp\\models\\factura.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\factura.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\models\\notacreditodetalle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras\\backendapp\\controllers\\facturascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:controllers\\facturascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras\\backendapp\\models\\detalleordencompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\detalleordencompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras\\backendapp\\models\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras\\backendapp\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras\\backendapp\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras\\backendapp\\dtos\\facturarequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:dtos\\facturarequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras\\backendapp\\dtos\\loginresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:dtos\\loginresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras\\backendapp\\dtos\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:dtos\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras\\backendapp\\controllers\\recepcionescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:controllers\\recepcionescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras\\backendapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras\\backendapp\\models\\bucket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\bucket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras\\backendapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras\\backendapp\\backendapp.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:backendapp.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras\\backendapp\\services\\dashboardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:services\\dashboardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras\\backendapp\\models\\precio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\precio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras\\backendapp\\models\\ordendetalle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\ordendetalle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras\\backendapp\\backendapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:backendapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras\\backendapp\\models\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras\\backendapp\\models\\ordene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\ordene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras\\backendapp\\models\\pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras\\backendapp\\models\\postgrescontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\postgrescontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras\\backendapp\\models\\notacreditodetalle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\notacreditodetalle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\users\\catbe\\desktop\\git\\gestion-2025-modulo-compras\\backendapp\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras\\backendapp\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
 >>>>>>> b4ab145 (mensaje)
     }
@@ -280,6 +205,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -438,103 +364,68 @@
 =======
           "SelectedChildIndex": 6,
 >>>>>>> 3aaea8b (ordenes)
+=======
+          "SelectedChildIndex": 2,
+>>>>>>> a6a4f18 (actualizacion factura)
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "LoginRequest.cs",
-              "DocumentMoniker": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Dtos\\LoginRequest.cs",
-              "RelativeDocumentMoniker": "Dtos\\LoginRequest.cs",
-              "ToolTip": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Dtos\\LoginRequest.cs",
-              "RelativeToolTip": "Dtos\\LoginRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T16:33:55.919Z"
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "OrdenPagoService.cs",
-              "DocumentMoniker": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Services\\OrdenPagoService.cs",
-              "RelativeDocumentMoniker": "Services\\OrdenPagoService.cs",
-              "ToolTip": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Services\\OrdenPagoService.cs",
-              "RelativeToolTip": "Services\\OrdenPagoService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T18:53:15.69Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAEYAAAAAAAAAAAAgwBUAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-06T00:59:56.825Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-05-06T01:05:06.664Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "DashboardService.cs",
-              "DocumentMoniker": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Services\\DashboardService.cs",
-              "RelativeDocumentMoniker": "Services\\DashboardService.cs",
-              "ToolTip": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Services\\DashboardService.cs",
-              "RelativeToolTip": "Services\\DashboardService.cs",
-              "ViewState": "AgIAAF4AAAAAAAAAAAAkwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T19:03:03.003Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "RecepcionesController.cs",
-              "DocumentMoniker": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Controllers\\RecepcionesController.cs",
-              "RelativeDocumentMoniker": "Controllers\\RecepcionesController.cs",
-              "ToolTip": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Controllers\\RecepcionesController.cs",
-              "RelativeToolTip": "Controllers\\RecepcionesController.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T17:42:17.099Z"
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "OrdenesPagoController.cs",
-              "DocumentMoniker": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Controllers\\OrdenesPagoController.cs",
+              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Controllers\\OrdenesPagoController.cs",
               "RelativeDocumentMoniker": "Controllers\\OrdenesPagoController.cs",
-              "ToolTip": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Controllers\\OrdenesPagoController.cs",
+              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Controllers\\OrdenesPagoController.cs",
               "RelativeToolTip": "Controllers\\OrdenesPagoController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T18:56:48.312Z",
+              "WhenOpened": "2025-06-05T22:37:59.61Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DetalleOrdenCompra.cs",
+              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Models\\DetalleOrdenCompra.cs",
+              "RelativeDocumentMoniker": "Models\\DetalleOrdenCompra.cs",
+              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Models\\DetalleOrdenCompra.cs",
+              "RelativeToolTip": "Models\\DetalleOrdenCompra.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-05T21:25:11.7Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Models\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Models\\AppDbContext.cs",
+              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Models\\AppDbContext.cs",
+              "RelativeToolTip": "Models\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-05T21:13:55.449Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
-              "ToolTip": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "Controllers\\AuthController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "FacturasController.cs",
+              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Controllers\\FacturasController.cs",
+              "RelativeDocumentMoniker": "Controllers\\FacturasController.cs",
+              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Controllers\\FacturasController.cs",
+              "RelativeToolTip": "Controllers\\FacturasController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+<<<<<<< HEAD
               "WhenOpened": "2025-06-03T16:35:09.098Z"
             },
             {
@@ -897,237 +788,261 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-27T06:23:26.396Z"
+=======
+              "WhenOpened": "2025-06-05T20:28:00.365Z",
+              "EditorCaption": ""
+>>>>>>> a6a4f18 (actualizacion factura)
             },
             {
               "$type": "Document",
               "DocumentIndex": 22,
-              "Title": "Usuario.cs",
-              "DocumentMoniker": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Models\\Usuario.cs",
-              "RelativeDocumentMoniker": "Models\\Usuario.cs",
-              "ToolTip": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Models\\Usuario.cs",
-              "RelativeToolTip": "Models\\Usuario.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "Pedido.cs",
+              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Models\\Pedido.cs",
+              "RelativeDocumentMoniker": "Models\\Pedido.cs",
+              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Models\\Pedido.cs",
+              "RelativeToolTip": "Models\\Pedido.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T05:04:25.568Z"
+              "WhenOpened": "2025-05-06T16:00:35.557Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "ServiciosProductosUtilizado.cs",
-              "DocumentMoniker": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Models\\ServiciosProductosUtilizado.cs",
-              "RelativeDocumentMoniker": "Models\\ServiciosProductosUtilizado.cs",
-              "ToolTip": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Models\\ServiciosProductosUtilizado.cs",
-              "RelativeToolTip": "Models\\ServiciosProductosUtilizado.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T04:57:18.984Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "PostgresContext.cs",
-              "DocumentMoniker": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Models\\PostgresContext.cs",
-              "RelativeDocumentMoniker": "Models\\PostgresContext.cs",
-              "ToolTip": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Models\\PostgresContext.cs",
-              "RelativeToolTip": "Models\\PostgresContext.cs",
-              "ViewState": "AgIAAEoAAAAAAAAAAAAewEQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-06T01:37:49.461Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "ServiciosRealizado.cs",
-              "DocumentMoniker": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Models\\ServiciosRealizado.cs",
-              "RelativeDocumentMoniker": "Models\\ServiciosRealizado.cs",
-              "ToolTip": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Models\\ServiciosRealizado.cs",
-              "RelativeToolTip": "Models\\ServiciosRealizado.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T06:28:07.641Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "Bucket.cs",
-              "DocumentMoniker": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Models\\Bucket.cs",
-              "RelativeDocumentMoniker": "Models\\Bucket.cs",
-              "ToolTip": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Models\\Bucket.cs",
-              "RelativeToolTip": "Models\\Bucket.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T03:42:26.372Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Models\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "Models\\AppDbContext.cs",
-              "ToolTip": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Models\\AppDbContext.cs",
-              "RelativeToolTip": "Models\\AppDbContext.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAqwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T03:51:36.112Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 18,
               "Title": "OrdenDetalle.cs",
-              "DocumentMoniker": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Models\\OrdenDetalle.cs",
+              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Models\\OrdenDetalle.cs",
               "RelativeDocumentMoniker": "Models\\OrdenDetalle.cs",
-              "ToolTip": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Models\\OrdenDetalle.cs",
+              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Models\\OrdenDetalle.cs",
               "RelativeToolTip": "Models\\OrdenDetalle.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAxwBMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-06T12:00:29.129Z"
+              "WhenOpened": "2025-05-06T12:00:29.129Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "Personal.cs",
-              "DocumentMoniker": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Models\\Personal.cs",
-              "RelativeDocumentMoniker": "Models\\Personal.cs",
-              "ToolTip": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Models\\Personal.cs",
-              "RelativeToolTip": "Models\\Personal.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T06:46:48.649Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "AppDbContextModelSnapshot.cs",
-              "DocumentMoniker": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Migrations\\AppDbContextModelSnapshot.cs",
-              "RelativeDocumentMoniker": "Migrations\\AppDbContextModelSnapshot.cs",
-              "ToolTip": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Migrations\\AppDbContextModelSnapshot.cs",
-              "RelativeToolTip": "Migrations\\AppDbContextModelSnapshot.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T06:42:17.951Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "RefreshToken.cs",
-              "DocumentMoniker": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Models\\RefreshToken.cs",
-              "RelativeDocumentMoniker": "Models\\RefreshToken.cs",
-              "ToolTip": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Models\\RefreshToken.cs",
-              "RelativeToolTip": "Models\\RefreshToken.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T18:50:35.035Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "OrdenesPagoController.cs",
-              "DocumentMoniker": "C:\\Users\\Catbe\\AppData\\Local\\SourceServer\\8adbd76e7db79db9f4eb883a4ee90d401531b0e12c2a8eddfb6ba9e820c8efa2\\BackendApp\\Controllers\\OrdenesPagoController.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\AppData\\Local\\SourceServer\\8adbd76e7db79db9f4eb883a4ee90d401531b0e12c2a8eddfb6ba9e820c8efa2\\BackendApp\\Controllers\\OrdenesPagoController.cs",
-              "ToolTip": "C:\\Users\\Catbe\\AppData\\Local\\SourceServer\\8adbd76e7db79db9f4eb883a4ee90d401531b0e12c2a8eddfb6ba9e820c8efa2\\BackendApp\\Controllers\\OrdenesPagoController.cs",
-              "RelativeToolTip": "..\\..\\..\\..\\AppData\\Local\\SourceServer\\8adbd76e7db79db9f4eb883a4ee90d401531b0e12c2a8eddfb6ba9e820c8efa2\\BackendApp\\Controllers\\OrdenesPagoController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAIBpwB0AAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T06:49:28.387Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "Role.cs",
-              "DocumentMoniker": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Models\\Role.cs",
-              "RelativeDocumentMoniker": "Models\\Role.cs",
-              "ToolTip": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Models\\Role.cs",
-              "RelativeToolTip": "Models\\Role.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T18:50:34.322Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "SamlRelayState.cs",
-              "DocumentMoniker": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Models\\SamlRelayState.cs",
-              "RelativeDocumentMoniker": "Models\\SamlRelayState.cs",
-              "ToolTip": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Models\\SamlRelayState.cs",
-              "RelativeToolTip": "Models\\SamlRelayState.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T06:28:16.849Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "SchemaMigration.cs",
-              "DocumentMoniker": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Models\\SchemaMigration.cs",
-              "RelativeDocumentMoniker": "Models\\SchemaMigration.cs",
-              "ToolTip": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Models\\SchemaMigration.cs",
-              "RelativeToolTip": "Models\\SchemaMigration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T06:28:15.129Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 21,
               "Title": "Ordene.cs",
-              "DocumentMoniker": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Models\\Ordene.cs",
+              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Models\\Ordene.cs",
               "RelativeDocumentMoniker": "Models\\Ordene.cs",
-              "ToolTip": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Models\\Ordene.cs",
+              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Models\\Ordene.cs",
               "RelativeToolTip": "Models\\Ordene.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-06T12:08:43.996Z"
+              "WhenOpened": "2025-05-06T12:08:43.996Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "SchemaMigration1.cs",
-              "DocumentMoniker": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Models\\SchemaMigration1.cs",
-              "RelativeDocumentMoniker": "Models\\SchemaMigration1.cs",
-              "ToolTip": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Models\\SchemaMigration1.cs",
-              "RelativeToolTip": "Models\\SchemaMigration1.cs",
+              "DocumentIndex": 15,
+              "Title": "BackendApp.http",
+              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\BackendApp.http",
+              "RelativeDocumentMoniker": "BackendApp.http",
+              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\BackendApp.http",
+              "RelativeToolTip": "BackendApp.http",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2025-05-06T01:06:51.807Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DashboardController.cs",
+              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Controllers\\DashboardController.cs",
+              "RelativeDocumentMoniker": "Controllers\\DashboardController.cs",
+              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Controllers\\DashboardController.cs",
+              "RelativeToolTip": "Controllers\\DashboardController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T16:04:53.434Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Factura.cs",
+              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Models\\Factura.cs",
+              "RelativeDocumentMoniker": "Models\\Factura.cs",
+              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Models\\Factura.cs",
+              "RelativeToolTip": "Models\\Factura.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAA1wBQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T16:01:17.708Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FacturaDetalle.cs",
+              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Models\\FacturaDetalle.cs",
+              "RelativeDocumentMoniker": "Models\\FacturaDetalle.cs",
+              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Models\\FacturaDetalle.cs",
+              "RelativeToolTip": "Models\\FacturaDetalle.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T16:01:42.124Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "LoginRequest.cs",
+              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Dtos\\LoginRequest.cs",
+              "RelativeDocumentMoniker": "Dtos\\LoginRequest.cs",
+              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Dtos\\LoginRequest.cs",
+              "RelativeToolTip": "Dtos\\LoginRequest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T18:50:33.08Z"
+              "WhenOpened": "2025-06-05T20:23:58.787Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 9,
+              "Title": "LoginResponse.cs",
+              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Dtos\\LoginResponse.cs",
+              "RelativeDocumentMoniker": "Dtos\\LoginResponse.cs",
+              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Dtos\\LoginResponse.cs",
+              "RelativeToolTip": "Dtos\\LoginResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-05T20:24:04.286Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "FacturaRequestDto.cs",
+              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Dtos\\FacturaRequestDto.cs",
+              "RelativeDocumentMoniker": "Dtos\\FacturaRequestDto.cs",
+              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Dtos\\FacturaRequestDto.cs",
+              "RelativeToolTip": "Dtos\\FacturaRequestDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-05T20:25:40.477Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Controllers\\AuthController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-05T20:28:23.141Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAADMAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T00:59:56.825Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Bucket.cs",
+              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Models\\Bucket.cs",
+              "RelativeDocumentMoniker": "Models\\Bucket.cs",
+              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Models\\Bucket.cs",
+              "RelativeToolTip": "Models\\Bucket.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T19:25:06.874Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-06T01:05:06.664Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "RecepcionesController.cs",
+              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Controllers\\RecepcionesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\RecepcionesController.cs",
+              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Controllers\\RecepcionesController.cs",
+              "RelativeToolTip": "Controllers\\RecepcionesController.cs",
+              "ViewState": "AgIAAH0AAAAAAAAAAAAIwFkAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T01:01:50.388Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Producto.cs",
+              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Models\\Producto.cs",
+              "RelativeDocumentMoniker": "Models\\Producto.cs",
+              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Models\\Producto.cs",
+              "RelativeToolTip": "Models\\Producto.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAqwCsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T16:02:22.871Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "DashboardService.cs",
+              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Services\\DashboardService.cs",
+              "RelativeDocumentMoniker": "Services\\DashboardService.cs",
+              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Services\\DashboardService.cs",
+              "RelativeToolTip": "Services\\DashboardService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T16:09:48.287Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
               "Title": "Precio.cs",
-              "DocumentMoniker": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Models\\Precio.cs",
+              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Models\\Precio.cs",
               "RelativeDocumentMoniker": "Models\\Precio.cs",
-              "ToolTip": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Models\\Precio.cs",
+              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Models\\Precio.cs",
               "RelativeToolTip": "Models\\Precio.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-06T16:46:41.065Z"
+              "WhenOpened": "2025-05-06T16:46:41.065Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
-              "Title": "appsettings.Development.json",
-              "DocumentMoniker": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\appsettings.Development.json",
-              "RelativeDocumentMoniker": "appsettings.Development.json",
-              "ToolTip": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\appsettings.Development.json",
-              "RelativeToolTip": "appsettings.Development.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-05-09T18:48:08.759Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 43,
-              "Title": "Factura.cs",
-              "DocumentMoniker": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Models\\Factura.cs",
-              "RelativeDocumentMoniker": "Models\\Factura.cs",
-              "ToolTip": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Models\\Factura.cs",
-              "RelativeToolTip": "Models\\Factura.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAqwCEAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 23,
+              "Title": "PostgresContext.cs",
+              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Models\\PostgresContext.cs",
+              "RelativeDocumentMoniker": "Models\\PostgresContext.cs",
+              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Models\\PostgresContext.cs",
+              "RelativeToolTip": "Models\\PostgresContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-06T16:01:17.708Z"
+              "WhenOpened": "2025-05-06T01:37:49.461Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 42,
               "Title": "FacturaDetalle.cs",
               "DocumentMoniker": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Models\\FacturaDetalle.cs",
@@ -1146,10 +1061,13 @@
 =======
               "DocumentIndex": 41,
 >>>>>>> 31717cc (marteskilombofarra)
+=======
+              "DocumentIndex": 19,
+>>>>>>> a6a4f18 (actualizacion factura)
               "Title": "BackendApp.csproj",
-              "DocumentMoniker": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\BackendApp.csproj",
+              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\BackendApp.csproj",
               "RelativeDocumentMoniker": "BackendApp.csproj",
-              "ToolTip": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\BackendApp.csproj",
+              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\BackendApp.csproj",
               "RelativeToolTip": "BackendApp.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
@@ -1169,19 +1087,25 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 24,
               "Title": "NotaCreditoDetalle.cs",
-              "DocumentMoniker": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Models\\NotaCreditoDetalle.cs",
+              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Models\\NotaCreditoDetalle.cs",
               "RelativeDocumentMoniker": "Models\\NotaCreditoDetalle.cs",
+<<<<<<< HEAD
               "ToolTip": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Models\\NotaCreditoDetalle.cs",
 >>>>>>> b4ab145 (mensaje)
+=======
+              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Models\\NotaCreditoDetalle.cs",
+>>>>>>> a6a4f18 (actualizacion factura)
               "RelativeToolTip": "Models\\NotaCreditoDetalle.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-06T14:37:55.634Z"
+              "WhenOpened": "2025-05-06T14:37:55.634Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1211,15 +1135,23 @@
 =======
               "DocumentIndex": 45,
 >>>>>>> 31717cc (marteskilombofarra)
+=======
+              "DocumentIndex": 25,
+>>>>>>> a6a4f18 (actualizacion factura)
               "Title": "launchSettings.json",
-              "DocumentMoniker": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Properties\\launchSettings.json",
+              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "Properties\\launchSettings.json",
+<<<<<<< HEAD
               "ToolTip": "C:\\Users\\Catbe\\Desktop\\git\\Gestion-2025-modulo-compras\\BackendApp\\Properties\\launchSettings.json",
 >>>>>>> b4ab145 (mensaje)
+=======
+              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\Properties\\launchSettings.json",
+>>>>>>> a6a4f18 (actualizacion factura)
               "RelativeToolTip": "Properties\\launchSettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAIBJwA4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-05-06T00:58:44.39Z"
+              "WhenOpened": "2025-05-06T00:58:44.39Z",
+              "EditorCaption": ""
             }
           ]
         }
