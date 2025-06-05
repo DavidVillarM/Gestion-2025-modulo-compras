@@ -30,4 +30,5 @@ public partial class Factura
     public string? Estado { get; set; }
 
     public virtual Proveedore? IdProveedorNavigation { get; set; }
+    public virtual ICollection<FacturaDetalle> FacturaDetalles { get; set; } = new List<FacturaDetalle>();
 }
