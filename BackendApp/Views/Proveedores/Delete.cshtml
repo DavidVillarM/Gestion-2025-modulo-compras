@@ -1,0 +1,22 @@
+﻿@model ModuloCompras.Models.Proveedor
+
+@{
+    ViewData["Title"] = "Eliminar Proveedor";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h3>¿Estás seguro de que deseas eliminar al proveedor @Model.Nombre?</h3>
+
+<ul>
+    <li><strong>RUC:</strong> @Model.Ruc</li>
+    <li><strong>Nombre:</strong> @Model.Nombre</li>
+    <li><strong>Correo:</strong> @Model.Correo</li>
+    <li><strong>Teléfono:</strong> @Model.Telefono</li>
+    <li><strong>Nombre de Contacto:</strong> @Model.NombreContacto</li>
+</ul>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a href="@Url.Action("Index", "Proveedores")" class="btn btn-secondary">Cancelar</a>
+</form>

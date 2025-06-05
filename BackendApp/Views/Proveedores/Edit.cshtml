@@ -1,0 +1,31 @@
+﻿@model ModuloCompras.Models.Proveedor
+
+@{
+    ViewData["Title"] = "Editar Proveedor";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Edit" method="post">
+    <div class="form-group">
+        <label for="Ruc">RUC</label>
+        <input type="text" class="form-control" id="Ruc" name="Ruc" value="@Model.Ruc" required />
+    </div>
+    <div class="form-group">
+        <label for="Nombre">Nombre</label>
+        <input type="text" class="form-control" id="Nombre" name="Nombre" value="@Model.Nombre" required />
+    </div>
+    <div class="form-group">
+        <label for="Correo">Correo</label>
+        <input type="email" class="form-control" id="Correo" name="Correo" value="@Model.Correo" required />
+    </div>
+    <div class="form-group">
+        <label for="Telefono">Teléfono</label>
+        <input type="text" class="form-control" id="Telefono" name="Telefono" value="@Model.Telefono" />
+    </div>
+    <div class="form-group">
+        <label for="Nombre_Contacto">Nombre de Contacto</label>
+        <input type="text" class="form-control" id="NombreContacto" name="NombreContacto" value="@Model.NombreContacto" />
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>

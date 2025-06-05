@@ -1,0 +1,9 @@
+# Ignorar carpetas de Visual Studio
+.vs/
+
+# Ignorar archivos de solución si no los quieres subir
+*.sln
+
+# Si hay otros archivos sueltos en la raíz que NO quieras subir, agrégalos aquí:
+# por ejemplo, si había un archivo bdv2.sql no deseado:
+bdv2.sql

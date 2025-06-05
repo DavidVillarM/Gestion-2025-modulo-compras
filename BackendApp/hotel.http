@@ -1,0 +1,6 @@
+@hotel_HostAddress = http://localhost:5010
+
+GET {{hotel_HostAddress}}/swagger/
+Accept: application/json
+###
+

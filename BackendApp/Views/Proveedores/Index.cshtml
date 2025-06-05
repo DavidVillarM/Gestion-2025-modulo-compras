@@ -1,0 +1,38 @@
+﻿@model IEnumerable<ModuloCompras.Models.Proveedor>
+
+@{
+    ViewData["Title"] = "Lista de Proveedores";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>RUC</th>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Teléfono</th>
+            <th>Nombre de Contacto</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var proveedor in Model)
+        {
+            <tr>
+                <td>@proveedor.Ruc</td>
+                <td>@proveedor.Nombre</td>
+                <td>@proveedor.Correo</td>
+                <td>@proveedor.Telefono</td>
+                <td>@proveedor.NombreContacto</td>
+                <td>
+                    <a href="@Url.Action("Edit", "Proveedores", new { id = proveedor.IdProveedor })">Editar</a> |
+                    <a href="@Url.Action("Delete", "Proveedores", new { id = proveedor.IdProveedor })">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Create", "Proveedores")">Crear nuevo proveedor</a>
