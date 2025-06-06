@@ -19,6 +19,8 @@ public partial class Pedido
 
     public string? Estado { get; set; }
 
+    public virtual ICollection<Factura> Facturas { get; set; } = new List<Factura>();
+
     public virtual Ordene IdOrdenNavigation { get; set; } = null!;
 
     public virtual Proveedore IdProveedorNavigation { get; set; } = null!;

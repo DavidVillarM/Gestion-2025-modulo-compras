@@ -20,6 +20,7 @@ builder.Services.AddControllers().AddJsonOptions(x =>
 builder.Services.AddScoped<DashboardService>();
 builder.Services.AddScoped<OrdenPagoService>();
 builder.Services.AddScoped<ProductoService>();
+builder.Services.AddScoped<PresupuestoService>();
 
 builder.Services.AddAuthentication(options =>
 {

@@ -7,9 +7,9 @@ public partial class Factura
 {
     public long IdFactura { get; set; }
 
-    public long? IdPedido { get; set; }
+    public long IdPedido { get; set; }
 
-    public long? IdProveedor { get; set; }
+    public long IdProveedor { get; set; }
 
     public DateOnly? Fecha { get; set; }
 
@@ -29,5 +29,11 @@ public partial class Factura
 
     public string? Estado { get; set; }
 
-    public virtual Proveedore? IdProveedorNavigation { get; set; }
+    public virtual ICollection<FacturaDetalle> FacturaDetalles { get; set; } = new List<FacturaDetalle>();
+
+    public virtual Pedido IdPedidoNavigation { get; set; } = null!;
+
+    public virtual Proveedore IdProveedorNavigation { get; set; } = null!;
+
+    public virtual ICollection<NotasCredito> NotasCreditos { get; set; } = new List<NotasCredito>();
 }

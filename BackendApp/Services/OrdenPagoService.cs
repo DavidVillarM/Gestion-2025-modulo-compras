@@ -1,5 +1,6 @@
 ﻿// File: Services/OrdenPagoService.cs
 using BackendApp.Models;
+using BackendApp.Services.Dtos;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -23,19 +24,6 @@ namespace BackendApp.Services
     }
 
     // DTO para cada línea de “presupuesto” enviada desde el frontend
-    public class PresupuestoDetalleDto
-    {
-        public long IdProducto { get; set; }
-
-        // Antes estaba aquí; ahora el IdProveedor va en cada Pedido
-        public long IdProveedor { get; set; }
-
-        public decimal Cotizacion { get; set; }
-
-        public int Cantidad { get; set; }
-
-        public decimal Iva { get; set; }
-    }
 
 
     public class PedidoDetalleSimpleDto
@@ -59,10 +47,21 @@ namespace BackendApp.Services
     }
 
     // DTO que recibe la lista de líneas (agrupadas luego por proveedor)
-    public class PresupuestoDto
+    public class PedidoDetalleCreacionDto
+    {
+        public long IdProducto { get; set; }
+        public long IdProveedor { get; set; }
+        public decimal Cotizacion { get; set; }
+        public int Cantidad { get; set; }
+        public decimal Iva { get; set; }
+        public DateOnly FechaEntrega { get; set; }
+    }
+
+    // DTO que agrupa la orden con todas las líneas seleccionadas
+    public class CrearPedidosDto
     {
         public long OrdenId { get; set; }
-        public List<PresupuestoDetalleDto> Detalles { get; set; }
+        public List<PedidoDetalleCreacionDto> Detalles { get; set; } = new();
     }
 
     public class OrdenPagoService
@@ -134,7 +133,7 @@ namespace BackendApp.Services
         /// - Se calcula MontoTotal por Pedido,
         /// - Se actualiza el estado de la orden a “Pendiente”.
         /// </summary>
-        public async Task<bool> CreatePresupuestoAsync(PresupuestoDto dto)
+        public async Task<bool> CreatePedidosAsync(CrearPedidosDto dto)
         {
             // 1) Validar que la orden exista
             var orden = await _context.Ordenes.FindAsync(dto.OrdenId);
@@ -144,37 +143,45 @@ namespace BackendApp.Services
             using var tx = await _context.Database.BeginTransactionAsync();
             try
             {
-                // 2) Agrupar las líneas de presupuesto por IdProveedor
+                // 2) Agrupar las líneas de creación por IdProveedor
                 var lineasPorProveedor = dto.Detalles
                     .GroupBy(d => d.IdProveedor)
-                    .ToDictionary(g => g.Key, g => g.ToList());
+                    .ToDictionary(
+                        g => g.Key,
+                        g => g.ToList()
+                    );
 
-                // 3) Para cada proveedor, crear un nuevo Pedido y sus detalles
+                // 3) Para cada proveedor, crear un Pedido y sus detalles
                 foreach (var proveedorId in lineasPorProveedor.Keys)
                 {
                     var lineasParaEsteProveedor = lineasPorProveedor[proveedorId];
 
-                    // 3.1) Crear el pedido (sin monto aún)
+                    // 3.1) Obtener la FechaEntrega común para este proveedor:
+                    //      asumimos que todas las líneas del mismo proveedor tienen la misma FechaEntrega.
+                    var fechaEntregaProveedor = lineasParaEsteProveedor
+                        .Select(d => d.FechaEntrega)
+                        .FirstOrDefault();
+
+                    // 3.2) Crear el Pedido (sin monto aún)
                     var nuevoPedido = new Pedido
                     {
                         IdOrden = dto.OrdenId,
-                        IdProveedor = proveedorId,                          // <--- ahora va aquí
+                        IdProveedor = proveedorId,
                         FechaPedido = DateOnly.FromDateTime(DateTime.Today),
-                        FechaEntrega = DateOnly.FromDateTime(DateTime.Today.AddDays(7)),
-                        Estado = "Pendiente",
-                        MontoTotal = 0m   // se calculará abajo
+                        FechaEntrega = fechaEntregaProveedor,
+                        Estado = "PENDIENTE",    // o el estado que corresponda
+                        MontoTotal = 0m          // se calculará luego
                     };
                     await _context.Pedidos.AddAsync(nuevoPedido);
                     await _context.SaveChangesAsync();
                     // EF asigna nuevoPedido.IdPedido
 
-                    // 3.2) Crear todas las líneas (PedidoDetalle) para este pedido
+                    // 3.3) Crear todas las líneas (PedidoDetalle) para este pedido
                     var detallesPedidos = lineasParaEsteProveedor
                         .Select(d => new PedidoDetalle
                         {
                             IdPedido = nuevoPedido.IdPedido,
                             IdProducto = d.IdProducto,
-                            // Ya no va IdProveedor aquí
                             Cotizacion = d.Cotizacion,
                             Cantidad = d.Cantidad,
                             Iva = d.Iva
@@ -184,15 +191,15 @@ namespace BackendApp.Services
                     await _context.PedidoDetalles.AddRangeAsync(detallesPedidos);
                     await _context.SaveChangesAsync();
 
-                    // 3.3) Calcular y actualizar MontoTotal de este pedido
+                    // 3.4) Calcular y actualizar MontoTotal de este pedido
                     nuevoPedido.MontoTotal = detallesPedidos
                         .Sum(x => (x.Cotizacion * x.Cantidad) + x.Iva);
                     _context.Pedidos.Update(nuevoPedido);
                     await _context.SaveChangesAsync();
                 }
 
-                // 4) Cambiar el estado de la orden a “Pendiente” (antes podía ser “Incompleta”)
-                orden.Estado = "Pendiente";
+                // 4) Cambiar el estado de la orden a “Completa”
+                orden.Estado = "COMPLETA";
                 _context.Ordenes.Update(orden);
                 await _context.SaveChangesAsync();
 

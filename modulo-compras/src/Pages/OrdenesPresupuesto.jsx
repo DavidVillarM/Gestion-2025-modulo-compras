@@ -4,41 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 
-// Datos de ejemplo: proveedores y productos
-const proveedores = [
-  {
-    id: 1,
-    nombre: 'Proveedor A',
-    fechaEnvio: '2025-06-05',
-    productos: [
-      { id: 1, nombre: 'Producto A', cantidad: 20, precio: 100 },
-      { id: 2, nombre: 'Producto B', cantidad: 25, precio: 200 },
-      { id: 3, nombre: 'Producto C', cantidad: 30, precio: 150 },
-    ],
-  },
-  {
-    id: 2,
-    nombre: 'Proveedor B',
-    fechaEnvio: '2025-06-07',
-    productos: [
-      { id: 1, nombre: 'Producto A', cantidad: 20, precio: 110 },
-      { id: 2, nombre: 'Producto B', cantidad: 25, precio: 195 },
-      { id: 3, nombre: 'Producto C', cantidad: 30, precio: 160 },
-    ],
-  },
-  {
-    id: 3,
-    nombre: 'Proveedor C',
-    fechaEnvio: '2025-06-10',
-    productos: [
-      { id: 1, nombre: 'Producto A', cantidad: 20, precio: 105 },
-      { id: 2, nombre: 'Producto B', cantidad: 25, precio: 210 },
-      { id: 3, nombre: 'Producto C', cantidad: 30, precio: 155 },
-    ],
-  },
-];
-
-const IVA = 0.12;
+const IVA = 0.21; // si usas un IVA fijo general
 
 export const OrdenesPresupuesto = () => {
   const navigate = useNavigate();
@@ -52,50 +18,84 @@ export const OrdenesPresupuesto = () => {
     if (idFromState) localStorage.setItem('ordenId', idFromState);
   }, [idFromState]);
 
-  const initialSelections = proveedores.reduce((acc, prov) => {
-    acc[prov.id] = {};
-    prov.productos.forEach(p => {
-      acc[prov.id][p.id] = false;
-    });
-    return acc;
-  }, {});
-
-  const [selections, setSelections] = useState(initialSelections);
+  const [presupuestos, setPresupuestos] = useState([]);
+  const [selections, setSelections] = useState({});
   const [activeTab, setActiveTab] = useState(0);
   const [error, setError] = useState('');
 
+  useEffect(() => {
+    fetch(`http://localhost:5000/api/Presupuestos/Orden/${ordenId}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setPresupuestos(data);
+        const initial = {};
+        data.forEach((presupuesto) => {
+          initial[presupuesto.idProveedor] = {};
+          presupuesto.detalles.forEach((detalle) => {
+            initial[presupuesto.idProveedor][detalle.idProducto] = false;
+          });
+        });
+        setSelections(initial);
+      })
+      .catch((err) => {
+        console.error('Error al cargar los presupuestos:', err);
+        setError('Error al cargar los presupuestos.');
+      });
+  }, [ordenId]);
+
   const isDisabled = (provId, prodId) =>
-    proveedores.some(p => p.id !== provId && selections[p.id][prodId]);
+    presupuestos.some(
+      (p) => p.idProveedor !== provId && selections[p.idProveedor]?.[prodId]
+    );
 
   const toggleSelection = (provId, prodId) => {
-    setSelections(prev => ({
+    setSelections((prev) => ({
       ...prev,
-      [provId]: { ...prev[provId], [prodId]: !prev[provId][prodId] }
+      [provId]: {
+        ...prev[provId],
+        [prodId]: !prev[provId][prodId],
+      },
     }));
   };
 
-  const calcTotals = prov => {
+  const calcTotals = (prov) => {
     let subtotal = 0;
-    prov.productos.forEach(p => {
-      if (selections[prov.id][p.id]) subtotal += p.precio * p.cantidad;
+    let iva5 = 0;
+    let iva10 = 0;
+
+    prov.detalles.forEach((p) => {
+      if (selections[prov.idProveedor]?.[p.idProducto]) {
+        const itemSubtotal = p.precio * p.cantidad;
+        subtotal += itemSubtotal;
+        iva5 += p.iva5 || 0;
+        iva10 += p.iva10 || 0;
+      }
     });
-    const iva = subtotal * IVA;
-    return { subtotal, iva, total: subtotal + iva };
+
+    return {
+      subtotal,
+      iva5,
+      iva10,
+      total: subtotal + iva5 + iva10,
+    };
   };
 
-  // Al presionar Siguiente, enviamos los detalles seleccionados a la siguiente pantalla
   const handleSiguiente = () => {
     const detalles = [];
-    proveedores.forEach(prov => {
-      prov.productos.forEach(prod => {
-        if (selections[prov.id][prod.id]) {
-          const subtotal = prod.precio * prod.cantidad;
+
+    presupuestos.forEach((presupuesto) => {
+      const { idProveedor, fechaEntrega } = presupuesto;
+      presupuesto.detalles.forEach((detalle) => {
+        const { idProducto, precio, cantidad, iva5, iva10 } = detalle;
+        if (selections[idProveedor]?.[idProducto]) {
+          const iva = parseFloat((iva5 + iva10).toFixed(2));
           detalles.push({
-            idProducto: prod.id,
-            idProveedor: prov.id,
-            cotizacion: prod.precio,
-            cantidad: prod.cantidad,
-            iva: parseFloat((subtotal * IVA).toFixed(2))
+            idProducto,
+            idProveedor,
+            cotizacion: precio,
+            cantidad,
+            iva,
+            fechaEntrega,
           });
         }
       });
@@ -103,8 +103,9 @@ export const OrdenesPresupuesto = () => {
 
     if (detalles.length > 0) {
       setError('');
-      // Navegamos a la pantalla de resumen final pasando toda la información necesaria
-      navigate('/ordenes-presupuesto-final', { state: { ordenId, detalles } });
+      navigate('/ordenes-presupuesto-final', {
+        state: { ordenId, detalles },
+      });
     } else {
       setError('Debes seleccionar al menos un producto.');
     }
@@ -112,25 +113,29 @@ export const OrdenesPresupuesto = () => {
 
   return (
     <div className="p-8 bg-white min-h-screen">
-      <h2 className="text-3xl font-bold mb-6">Presupuesto Orden #{ordenId}</h2>
+      <h2 className="text-3xl font-bold mb-6">
+        Presupuesto Orden #{ordenId}
+      </h2>
       {error && <p className="text-red-600 mb-4">{error}</p>}
 
       <Tabs selectedIndex={activeTab} onSelect={setActiveTab}>
-        <TabList className="flex space-x-4 border-b mb-4">
-          {proveedores.map(p => (
+        <TabList className="flex space-x-4 border-b mb-4 ">
+          {presupuestos.map((p) => (
             <Tab
-              key={p.id}
+              key={p.idProveedor}
               selectedClassName="border-b-2 border-blue-600 font-semibold"
             >
-              {p.nombre}
+              {p.proveedor}
             </Tab>
           ))}
         </TabList>
 
-        {proveedores.map(prov => {
-          const { subtotal, iva, total } = calcTotals(prov);
+        {presupuestos.map((presupuesto) => {
+          const { idProveedor, detalles, fechaEntrega } = presupuesto;
+          const { subtotal, iva5, iva10, total } = calcTotals(presupuesto);
+
           return (
-            <TabPanel key={prov.id}>
+            <TabPanel key={idProveedor}>
               <table className="w-full mb-4 table-auto border border-gray-200">
                 <thead>
                   <tr className="bg-gray-100">
@@ -138,23 +143,31 @@ export const OrdenesPresupuesto = () => {
                     <th className="p-2 border">Producto</th>
                     <th className="p-2 border">Cantidad</th>
                     <th className="p-2 border">Precio Unitario</th>
+                    <th className="p-2 border">IVA 5%</th>
+                    <th className="p-2 border">IVA 10%</th>
                     <th className="p-2 border">Subtotal</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {prov.productos.map(prod => (
-                    <tr key={prod.id}>
+                  {detalles.map((prod) => (
+                    <tr key={prod.idProducto}>
                       <td className="p-2 border text-center">
                         <input
                           type="checkbox"
-                          checked={selections[prov.id][prod.id]}
-                          disabled={isDisabled(prov.id, prod.id)}
-                          onChange={() => toggleSelection(prov.id, prod.id)}
+                          checked={
+                            selections[idProveedor]?.[prod.idProducto] || false
+                          }
+                          disabled={isDisabled(idProveedor, prod.idProducto)}
+                          onChange={() =>
+                            toggleSelection(idProveedor, prod.idProducto)
+                          }
                         />
                       </td>
-                      <td className="p-2 border">{prod.nombre}</td>
+                      <td className="p-2 border">{prod.producto}</td>
                       <td className="p-2 border">{prod.cantidad}</td>
                       <td className="p-2 border">{prod.precio}</td>
+                      <td className="p-2 border">{prod.iva5.toFixed(2)}</td>
+                      <td className="p-2 border">{prod.iva10.toFixed(2)}</td>
                       <td className="p-2 border">
                         {(prod.precio * prod.cantidad).toFixed(2)}
                       </td>
@@ -163,22 +176,35 @@ export const OrdenesPresupuesto = () => {
                 </tbody>
               </table>
 
-              <div className="flex justify-between items-center mb-6">
-                <p><strong>Subtotal:</strong> {subtotal.toFixed(2)}</p>
-                <p><strong>IVA:</strong> {iva.toFixed(2)}</p>
-                <p className="font-semibold"><strong>Total:</strong> {total.toFixed(2)}</p>
+              <div className="flex flex-col gap-1 text-right mb-6">
+                <p>
+                  <strong>Subtotal:</strong> {subtotal.toFixed(2)}
+                </p>
+                <p>
+                  <strong>IVA 5%:</strong> {iva5.toFixed(2)}
+                </p>
+                <p>
+                  <strong>IVA 10%:</strong> {iva10.toFixed(2)}
+                </p>
+                <p className="font-semibold">
+                  <strong>Total parcial:</strong> {total.toFixed(2)}
+                </p>
+                <p>
+                  <strong>Fecha de entrega:</strong> {fechaEntrega}
+                </p>
+                  <button
+        onClick={handleSiguiente}
+        className="mt-4 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+      >
+        Siguiente: Resumen Final
+      </button>
               </div>
             </TabPanel>
           );
         })}
       </Tabs>
 
-      <button
-        onClick={handleSiguiente}
-        className="mt-4 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
-      >
-        Siguiente: Resumen Final
-      </button>
+    
     </div>
   );
 };

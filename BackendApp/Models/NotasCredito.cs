@@ -5,11 +5,11 @@ namespace BackendApp.Models;
 
 public partial class NotasCredito
 {
+    public long IdNota { get; set; }
+
     public long IdFactura { get; set; }
 
-    public long? IdPedido { get; set; }
-
-    public long? IdProveedor { get; set; }
+    public long IdProveedor { get; set; }
 
     public DateOnly? Fecha { get; set; }
 
@@ -29,5 +29,9 @@ public partial class NotasCredito
 
     public string? Estado { get; set; }
 
-    public virtual Proveedore? IdProveedorNavigation { get; set; }
+    public virtual Factura IdFacturaNavigation { get; set; } = null!;
+
+    public virtual Proveedore IdProveedorNavigation { get; set; } = null!;
+
+    public virtual ICollection<NotaCreditoDetalle> NotaCreditoDetalles { get; set; } = new List<NotaCreditoDetalle>();
 }

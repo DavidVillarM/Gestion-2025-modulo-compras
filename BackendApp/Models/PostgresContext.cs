@@ -316,24 +316,28 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.IdPedido).HasColumnName("id_pedido");
             entity.Property(e => e.IdProveedor).HasColumnName("id_proveedor");
             entity.Property(e => e.Iva10)
-                .HasPrecision(10, 2)
+                .HasPrecision(12, 2)
                 .HasColumnName("iva10");
             entity.Property(e => e.Iva5)
-                .HasPrecision(10, 2)
+                .HasPrecision(12, 2)
                 .HasColumnName("iva5");
             entity.Property(e => e.MontoTotal)
-                .HasPrecision(10, 2)
+                .HasPrecision(12, 2)
                 .HasColumnName("monto_total");
             entity.Property(e => e.NombreProveedor).HasColumnName("nombre_proveedor");
             entity.Property(e => e.Ruc).HasColumnName("ruc");
             entity.Property(e => e.Subtotal)
-                .HasPrecision(10, 2)
+                .HasPrecision(12, 2)
                 .HasColumnName("subtotal");
             entity.Property(e => e.Timbrado).HasColumnName("timbrado");
 
+            entity.HasOne(d => d.IdPedidoNavigation).WithMany(p => p.Facturas)
+                .HasForeignKey(d => d.IdPedido)
+                .HasConstraintName("fk_factura_pedido");
+
             entity.HasOne(d => d.IdProveedorNavigation).WithMany(p => p.Facturas)
                 .HasForeignKey(d => d.IdProveedor)
-                .HasConstraintName("facturas_id_proveedor_fkey");
+                .HasConstraintName("fk_factura_proveedor");
         });
 
         modelBuilder.Entity<FacturaDetalle>(entity =>
@@ -346,20 +350,25 @@ public partial class PostgresContext : DbContext
                 .UseIdentityAlwaysColumn()
                 .HasColumnName("id_factura_detalle");
             entity.Property(e => e.Cantidad).HasColumnName("cantidad");
+            entity.Property(e => e.IdFactura).HasColumnName("id_factura");
             entity.Property(e => e.IdProducto).HasColumnName("id_producto");
             entity.Property(e => e.Iva10)
-                .HasPrecision(10, 2)
+                .HasPrecision(12, 2)
                 .HasColumnName("iva10");
             entity.Property(e => e.Iva5)
-                .HasPrecision(10, 2)
+                .HasPrecision(12, 2)
                 .HasColumnName("iva5");
             entity.Property(e => e.Precio)
-                .HasPrecision(10, 2)
+                .HasPrecision(12, 2)
                 .HasColumnName("precio");
+
+            entity.HasOne(d => d.IdFacturaNavigation).WithMany(p => p.FacturaDetalles)
+                .HasForeignKey(d => d.IdFactura)
+                .HasConstraintName("fk_factura_detalle_factura");
 
             entity.HasOne(d => d.IdProductoNavigation).WithMany(p => p.FacturaDetalles)
                 .HasForeignKey(d => d.IdProducto)
-                .HasConstraintName("factura_detalle_id_producto_fkey");
+                .HasConstraintName("fk_factura_detalle_producto");
         });
 
         modelBuilder.Entity<FlowState>(entity =>
@@ -560,62 +569,71 @@ public partial class PostgresContext : DbContext
 
         modelBuilder.Entity<NotaCreditoDetalle>(entity =>
         {
-            entity.HasKey(e => e.IdFacturaDetalle).HasName("nota_credito_detalle_pkey");
+            entity.HasKey(e => e.IdNotaDetalle).HasName("nota_credito_detalle_pkey");
 
             entity.ToTable("nota_credito_detalle");
 
-            entity.Property(e => e.IdFacturaDetalle)
+            entity.Property(e => e.IdNotaDetalle)
                 .UseIdentityAlwaysColumn()
-                .HasColumnName("id_factura_detalle");
+                .HasColumnName("id_nota_detalle");
             entity.Property(e => e.Cantidad).HasColumnName("cantidad");
+            entity.Property(e => e.IdNota).HasColumnName("id_nota");
             entity.Property(e => e.IdProducto).HasColumnName("id_producto");
             entity.Property(e => e.Iva10)
-                .HasPrecision(10, 2)
+                .HasPrecision(12, 2)
                 .HasColumnName("iva10");
             entity.Property(e => e.Iva5)
-                .HasPrecision(10, 2)
+                .HasPrecision(12, 2)
                 .HasColumnName("iva5");
             entity.Property(e => e.Precio)
-                .HasPrecision(10, 2)
+                .HasPrecision(12, 2)
                 .HasColumnName("precio");
+
+            entity.HasOne(d => d.IdNotaNavigation).WithMany(p => p.NotaCreditoDetalles)
+                .HasForeignKey(d => d.IdNota)
+                .HasConstraintName("fk_nota_credito_detalle_nota");
 
             entity.HasOne(d => d.IdProductoNavigation).WithMany(p => p.NotaCreditoDetalles)
                 .HasForeignKey(d => d.IdProducto)
-                .HasConstraintName("nota_credito_detalle_id_producto_fkey");
+                .HasConstraintName("fk_nota_credito_detalle_producto");
         });
 
         modelBuilder.Entity<NotasCredito>(entity =>
         {
-            entity.HasKey(e => e.IdFactura).HasName("notas_credito_pkey");
+            entity.HasKey(e => e.IdNota).HasName("notas_credito_pkey");
 
             entity.ToTable("notas_credito");
 
-            entity.Property(e => e.IdFactura)
+            entity.Property(e => e.IdNota)
                 .UseIdentityAlwaysColumn()
-                .HasColumnName("id_factura");
+                .HasColumnName("id_nota");
             entity.Property(e => e.Estado).HasColumnName("estado");
             entity.Property(e => e.Fecha).HasColumnName("fecha");
-            entity.Property(e => e.IdPedido).HasColumnName("id_pedido");
+            entity.Property(e => e.IdFactura).HasColumnName("id_factura");
             entity.Property(e => e.IdProveedor).HasColumnName("id_proveedor");
             entity.Property(e => e.Iva10)
-                .HasPrecision(10, 2)
+                .HasPrecision(12, 2)
                 .HasColumnName("iva10");
             entity.Property(e => e.Iva5)
-                .HasPrecision(10, 2)
+                .HasPrecision(12, 2)
                 .HasColumnName("iva5");
             entity.Property(e => e.MontoTotal)
-                .HasPrecision(10, 2)
+                .HasPrecision(12, 2)
                 .HasColumnName("monto_total");
             entity.Property(e => e.NombreProveedor).HasColumnName("nombre_proveedor");
             entity.Property(e => e.Ruc).HasColumnName("ruc");
             entity.Property(e => e.Subtotal)
-                .HasPrecision(10, 2)
+                .HasPrecision(12, 2)
                 .HasColumnName("subtotal");
             entity.Property(e => e.Timbrado).HasColumnName("timbrado");
 
+            entity.HasOne(d => d.IdFacturaNavigation).WithMany(p => p.NotasCreditos)
+                .HasForeignKey(d => d.IdFactura)
+                .HasConstraintName("fk_notas_credito_factura");
+
             entity.HasOne(d => d.IdProveedorNavigation).WithMany(p => p.NotasCreditos)
                 .HasForeignKey(d => d.IdProveedor)
-                .HasConstraintName("notas_credito_id_proveedor_fkey");
+                .HasConstraintName("fk_notas_credito_proveedor");
         });
 
         modelBuilder.Entity<Object>(entity =>

@@ -70,9 +70,9 @@ export const OrdenesPago = () => {
       name: 'Estado',
       cell: row => (
         <span
-          className={`cursor-pointer ${row.estado === 'Incompleta' ? 'text-red-600 underline' : ''}`}
+          className={`cursor-pointer ${row.estado === 'PENDIENTE' ? 'text-red-600 underline' : ''}`}
           onClick={() => {
-            if (row.estado === 'Incompleta') {
+            if (row.estado === 'PENDIENTE') {
               // Si necesitas mantener la orden para otra pantalla:
               localStorage.setItem('ordenId', row.idOrden);
               navigate(`/ordenes-presupuesto`, { state: { orden: row } });
@@ -114,7 +114,7 @@ export const OrdenesPago = () => {
 
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
-      <h2 className="text-2xl font-semibold mb-4">Ordenes</h2>
+      <h2 className="text-2xl font-semibold mb-4">Gestion de Pedidos</h2>
 
       <div className="flex flex-wrap gap-4 mb-4">
         <input

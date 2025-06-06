@@ -82,7 +82,7 @@ public class RecepcionesController : ControllerBase
                 {
                     notaCredito = new NotasCredito
                     {
-                        IdPedido = pedido.IdPedido,
+                
                         Fecha = DateOnly.FromDateTime(DateTime.Today),
                         Timbrado = dto.Timbrado,
                         Estado = "Generada"

@@ -281,7 +281,7 @@
         }
       }
     },
-    "/api/OrdenesPago/presupuesto": {
+    "/api/OrdenesPago/crear": {
       "post": {
         "tags": [
           "OrdenesPago"
@@ -290,17 +290,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/PresupuestoDto"
+                "$ref": "#/components/schemas/CrearPedidosDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/PresupuestoDto"
+                "$ref": "#/components/schemas/CrearPedidosDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/PresupuestoDto"
+                "$ref": "#/components/schemas/CrearPedidosDto"
               }
             }
           }
@@ -353,6 +353,55 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/PedidoConDetallesDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Presupuestos/Orden/{idOrden}": {
+      "get": {
+        "tags": [
+          "Presupuestos"
+        ],
+        "parameters": [
+          {
+            "name": "idOrden",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PresupuestoConDetallesDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PresupuestoConDetallesDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PresupuestoConDetallesDto"
                   }
                 }
               }
@@ -435,6 +484,191 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/api/Proveedores": {
+      "get": {
+        "tags": [
+          "Proveedores"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Proveedore"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Proveedore"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Proveedore"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Proveedores"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Proveedore"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Proveedore"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Proveedore"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Proveedore"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Proveedore"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Proveedore"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Proveedores/{id}": {
+      "get": {
+        "tags": [
+          "Proveedores"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Proveedore"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Proveedore"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Proveedore"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Proveedores"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Proveedore"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Proveedore"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Proveedore"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Proveedores"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       }
@@ -643,6 +877,23 @@
         },
         "additionalProperties": false
       },
+      "CrearPedidosDto": {
+        "type": "object",
+        "properties": {
+          "ordenId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "detalles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PedidoDetalleCreacionDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "DetalleAjusteStock": {
         "type": "object",
         "properties": {
@@ -683,13 +934,11 @@
           },
           "idPedido": {
             "type": "integer",
-            "format": "int64",
-            "nullable": true
+            "format": "int64"
           },
           "idProveedor": {
             "type": "integer",
-            "format": "int64",
-            "nullable": true
+            "format": "int64"
           },
           "fecha": {
             "type": "string",
@@ -732,8 +981,25 @@
             "type": "string",
             "nullable": true
           },
+          "facturaDetalles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FacturaDetalle"
+            },
+            "nullable": true
+          },
+          "idPedidoNavigation": {
+            "$ref": "#/components/schemas/Pedido"
+          },
           "idProveedorNavigation": {
             "$ref": "#/components/schemas/Proveedore"
+          },
+          "notasCreditos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NotasCredito"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -745,10 +1011,13 @@
             "type": "integer",
             "format": "int64"
           },
+          "idFactura": {
+            "type": "integer",
+            "format": "int64"
+          },
           "idProducto": {
             "type": "integer",
-            "format": "int64",
-            "nullable": true
+            "format": "int64"
           },
           "precio": {
             "type": "number",
@@ -769,6 +1038,9 @@
             "type": "number",
             "format": "double",
             "nullable": true
+          },
+          "idFacturaNavigation": {
+            "$ref": "#/components/schemas/Factura"
           },
           "idProductoNavigation": {
             "$ref": "#/components/schemas/Producto"
@@ -793,14 +1065,17 @@
       "NotaCreditoDetalle": {
         "type": "object",
         "properties": {
-          "idFacturaDetalle": {
+          "idNotaDetalle": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idNota": {
             "type": "integer",
             "format": "int64"
           },
           "idProducto": {
             "type": "integer",
-            "format": "int64",
-            "nullable": true
+            "format": "int64"
           },
           "precio": {
             "type": "number",
@@ -822,6 +1097,9 @@
             "format": "double",
             "nullable": true
           },
+          "idNotaNavigation": {
+            "$ref": "#/components/schemas/NotasCredito"
+          },
           "idProductoNavigation": {
             "$ref": "#/components/schemas/Producto"
           }
@@ -831,19 +1109,17 @@
       "NotasCredito": {
         "type": "object",
         "properties": {
+          "idNota": {
+            "type": "integer",
+            "format": "int64"
+          },
           "idFactura": {
             "type": "integer",
             "format": "int64"
           },
-          "idPedido": {
-            "type": "integer",
-            "format": "int64",
-            "nullable": true
-          },
           "idProveedor": {
             "type": "integer",
-            "format": "int64",
-            "nullable": true
+            "format": "int64"
           },
           "fecha": {
             "type": "string",
@@ -886,8 +1162,18 @@
             "type": "string",
             "nullable": true
           },
+          "idFacturaNavigation": {
+            "$ref": "#/components/schemas/Factura"
+          },
           "idProveedorNavigation": {
             "$ref": "#/components/schemas/Proveedore"
+          },
+          "notaCreditoDetalles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NotaCreditoDetalle"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1011,6 +1297,13 @@
             "type": "string",
             "nullable": true
           },
+          "facturas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Factura"
+            },
+            "nullable": true
+          },
           "idOrdenNavigation": {
             "$ref": "#/components/schemas/Ordene"
           },
@@ -1096,6 +1389,36 @@
           },
           "idProductoNavigation": {
             "$ref": "#/components/schemas/Producto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PedidoDetalleCreacionDto": {
+        "type": "object",
+        "properties": {
+          "idProducto": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idProveedor": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "cotizacion": {
+            "type": "number",
+            "format": "double"
+          },
+          "cantidad": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "iva": {
+            "type": "number",
+            "format": "double"
+          },
+          "fechaEntrega": {
+            "type": "string",
+            "format": "date"
           }
         },
         "additionalProperties": false
@@ -1288,6 +1611,52 @@
         },
         "additionalProperties": false
       },
+      "PresupuestoConDetallesDto": {
+        "type": "object",
+        "properties": {
+          "idPresupuesto": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idProveedor": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "proveedor": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaEntrega": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "subtotal": {
+            "type": "number",
+            "format": "double"
+          },
+          "iva5": {
+            "type": "number",
+            "format": "double"
+          },
+          "iva10": {
+            "type": "number",
+            "format": "double"
+          },
+          "total": {
+            "type": "number",
+            "format": "double"
+          },
+          "detalles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PresupuestoDetalleDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "PresupuestoDetalle": {
         "type": "object",
         "properties": {
@@ -1335,42 +1704,37 @@
       "PresupuestoDetalleDto": {
         "type": "object",
         "properties": {
+          "idPresupuestoDetalle": {
+            "type": "integer",
+            "format": "int64"
+          },
           "idProducto": {
             "type": "integer",
             "format": "int64"
           },
-          "idProveedor": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "cotizacion": {
-            "type": "number",
-            "format": "double"
+          "producto": {
+            "type": "string",
+            "nullable": true
           },
           "cantidad": {
             "type": "integer",
             "format": "int32"
           },
-          "iva": {
+          "precio": {
             "type": "number",
             "format": "double"
-          }
-        },
-        "additionalProperties": false
-      },
-      "PresupuestoDto": {
-        "type": "object",
-        "properties": {
-          "ordenId": {
-            "type": "integer",
-            "format": "int64"
           },
-          "detalles": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PresupuestoDetalleDto"
-            },
-            "nullable": true
+          "iva5": {
+            "type": "number",
+            "format": "double"
+          },
+          "iva10": {
+            "type": "number",
+            "format": "double"
+          },
+          "subtotal": {
+            "type": "number",
+            "format": "double"
           }
         },
         "additionalProperties": false

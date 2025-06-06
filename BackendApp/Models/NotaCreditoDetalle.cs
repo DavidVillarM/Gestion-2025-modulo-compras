@@ -5,9 +5,11 @@ namespace BackendApp.Models;
 
 public partial class NotaCreditoDetalle
 {
-    public long IdFacturaDetalle { get; set; }
+    public long IdNotaDetalle { get; set; }
 
-    public long? IdProducto { get; set; }
+    public long IdNota { get; set; }
+
+    public long IdProducto { get; set; }
 
     public decimal? Precio { get; set; }
 
@@ -17,5 +19,7 @@ public partial class NotaCreditoDetalle
 
     public decimal? Iva10 { get; set; }
 
-    public virtual Producto? IdProductoNavigation { get; set; }
+    public virtual NotasCredito IdNotaNavigation { get; set; } = null!;
+
+    public virtual Producto IdProductoNavigation { get; set; } = null!;
 }
