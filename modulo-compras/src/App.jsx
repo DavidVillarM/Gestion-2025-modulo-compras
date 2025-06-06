@@ -30,6 +30,9 @@ import ListaPedidosFinales from "./pages/ListaPedidosFinales.jsx";
 import ListaPresupuestos from "./pages/ListaPresupuestos";
 import { FormProveedores } from './Pages/FormProveedores.jsx';
 import { DetallesProveedores } from './Pages/DetallesProveedores.jsx';
+import CargarNota from './Pages/CargarNota.jsx'
+import ListaNotas from './Pages/ListaNotas.jsx'
+
 
 function App() {
   const location = useLocation();
@@ -102,7 +105,8 @@ function App() {
                     {/*<Route path="/facturas" element={<Facturas />} />*/}
                     <Route path="/categorias" element={<Categorias />} />
 
-                    <Route path="/notas-credito" element={<NotasCredito />} />
+                    <Route path="/notas-credito" element={<ListaNotas/>} />
+                    <Route path="/notas-credito/cargar" element={<CargarNota/>} />
 
 
                     
