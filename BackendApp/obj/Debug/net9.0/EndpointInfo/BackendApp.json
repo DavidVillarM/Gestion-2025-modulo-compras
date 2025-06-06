@@ -183,6 +183,46 @@
             "description": "OK"
           }
         }
+      },
+      "put": {
+        "tags": [
+          "Facturas"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FacturaUpdateDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FacturaUpdateDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FacturaUpdateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       }
     },
     "/api/Hello": {
@@ -879,6 +919,40 @@
         },
         "additionalProperties": false
       },
+      "FacturaItemUpdateDto": {
+        "required": [
+          "idProducto"
+        ],
+        "type": "object",
+        "properties": {
+          "idProducto": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "cantidad": {
+            "maximum": 2147483647,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "precio": {
+            "minimum": 1,
+            "type": "number",
+            "format": "double"
+          },
+          "iva5": {
+            "minimum": 0,
+            "type": "number",
+            "format": "double"
+          },
+          "iva10": {
+            "minimum": 0,
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
       "FacturaRequestDto": {
         "type": "object",
         "properties": {
@@ -898,6 +972,80 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/FacturaItemDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FacturaUpdateDto": {
+        "required": [
+          "estado",
+          "fecha",
+          "idPedido",
+          "idProveedor",
+          "nombreProveedor"
+        ],
+        "type": "object",
+        "properties": {
+          "idProveedor": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idPedido": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date"
+          },
+          "ruc": {
+            "maxLength": 20,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "nombreProveedor": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          },
+          "timbrado": {
+            "maxLength": 20,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "montoTotal": {
+            "minimum": 0,
+            "type": "number",
+            "format": "double"
+          },
+          "subtotal": {
+            "minimum": 0,
+            "type": "number",
+            "format": "double"
+          },
+          "iva5": {
+            "minimum": 0,
+            "type": "number",
+            "format": "double"
+          },
+          "iva10": {
+            "minimum": 0,
+            "type": "number",
+            "format": "double"
+          },
+          "estado": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "facturaDetalles": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FacturaItemUpdateDto"
             },
             "nullable": true
           }

@@ -74,4 +74,52 @@ public class FacturasController : ControllerBase
 
         return CreatedAtAction(nameof(GetFactura), new { id = factura.IdFactura }, factura);
     }
+    [HttpPut("{id}")]
+    public async Task<IActionResult> ActualizarFactura(long id, [FromBody] FacturaUpdateDto dto)
+    {
+        var factura = await _context.Facturas
+            .Include(f => f.FacturaDetalles)
+            .FirstOrDefaultAsync(f => f.IdFactura == id);
+
+        if (factura == null)
+            return NotFound("Factura no encontrada");
+
+        // Validación de productos
+        foreach (var item in dto.FacturaDetalles)
+        {
+            var existe = await _context.Productos.AnyAsync(p => p.IdProducto == item.IdProducto);
+            if (!existe)
+                return BadRequest($"El producto con ID {item.IdProducto} no existe.");
+        }
+
+        // Actualizar campos principales
+        factura.IdProveedor = dto.IdProveedor;
+        factura.IdPedido = dto.IdPedido;
+        factura.Fecha = dto.Fecha;
+        factura.Ruc = dto.Ruc;
+        factura.NombreProveedor = dto.NombreProveedor;
+        factura.Timbrado = dto.Timbrado;
+        factura.MontoTotal = dto.MontoTotal;
+        factura.Subtotal = dto.Subtotal;
+        factura.Iva5 = dto.Iva5;
+        factura.Iva10 = dto.Iva10;
+        factura.Estado = dto.Estado;
+
+        // Reemplazar detalles
+        _context.FacturaDetalles.RemoveRange(factura.FacturaDetalles);
+        factura.FacturaDetalles = dto.FacturaDetalles.Select(fd => new FacturaDetalle
+        {
+            IdProducto = fd.IdProducto,
+            Cantidad = fd.Cantidad,
+            Precio = fd.Precio,
+            Iva5 = fd.Iva5,
+            Iva10 = fd.Iva10
+        }).ToList();
+
+        await _context.SaveChangesAsync();
+        return Ok(factura);
+    }
+
+
+
 }

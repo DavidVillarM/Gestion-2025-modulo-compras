@@ -13,8 +13,10 @@ import { OrdenesPresupuesto } from './Pages/OrdenesPresupuesto.jsx'
 import { OrdenesPresupuestoFinal } from './Pages/OrdenesPresupuestoFinal.jsx'
 import { OrdenesVista } from './Pages/OrdenesVista.jsx'
 import FacturaForm from './Pages/FacturaForm';
+import FacturaEdit from './Pages/FacturaEdit';
 import {Login} from './Pages/login.jsx';
 import { useLocation } from "react-router-dom";
+import FacturaList from './Pages/FacturaList';
 
 function App() {
   const location = useLocation();
@@ -25,10 +27,12 @@ function App() {
       {!isLoginPage && <SideBar />}
       <div className="flex-1 overflow-y-auto bg-gray-100">
         <Routes>
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/" element={<Dashboard />} />
           <Route path="/categorias" element={<Categorias />} />
           <Route path="/productos" element={<Products />} />
+          <Route path="/facturas" element={<FacturaList />} />
           <Route path="/facturas/nueva" element={<FacturaForm />} />
+          <Route path="/facturas/editar/:id" element={<FacturaEdit />} />
           <Route path="/recepcion" element={<RecepcionProductos />} />
           <Route path="/ordenes-pago" element={<OrdenesPago />} />
           <Route path="/ordenes-presupuesto/" element={<OrdenesPresupuesto />} />

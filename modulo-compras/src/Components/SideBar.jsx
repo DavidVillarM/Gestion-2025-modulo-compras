@@ -28,6 +28,10 @@ export const SideBar = () => {
             Stock
           </Link>
 
+          <Link to="/facturas" className="text-left hover:bg-sky-800 p-2 rounded text-[20px]">
+            Facturas
+          </Link>
+
           <Link to="/productos" className="text-left hover:bg-sky-800 p-2 rounded text-[20px]">
             Productos
           </Link>
