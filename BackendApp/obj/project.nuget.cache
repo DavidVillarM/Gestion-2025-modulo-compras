@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "EhBm93HC6eU=",
+  "dgSpecHash": "SR1rEFy7eDE=",
   "success": true,
-  "projectFilePath": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\BackendApp.csproj",
+  "projectFilePath": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\BackendApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DaviM\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\DaviM\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\9.0.5\\microsoft.aspnetcore.authentication.jwtbearer.9.0.5.nupkg.sha512",

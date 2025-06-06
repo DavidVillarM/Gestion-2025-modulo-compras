@@ -1,5 +1,5 @@
 ﻿// File: Controllers/ProductosController.cs
-using BackendApp.Models;
+/*using BackendApp.Models;
 using BackendApp.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -37,3 +37,4 @@ namespace BackendApp.Controllers
         }
     }
 }
+*/

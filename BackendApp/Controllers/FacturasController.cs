@@ -119,6 +119,23 @@ public class FacturasController : ControllerBase
         await _context.SaveChangesAsync();
         return Ok(factura);
     }
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> EliminarFactura(long id)
+    {
+        var factura = await _context.Facturas
+            .Include(f => f.FacturaDetalles)
+            .FirstOrDefaultAsync(f => f.IdFactura == id);
+
+        if (factura == null)
+            return NotFound("Factura no encontrada");
+
+        // Eliminar detalles primero
+        _context.FacturaDetalles.RemoveRange(factura.FacturaDetalles);
+        _context.Facturas.Remove(factura);
+
+        await _context.SaveChangesAsync();
+        return NoContent();
+    }
 
 
 

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\BackendApp.csproj": {}
+    "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\BackendApp.csproj": {}
   },
   "projects": {
-    "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\BackendApp.csproj": {
+    "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\BackendApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\BackendApp.csproj",
+        "projectUniqueName": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\BackendApp.csproj",
         "projectName": "BackendApp",
-        "projectPath": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\BackendApp.csproj",
+        "projectPath": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\BackendApp.csproj",
         "packagesPath": "C:\\Users\\DaviM\\.nuget\\packages\\",
-        "outputPath": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\obj\\",
+        "outputPath": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras\\BackendApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

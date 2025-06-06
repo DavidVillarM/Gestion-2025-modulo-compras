@@ -1,4 +1,4 @@
-﻿
+﻿using BackendApp.Data;
 using BackendApp.Dtos;
 using BackendApp.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -48,7 +48,7 @@ namespace BackendApp.Controllers
             var claims = new[]
             {
                 new Claim(JwtRegisteredClaimNames.Sub, user.IdUser.ToString()),
-                new Claim(JwtRegisteredClaimNames.UniqueName, user.Username),
+                new Claim(JwtRegisteredClaimNames.UniqueName, user.Username), 
                 new Claim(JwtRegisteredClaimNames.Name, name.Nombre)
             };
 

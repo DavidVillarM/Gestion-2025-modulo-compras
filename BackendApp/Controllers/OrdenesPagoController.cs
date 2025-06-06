@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace BackendApp.Controllers
 {
     [ApiController]
-    //[Authorize]
+    
     [Route("api/[controller]")]
     public class OrdenesPagoController : ControllerBase
     {
@@ -24,6 +24,7 @@ namespace BackendApp.Controllers
 
         // GET api/OrdenesPago
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<List<OrdenPagoDto>>> GetOrdenesPago()
         {
             var ordenes = await _ordenPagoService.GetOrdenesPagoAsync();
@@ -51,16 +52,15 @@ namespace BackendApp.Controllers
             return Ok(detalles);
         }
 
-        // POST api/OrdenesPago/presupuesto
-        [HttpPost("presupuesto")]
-        public async Task<IActionResult> CreatePresupuesto([FromBody] PresupuestoDto dto)
+        [HttpPost("crear")]
+        public async Task<IActionResult> CrearPedidos([FromBody] CrearPedidosDto dto)
         {
-            var success = await _ordenPagoService.CreatePresupuestoAsync(dto);
-            if (!success)
-                return BadRequest("No se pudo procesar el presupuesto. Orden inválida.");
-            return CreatedAtAction(nameof(GetOrdenPagoById), new { id = dto.OrdenId }, null);
-        }
+            var resultado = await _ordenPagoService.CreatePedidosAsync(dto);
+            if (!resultado)
+                return BadRequest("No se encontró la orden o ocurrió un error.");
 
+            return Ok(new { mensaje = "Pedidos creados correctamente." });
+        }
 
         [HttpGet("{id}/pedidos-con-detalles")]
         public async Task<ActionResult<List<PedidoConDetallesDto>>> GetPedidosConDetalles(long id)

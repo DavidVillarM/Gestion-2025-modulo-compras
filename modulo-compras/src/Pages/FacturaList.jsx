@@ -29,14 +29,16 @@ export default function FacturaList() {
   };
 
   const eliminarFactura = async (id) => {
-    if (!confirm('¿Seguro que deseas eliminar esta factura?')) return;
-    try {
-      await axios.delete(`/api/facturas/${id}`);
-      setFacturas(prev => prev.filter(f => f.idFactura !== id));
-    } catch {
-      alert('Error al eliminar');
-    }
-  };
+  try {
+    await axios.delete(`http://localhost:5000/api/facturas/${id}`);
+    alert("Factura eliminada");
+    // Recargar facturas luego de eliminar
+    setFacturas(prev => prev.filter(f => f.idFactura !== id));
+  } catch (err) {
+    console.error("Error al eliminar factura", err.response?.data || err.message);
+    alert("Error al eliminar factura");
+  }
+};
 
   const facturasFiltradas = facturas.filter(f => {
     return (
@@ -84,7 +86,17 @@ export default function FacturaList() {
               <td className="border p-2 text-center">
                 <button onClick={() => setFacturaSeleccionada(f)} className="mx-1 text-blue-600">👁️</button>
                 <button onClick={() => navigate(`/facturas/editar/${f.idFactura}`)} className="mx-1 text-yellow-600">✏️</button>
-                <button onClick={() => eliminarFactura(f.idFactura)} className="mx-1 text-red-600">🗑️</button>
+                <button
+                  onClick={() => {
+                    if (confirm("¿Estás seguro de eliminar esta factura?")) {
+                      eliminarFactura(factura.idFactura);
+                    }
+                  }}
+                  className="text-red-600 hover:text-red-800"
+                >
+                  🗑️
+              </button>
+
               </td>
             </tr>
           ))}
