@@ -12,7 +12,7 @@ export default function FacturaForm() {
   });
 
   useEffect(() => {
-    axios.get('/api/pedidos')
+    axios.get('http://localhost:5000/api/pedidos')
       .then(res => setPedidos(res.data))
       .catch(console.error);
   }, []);

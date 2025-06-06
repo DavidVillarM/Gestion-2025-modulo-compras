@@ -567,3 +567,4 @@ C:\Facultad\INGE\Gestion 2025\Gestion-2025-modulo-compras-lian\BackendApp\obj\De
 C:\Facultad\INGE\Gestion 2025\Gestion-2025-modulo-compras-lian\BackendApp\obj\Debug\net9.0\BackendApp.genruntimeconfig.cache
 C:\Facultad\INGE\Gestion 2025\Gestion-2025-modulo-compras-lian\BackendApp\obj\Debug\net9.0\ref\BackendApp.dll
 C:\Facultad\INGE\Gestion 2025\Gestion-2025-modulo-compras-lian\BackendApp\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+C:\Facultad\INGE\Gestion 2025\Gestion-2025-modulo-compras-lian\BackendApp\obj\Debug\net9.0\BackendApp.sourcelink.json

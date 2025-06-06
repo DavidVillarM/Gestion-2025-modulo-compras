@@ -3,6 +3,30 @@
   "WorkspaceRootPath": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras-lian\\backendapp\\controllers\\facturascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:controllers\\facturascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras-lian\\backendapp\\dtos\\facturarequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:dtos\\facturarequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras-lian\\backendapp\\models\\pedidodetalle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\pedidodetalle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras-lian\\backendapp\\models\\pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras-lian\\backendapp\\models\\postgrescontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\postgrescontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras-lian\\backendapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras-lian\\backendapp\\controllers\\recepcionescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:controllers\\recepcionescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -17,10 +41,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras-lian\\backendapp\\models\\notadedevolucion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\notadedevolucion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras-lian\\backendapp\\controllers\\facturascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:controllers\\facturascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras-lian\\backendapp\\controllers\\ordenespagocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -47,10 +67,6 @@
       "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras-lian\\backendapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras-lian\\backendapp\\dtos\\loginresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:dtos\\loginresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -61,10 +77,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras-lian\\backendapp\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras-lian\\backendapp\\models\\pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras-lian\\backendapp\\services\\dashboardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -119,16 +131,8 @@
       "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras-lian\\backendapp\\models\\pedidodetalle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\pedidodetalle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras-lian\\backendapp\\models\\serviciosproductosutilizado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\serviciosproductosutilizado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras-lian\\backendapp\\models\\postgrescontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|solutionrelative:models\\postgrescontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A14F9F2F-F8D9-4920-9756-5D748A04E05D}|BackendApp.csproj|c:\\facultad\\inge\\gestion 2025\\gestion-2025-modulo-compras-lian\\backendapp\\models\\serviciosrealizado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -205,7 +209,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -217,59 +221,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "NotasCredito.cs",
-              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Models\\NotasCredito.cs",
-              "RelativeDocumentMoniker": "Models\\NotasCredito.cs",
-              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Models\\NotasCredito.cs",
-              "RelativeToolTip": "Models\\NotasCredito.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAA9wAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "FacturaRequestDto.cs",
+              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Dtos\\FacturaRequestDto.cs",
+              "RelativeDocumentMoniker": "Dtos\\FacturaRequestDto.cs",
+              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Dtos\\FacturaRequestDto.cs",
+              "RelativeToolTip": "Dtos\\FacturaRequestDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-06T02:39:24.713Z",
+              "WhenOpened": "2025-06-06T04:48:42.801Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "NotaDeDevolucion.cs",
-              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Models\\NotaDeDevolucion.cs",
-              "RelativeDocumentMoniker": "Models\\NotaDeDevolucion.cs",
-              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Models\\NotaDeDevolucion.cs",
-              "RelativeToolTip": "Models\\NotaDeDevolucion.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-06T02:37:14.796Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "FacturasController.cs",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Controllers\\FacturasController.cs",
               "RelativeDocumentMoniker": "Controllers\\FacturasController.cs",
               "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Controllers\\FacturasController.cs",
               "RelativeToolTip": "Controllers\\FacturasController.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAowC4AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAADcAAAAAAAAAAAAAAE0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-06T02:29:16.14Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "RecepcionesController.cs",
-              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Controllers\\RecepcionesController.cs",
-              "RelativeDocumentMoniker": "Controllers\\RecepcionesController.cs",
-              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Controllers\\RecepcionesController.cs",
-              "RelativeToolTip": "Controllers\\RecepcionesController.cs",
-              "ViewState": "AgIAAIkAAAAAAAAAAAAIwJIAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T17:42:17.099Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "OrdenesPagoController.cs",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Controllers\\OrdenesPagoController.cs",
               "RelativeDocumentMoniker": "Controllers\\OrdenesPagoController.cs",
@@ -277,12 +255,11 @@
               "RelativeToolTip": "Controllers\\OrdenesPagoController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T18:56:48.312Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-09T18:56:48.312Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 14,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
@@ -294,7 +271,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 16,
               "Title": "LoginResponse.cs",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Dtos\\LoginResponse.cs",
               "RelativeDocumentMoniker": "Dtos\\LoginResponse.cs",
@@ -306,19 +283,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 3,
               "Title": "Pedido.cs",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Models\\Pedido.cs",
               "RelativeDocumentMoniker": "Models\\Pedido.cs",
               "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Models\\Pedido.cs",
               "RelativeToolTip": "Models\\Pedido.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAADwvwUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAIwB0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-06T16:00:35.557Z"
+              "WhenOpened": "2025-05-06T16:00:35.557Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 13,
               "Title": "Factura.cs",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Models\\Factura.cs",
               "RelativeDocumentMoniker": "Models\\Factura.cs",
@@ -326,12 +304,11 @@
               "RelativeToolTip": "Models\\Factura.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-06T16:01:17.708Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-06T16:01:17.708Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "NotaCreditoDetalle.cs",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Models\\NotaCreditoDetalle.cs",
               "RelativeDocumentMoniker": "Models\\NotaCreditoDetalle.cs",
@@ -339,12 +316,87 @@
               "RelativeToolTip": "Models\\NotaCreditoDetalle.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-06T14:37:55.634Z",
+              "WhenOpened": "2025-05-06T14:37:55.634Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAAwDQAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T00:59:56.825Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 2,
+              "Title": "PedidoDetalle.cs",
+              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Models\\PedidoDetalle.cs",
+              "RelativeDocumentMoniker": "Models\\PedidoDetalle.cs",
+              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Models\\PedidoDetalle.cs",
+              "RelativeToolTip": "Models\\PedidoDetalle.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-30T03:42:32.471Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "RecepcionesController.cs",
+              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Controllers\\RecepcionesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\RecepcionesController.cs",
+              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Controllers\\RecepcionesController.cs",
+              "RelativeToolTip": "Controllers\\RecepcionesController.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAowDkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-30T17:42:17.099Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PostgresContext.cs",
+              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Models\\PostgresContext.cs",
+              "RelativeDocumentMoniker": "Models\\PostgresContext.cs",
+              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Models\\PostgresContext.cs",
+              "RelativeToolTip": "Models\\PostgresContext.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAAwwAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T01:37:49.461Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "NotaDeDevolucion.cs",
+              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Models\\NotaDeDevolucion.cs",
+              "RelativeDocumentMoniker": "Models\\NotaDeDevolucion.cs",
+              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Models\\NotaDeDevolucion.cs",
+              "RelativeToolTip": "Models\\NotaDeDevolucion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T02:37:14.796Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "NotasCredito.cs",
+              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Models\\NotasCredito.cs",
+              "RelativeDocumentMoniker": "Models\\NotasCredito.cs",
+              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Models\\NotasCredito.cs",
+              "RelativeToolTip": "Models\\NotasCredito.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAA9wAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T02:39:24.713Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
               "Title": "DashboardService.cs",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Services\\DashboardService.cs",
               "RelativeDocumentMoniker": "Services\\DashboardService.cs",
@@ -356,7 +408,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 15,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -368,7 +420,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 12,
               "Title": "FacturaDetalle.cs",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Models\\FacturaDetalle.cs",
               "RelativeDocumentMoniker": "Models\\FacturaDetalle.cs",
@@ -376,12 +428,11 @@
               "RelativeToolTip": "Models\\FacturaDetalle.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-06T16:01:42.124Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-06T16:01:42.124Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 11,
               "Title": "OrdenPagoService.cs",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Services\\OrdenPagoService.cs",
               "RelativeDocumentMoniker": "Services\\OrdenPagoService.cs",
@@ -389,24 +440,11 @@
               "RelativeToolTip": "Services\\OrdenPagoService.cs",
               "ViewState": "AgIAABIAAAAAAAAAAAAowAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T18:53:15.69Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-09T18:53:15.69Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAEYAAAAAAAAAAAAgwBUAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-06T00:59:56.825Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 17,
               "Title": "LoginRequest.cs",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Dtos\\LoginRequest.cs",
               "RelativeDocumentMoniker": "Dtos\\LoginRequest.cs",
@@ -418,7 +456,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 18,
               "Title": "ProductosController.cs",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Controllers\\ProductosController.cs",
               "RelativeDocumentMoniker": "Controllers\\ProductosController.cs",
@@ -430,7 +468,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 20,
               "Title": "DashboardController.cs",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Controllers\\DashboardController.cs",
               "RelativeDocumentMoniker": "Controllers\\DashboardController.cs",
@@ -442,7 +480,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 21,
               "Title": "BackendApp.http",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\BackendApp.http",
               "RelativeDocumentMoniker": "BackendApp.http",
@@ -454,7 +492,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 23,
               "Title": "PresupuestosProveedore.cs",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Models\\PresupuestosProveedore.cs",
               "RelativeDocumentMoniker": "Models\\PresupuestosProveedore.cs",
@@ -466,7 +504,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 22,
               "Title": "BackendApp",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\BackendApp.csproj",
               "RelativeDocumentMoniker": "BackendApp.csproj",
@@ -477,7 +515,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 24,
               "Title": "20250422144112_InitialCreate.cs",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Migrations\\20250422144112_InitialCreate.cs",
               "RelativeDocumentMoniker": "Migrations\\20250422144112_InitialCreate.cs",
@@ -489,7 +527,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 25,
               "Title": "HelloController.cs",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Controllers\\HelloController.cs",
               "RelativeDocumentMoniker": "Controllers\\HelloController.cs",
@@ -501,7 +539,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 26,
               "Title": "IProductoService.cs",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Services\\IProductoService.cs",
               "RelativeDocumentMoniker": "Services\\IProductoService.cs",
@@ -513,7 +551,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 30,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Models\\User.cs",
               "RelativeDocumentMoniker": "Models\\User.cs",
@@ -525,7 +563,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 29,
               "Title": "Proveedor.cs",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Models\\Proveedor.cs",
               "RelativeDocumentMoniker": "Models\\Proveedor.cs",
@@ -537,7 +575,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 27,
               "Title": "Producto.cs",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Models\\Producto.cs",
               "RelativeDocumentMoniker": "Models\\Producto.cs",
@@ -549,19 +587,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "PedidoDetalle.cs",
-              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Models\\PedidoDetalle.cs",
-              "RelativeDocumentMoniker": "Models\\PedidoDetalle.cs",
-              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Models\\PedidoDetalle.cs",
-              "RelativeToolTip": "Models\\PedidoDetalle.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T03:42:32.471Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 28,
               "Title": "Proveedore.cs",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Models\\Proveedore.cs",
               "RelativeDocumentMoniker": "Models\\Proveedore.cs",
@@ -573,7 +599,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 31,
               "Title": "Usuario.cs",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Models\\Usuario.cs",
               "RelativeDocumentMoniker": "Models\\Usuario.cs",
@@ -585,7 +611,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 32,
               "Title": "ServiciosProductosUtilizado.cs",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Models\\ServiciosProductosUtilizado.cs",
               "RelativeDocumentMoniker": "Models\\ServiciosProductosUtilizado.cs",
@@ -597,19 +623,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "PostgresContext.cs",
-              "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Models\\PostgresContext.cs",
-              "RelativeDocumentMoniker": "Models\\PostgresContext.cs",
-              "ToolTip": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Models\\PostgresContext.cs",
-              "RelativeToolTip": "Models\\PostgresContext.cs",
-              "ViewState": "AgIAAEoAAAAAAAAAAAAewEQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-06T01:37:49.461Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 33,
               "Title": "ServiciosRealizado.cs",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Models\\ServiciosRealizado.cs",
               "RelativeDocumentMoniker": "Models\\ServiciosRealizado.cs",
@@ -621,7 +635,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 35,
               "Title": "Bucket.cs",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Models\\Bucket.cs",
               "RelativeDocumentMoniker": "Models\\Bucket.cs",
@@ -633,7 +647,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 34,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Models\\AppDbContext.cs",
               "RelativeDocumentMoniker": "Models\\AppDbContext.cs",
@@ -645,7 +659,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 36,
               "Title": "OrdenDetalle.cs",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Models\\OrdenDetalle.cs",
               "RelativeDocumentMoniker": "Models\\OrdenDetalle.cs",
@@ -657,7 +671,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 37,
               "Title": "Personal.cs",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Models\\Personal.cs",
               "RelativeDocumentMoniker": "Models\\Personal.cs",
@@ -669,7 +683,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 38,
               "Title": "AppDbContextModelSnapshot.cs",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Migrations\\AppDbContextModelSnapshot.cs",
               "RelativeDocumentMoniker": "Migrations\\AppDbContextModelSnapshot.cs",
@@ -681,7 +695,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 40,
               "Title": "RefreshToken.cs",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Models\\RefreshToken.cs",
               "RelativeDocumentMoniker": "Models\\RefreshToken.cs",
@@ -693,7 +707,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 39,
               "Title": "OrdenesPagoController.cs",
               "DocumentMoniker": "C:\\Users\\Catbe\\AppData\\Local\\SourceServer\\8adbd76e7db79db9f4eb883a4ee90d401531b0e12c2a8eddfb6ba9e820c8efa2\\BackendApp\\Controllers\\OrdenesPagoController.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Users\\Catbe\\AppData\\Local\\SourceServer\\8adbd76e7db79db9f4eb883a4ee90d401531b0e12c2a8eddfb6ba9e820c8efa2\\BackendApp\\Controllers\\OrdenesPagoController.cs",
@@ -705,7 +719,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 41,
               "Title": "Role.cs",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Models\\Role.cs",
               "RelativeDocumentMoniker": "Models\\Role.cs",
@@ -717,7 +731,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 42,
               "Title": "SamlRelayState.cs",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Models\\SamlRelayState.cs",
               "RelativeDocumentMoniker": "Models\\SamlRelayState.cs",
@@ -729,7 +743,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 43,
               "Title": "SchemaMigration.cs",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Models\\SchemaMigration.cs",
               "RelativeDocumentMoniker": "Models\\SchemaMigration.cs",
@@ -741,7 +755,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 46,
               "Title": "Ordene.cs",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Models\\Ordene.cs",
               "RelativeDocumentMoniker": "Models\\Ordene.cs",
@@ -753,7 +767,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 44,
               "Title": "SchemaMigration1.cs",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Models\\SchemaMigration1.cs",
               "RelativeDocumentMoniker": "Models\\SchemaMigration1.cs",
@@ -765,7 +779,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 45,
               "Title": "Precio.cs",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Models\\Precio.cs",
               "RelativeDocumentMoniker": "Models\\Precio.cs",
@@ -777,7 +791,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 47,
               "Title": "appsettings.Development.json",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\appsettings.Development.json",
               "RelativeDocumentMoniker": "appsettings.Development.json",
@@ -789,7 +803,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 48,
               "Title": "BackendApp.csproj",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\BackendApp.csproj",
               "RelativeDocumentMoniker": "BackendApp.csproj",
@@ -801,7 +815,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 49,
               "Title": "launchSettings.json",
               "DocumentMoniker": "C:\\Facultad\\INGE\\Gestion 2025\\Gestion-2025-modulo-compras-lian\\BackendApp\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "Properties\\launchSettings.json",

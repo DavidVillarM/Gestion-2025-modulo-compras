@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using BackendApp.Models; // donde esté PostgresContext
+
 
 namespace BackendApp.Models;
 

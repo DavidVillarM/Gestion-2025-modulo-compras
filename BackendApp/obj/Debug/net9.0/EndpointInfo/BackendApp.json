@@ -866,7 +866,7 @@
         "properties": {
           "productoId": {
             "type": "integer",
-            "format": "int32"
+            "format": "int64"
           },
           "cantidad": {
             "type": "integer",
@@ -884,11 +884,11 @@
         "properties": {
           "ordenId": {
             "type": "integer",
-            "format": "int32"
+            "format": "int64"
           },
           "proveedorId": {
             "type": "integer",
-            "format": "int32"
+            "format": "int64"
           },
           "fechaEmision": {
             "type": "string",

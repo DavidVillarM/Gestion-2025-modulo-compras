@@ -7,9 +7,9 @@ using BackendApp.Dtos;
 [Route("api/[controller]")]
 public class FacturasController : ControllerBase
 {
-    private readonly AppDbContext _context;
+    private readonly PostgresContext _context;
 
-    public FacturasController(AppDbContext context)
+    public FacturasController(PostgresContext context)
     {
         _context = context;
     }
@@ -20,6 +20,7 @@ public class FacturasController : ControllerBase
         var facturas = await _context.Facturas
             .Include(f => f.FacturaDetalles)
             .ToListAsync();
+
         return Ok(facturas);
     }
 
@@ -35,37 +36,36 @@ public class FacturasController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> CrearFactura(FacturaRequestDto dto)
+    public async Task<IActionResult> CrearFactura([FromBody] FacturaRequestDto dto)
     {
-        var orden = await _context.OrdenesCompra
-            .Include(o => o.Detalles)
-            .FirstOrDefaultAsync(o => o.Id == dto.OrdenId);
+        var pedido = await _context.Pedidos
+            .Include(p => p.PedidoDetalles)
+            .FirstOrDefaultAsync(p => p.IdPedido == dto.OrdenId);
 
-        if (orden == null) return BadRequest("Orden de compra no encontrada");
+        if (pedido == null)
+            return BadRequest("Pedido no encontrado");
 
+        // Validar que los productos existan en el pedido y cantidades válidas
         foreach (var item in dto.Items)
         {
-            var detalleOrden = orden.Detalles
-                .FirstOrDefault(d => d.ProductoId == item.ProductoId);
-
-            if (detalleOrden == null || item.Cantidad > detalleOrden.CantidadSolicitada)
-                return BadRequest("Producto inválido o cantidad excedida en la orden de compra");
+            var detalle = pedido.PedidoDetalles.FirstOrDefault(d => d.IdProducto == item.ProductoId);
+            if (detalle == null || item.Cantidad > detalle.Cantidad)
+                return BadRequest("Producto no válido o cantidad excedida");
         }
 
         var factura = new Factura
         {
-            Fecha = DateOnly.FromDateTime(dto.FechaEmision),
             IdPedido = dto.OrdenId,
             IdProveedor = dto.ProveedorId,
+            Fecha = DateOnly.FromDateTime(dto.FechaEmision),
             MontoTotal = dto.Items.Sum(i => i.Cantidad * i.PrecioUnitario),
-            Subtotal = dto.Items.Sum(i => i.Cantidad * i.PrecioUnitario),
+            Subtotal = dto.Items.Sum(i => i.Cantidad * i.PrecioUnitario), // Ajustar si hay IVA
+            Estado = "Registrada",
             FacturaDetalles = dto.Items.Select(i => new FacturaDetalle
             {
                 IdProducto = i.ProductoId,
                 Cantidad = i.Cantidad,
-                Precio = i.PrecioUnitario,
-                Iva5 = 0,
-                Iva10 = 0
+                Precio = i.PrecioUnitario
             }).ToList()
         };
 
@@ -75,5 +75,3 @@ public class FacturasController : ControllerBase
         return CreatedAtAction(nameof(GetFactura), new { id = factura.IdFactura }, factura);
     }
 }
-
-
