@@ -24,7 +24,7 @@ export const OrdenesPresupuesto = () => {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/Presupuestos/Orden/${ordenId}`)
+    fetch(`http://localhost:5000/api/Presupuestoo/Orden/${ordenId}`)
       .then((res) => res.json())
       .then((data) => {
         setPresupuestos(data);

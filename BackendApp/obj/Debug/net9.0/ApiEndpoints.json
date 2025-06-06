@@ -610,9 +610,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "BackendApp.Controllers.PresupuestoController",
+    "ContainingType": "BackendApp.Controllers.PresupuestosController",
     "Method": "GetAll",
-    "RelativePath": "api/ordenes/{ordenId}/Presupuesto",
+    "RelativePath": "api/ordenes/{ordenId}/Presupuestos",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -626,9 +626,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "BackendApp.Controllers.PresupuestoController",
+    "ContainingType": "BackendApp.Controllers.PresupuestosController",
     "Method": "Create",
-    "RelativePath": "api/ordenes/{ordenId}/Presupuesto",
+    "RelativePath": "api/ordenes/{ordenId}/Presupuestos",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -647,9 +647,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "BackendApp.Controllers.PresupuestoController",
+    "ContainingType": "BackendApp.Controllers.PresupuestosController",
     "Method": "Get",
-    "RelativePath": "api/ordenes/{ordenId}/Presupuesto/{idPresu}",
+    "RelativePath": "api/ordenes/{ordenId}/Presupuestos/{idPresu}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -668,9 +668,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "BackendApp.Controllers.PresupuestoController",
+    "ContainingType": "BackendApp.Controllers.PresupuestosController",
     "Method": "Update",
-    "RelativePath": "api/ordenes/{ordenId}/Presupuesto/{idPresu}",
+    "RelativePath": "api/ordenes/{ordenId}/Presupuestos/{idPresu}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -694,9 +694,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "BackendApp.Controllers.PresupuestoController",
+    "ContainingType": "BackendApp.Controllers.PresupuestosController",
     "Method": "Delete",
-    "RelativePath": "api/ordenes/{ordenId}/Presupuesto/{idPresu}",
+    "RelativePath": "api/ordenes/{ordenId}/Presupuestos/{idPresu}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -1133,7 +1133,33 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "BackendApp.Controllers.PresupuestoController",
+    "ContainingType": "BackendApp.Controllers.PresupuestooController",
+    "Method": "GetByOrden",
+    "RelativePath": "api/Presupuestoo/Orden/{idOrden}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idOrden",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[BackendApp.Services.Dtos.PresupuestoConDetallesDto, BackendApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BackendApp.Controllers.PresupuestosController",
     "Method": "GetAllGlobal",
     "RelativePath": "api/presupuestos",
     "HttpMethod": "GET",
@@ -1246,32 +1272,6 @@
       }
     ],
     "ReturnTypes": []
-  },
-  {
-    "ContainingType": "BackendApp.Controllers.PresupuestosController",
-    "Method": "GetByOrden",
-    "RelativePath": "api/Presupuestos/Orden/{idOrden}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "idOrden",
-        "Type": "System.Int64",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[BackendApp.Services.Dtos.PresupuestoConDetallesDto, BackendApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
   },
   {
     "ContainingType": "BackendApp.Controllers.ProductoProveedorController",
