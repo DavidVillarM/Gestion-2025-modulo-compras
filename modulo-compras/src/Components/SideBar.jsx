@@ -61,6 +61,11 @@ export const SideBar = () => {
             <FaBoxes className="mr-2" />
             <span>Recepción</span>
           </Link>
+          <Link to="/notas-credito" className="flex items-center text-left hover:bg-sky-800 p-2 rounded text-[20px]">
+            <FaFileInvoice className="mr-2" />
+            <span>Nota de Crédito</span>
+          </Link>
+
         </nav>
       </aside>
     </div>

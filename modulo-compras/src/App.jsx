@@ -102,6 +102,9 @@ function App() {
                     {/*<Route path="/facturas" element={<Facturas />} />*/}
                     <Route path="/categorias" element={<Categorias />} />
 
+                    <Route path="/notas-credito" element={<NotasCredito />} />
+
+
                     
         </Routes>
       </div>
