@@ -1,0 +1,2010 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "Backend API",
+    "description": "API de ejemplo para el backend",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/Auth/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Dashboard/compras-mensuales": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Dashboard/ordenes-pendientes": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Dashboard/pedidos-en-curso": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Dashboard/pagos-pendientes": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Dashboard/productos-mas-pedidos": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Dashboard/productos-menos-pedidos": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Dashboard/productos-por-mes": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Facturas": {
+      "get": {
+        "tags": [
+          "Facturas"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Facturas"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FacturaRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FacturaRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FacturaRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Facturas/{id}": {
+      "get": {
+        "tags": [
+          "Facturas"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Hello": {
+      "get": {
+        "tags": [
+          "Hello"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/OrdenesPago": {
+      "get": {
+        "tags": [
+          "OrdenesPago"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OrdenPagoDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OrdenPagoDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OrdenPagoDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/OrdenesPago/{id}": {
+      "get": {
+        "tags": [
+          "OrdenesPago"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrdenPagoDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrdenPagoDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrdenPagoDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "OrdenesPago"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/OrdenesPago/{id}/detalles": {
+      "get": {
+        "tags": [
+          "OrdenesPago"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OrdenDetalle"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OrdenDetalle"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OrdenDetalle"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/OrdenesPago/presupuesto": {
+      "post": {
+        "tags": [
+          "OrdenesPago"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PresupuestoDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PresupuestoDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PresupuestoDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/OrdenesPago/{id}/pedidos-con-detalles": {
+      "get": {
+        "tags": [
+          "OrdenesPago"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PedidoConDetallesDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PedidoConDetallesDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PedidoConDetallesDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Productos": {
+      "get": {
+        "tags": [
+          "Productos"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Producto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Producto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Producto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Productos/{id}": {
+      "get": {
+        "tags": [
+          "Productos"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Producto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Producto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Producto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Recepciones/ordenes-pendientes": {
+      "get": {
+        "tags": [
+          "Recepciones"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Recepciones/registrar": {
+      "post": {
+        "tags": [
+          "Recepciones"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RecepcionDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RecepcionDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RecepcionDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Recepciones/rechazar": {
+      "post": {
+        "tags": [
+          "Recepciones"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RechazoRecepcionDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RechazoRecepcionDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RechazoRecepcionDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AjustesStock": {
+        "type": "object",
+        "properties": {
+          "idAjuste": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "motivo": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipoAjuste": {
+            "type": "string",
+            "nullable": true
+          },
+          "idPersonal": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "detalleAjusteStocks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DetalleAjusteStock"
+            },
+            "nullable": true
+          },
+          "idPersonalNavigation": {
+            "$ref": "#/components/schemas/Personal"
+          }
+        },
+        "additionalProperties": false
+      },
+      "BajasProducto": {
+        "type": "object",
+        "properties": {
+          "idBajaProducto": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idProducto": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "cantidad": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "motivo": {
+            "type": "string",
+            "nullable": true
+          },
+          "idProductoNavigation": {
+            "$ref": "#/components/schemas/Producto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CategoriaProveedor": {
+        "type": "object",
+        "properties": {
+          "idCategoriaProveedor": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idCategoria": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "idProveedor": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "estado": {
+            "type": "string",
+            "nullable": true
+          },
+          "idCategoriaNavigation": {
+            "$ref": "#/components/schemas/Categorium"
+          },
+          "idProveedorNavigation": {
+            "$ref": "#/components/schemas/Proveedore"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Categorium": {
+        "type": "object",
+        "properties": {
+          "idCategoria": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "descripcion": {
+            "type": "string",
+            "nullable": true
+          },
+          "categoriaProveedors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CategoriaProveedor"
+            },
+            "nullable": true
+          },
+          "productos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Producto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DetalleAjusteStock": {
+        "type": "object",
+        "properties": {
+          "idDetalle": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idAjuste": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "idProducto": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "cantidad": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "idAjusteNavigation": {
+            "$ref": "#/components/schemas/AjustesStock"
+          },
+          "idProductoNavigation": {
+            "$ref": "#/components/schemas/Producto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Factura": {
+        "type": "object",
+        "properties": {
+          "idFactura": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idPedido": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idProveedor": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "ruc": {
+            "type": "string",
+            "nullable": true
+          },
+          "nombreProveedor": {
+            "type": "string",
+            "nullable": true
+          },
+          "timbrado": {
+            "type": "string",
+            "nullable": true
+          },
+          "montoTotal": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "subtotal": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "iva5": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "iva10": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "estado": {
+            "type": "string",
+            "nullable": true
+          },
+          "facturaDetalles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FacturaDetalle"
+            },
+            "nullable": true
+          },
+          "idPedidoNavigation": {
+            "$ref": "#/components/schemas/Pedido"
+          },
+          "idProveedorNavigation": {
+            "$ref": "#/components/schemas/Proveedore"
+          },
+          "notasCreditos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NotasCredito"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FacturaDetalle": {
+        "type": "object",
+        "properties": {
+          "idFacturaDetalle": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idFactura": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idProducto": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "precio": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "cantidad": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "iva5": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "iva10": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "idFacturaNavigation": {
+            "$ref": "#/components/schemas/Factura"
+          },
+          "idProductoNavigation": {
+            "$ref": "#/components/schemas/Producto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FacturaItemDto": {
+        "type": "object",
+        "properties": {
+          "productoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "cantidad": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "precioUnitario": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FacturaRequestDto": {
+        "type": "object",
+        "properties": {
+          "ordenId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "proveedorId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fechaEmision": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FacturaItemDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginRequest": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "NotaCreditoDetalle": {
+        "type": "object",
+        "properties": {
+          "idNotaDetalle": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idNota": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idProducto": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "precio": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "cantidad": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "iva5": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "iva10": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "idNotaNavigation": {
+            "$ref": "#/components/schemas/NotasCredito"
+          },
+          "idProductoNavigation": {
+            "$ref": "#/components/schemas/Producto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "NotasCredito": {
+        "type": "object",
+        "properties": {
+          "idNota": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idFactura": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idProveedor": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "ruc": {
+            "type": "string",
+            "nullable": true
+          },
+          "nombreProveedor": {
+            "type": "string",
+            "nullable": true
+          },
+          "timbrado": {
+            "type": "string",
+            "nullable": true
+          },
+          "montoTotal": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "subtotal": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "iva5": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "iva10": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "estado": {
+            "type": "string",
+            "nullable": true
+          },
+          "idFacturaNavigation": {
+            "$ref": "#/components/schemas/Factura"
+          },
+          "idProveedorNavigation": {
+            "$ref": "#/components/schemas/Proveedore"
+          },
+          "notaCreditoDetalles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NotaCreditoDetalle"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "OrdenDetalle": {
+        "type": "object",
+        "properties": {
+          "idOrdenDetalle": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idOrden": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idProducto": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "cantidad": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "idOrdenNavigation": {
+            "$ref": "#/components/schemas/Ordene"
+          },
+          "idProductoNavigation": {
+            "$ref": "#/components/schemas/Producto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "OrdenPagoDto": {
+        "type": "object",
+        "properties": {
+          "idOrden": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "fechaPedido": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "montoTotal": {
+            "type": "number",
+            "format": "double"
+          },
+          "estado": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Ordene": {
+        "type": "object",
+        "properties": {
+          "idOrden": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "estado": {
+            "type": "string",
+            "nullable": true
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "ordenDetalles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrdenDetalle"
+            },
+            "nullable": true
+          },
+          "pedidos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Pedido"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Pedido": {
+        "type": "object",
+        "properties": {
+          "idPedido": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idOrden": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idProveedor": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "montoTotal": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "fechaEntrega": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "fechaPedido": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "estado": {
+            "type": "string",
+            "nullable": true
+          },
+          "facturas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Factura"
+            },
+            "nullable": true
+          },
+          "idOrdenNavigation": {
+            "$ref": "#/components/schemas/Ordene"
+          },
+          "idProveedorNavigation": {
+            "$ref": "#/components/schemas/Proveedore"
+          },
+          "pedidoDetalles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PedidoDetalle"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PedidoConDetallesDto": {
+        "type": "object",
+        "properties": {
+          "idPedido": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "proveedor": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaPedido": {
+            "type": "string",
+            "format": "date"
+          },
+          "fechaEntrega": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "detalles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PedidoDetalleSimpleDto"
+            },
+            "nullable": true
+          },
+          "montoTotal": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PedidoDetalle": {
+        "type": "object",
+        "properties": {
+          "idPedidoDetalle": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idPedido": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idProducto": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "cotizacion": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "cantidad": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "iva": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "idPedidoNavigation": {
+            "$ref": "#/components/schemas/Pedido"
+          },
+          "idProductoNavigation": {
+            "$ref": "#/components/schemas/Producto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PedidoDetalleSimpleDto": {
+        "type": "object",
+        "properties": {
+          "idPedidoDetalle": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "producto": {
+            "type": "string",
+            "nullable": true
+          },
+          "cotizacion": {
+            "type": "number",
+            "format": "double"
+          },
+          "cantidad": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "iva": {
+            "type": "number",
+            "format": "double"
+          },
+          "subtotal": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Personal": {
+        "type": "object",
+        "properties": {
+          "idPersonal": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idUser": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "idRol": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "apellido": {
+            "type": "string",
+            "nullable": true
+          },
+          "ci": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaIngreso": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "fechaSalida": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "estado": {
+            "type": "string",
+            "nullable": true
+          },
+          "ajustesStocks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AjustesStock"
+            },
+            "nullable": true
+          },
+          "idRolNavigation": {
+            "$ref": "#/components/schemas/Role"
+          },
+          "idUserNavigation": {
+            "$ref": "#/components/schemas/Usuario"
+          },
+          "serviciosRealizados": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ServiciosRealizado"
+            },
+            "nullable": true
+          },
+          "stocks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Stock"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Precio": {
+        "type": "object",
+        "properties": {
+          "idPrecio": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idProducto": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "precio1": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "fechaRegistro": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "estado": {
+            "type": "string",
+            "nullable": true
+          },
+          "idProductoNavigation": {
+            "$ref": "#/components/schemas/Producto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Presupuesto": {
+        "type": "object",
+        "properties": {
+          "idPresupuesto": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idOrden": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idProveedor": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "fechaEntrega": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "subtotal": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "iva5": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "iva10": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "total": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "idProveedorNavigation": {
+            "$ref": "#/components/schemas/Proveedore"
+          },
+          "presupuestoDetalles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PresupuestoDetalle"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PresupuestoDetalle": {
+        "type": "object",
+        "properties": {
+          "idPresupuestoDetalle": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idPresupuesto": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idProducto": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "cantidad": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "precio": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "iva5": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "iva10": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "idPresupuestoNavigation": {
+            "$ref": "#/components/schemas/Presupuesto"
+          },
+          "idProductoNavigation": {
+            "$ref": "#/components/schemas/Producto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PresupuestoDetalleDto": {
+        "type": "object",
+        "properties": {
+          "idProducto": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idProveedor": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "cotizacion": {
+            "type": "number",
+            "format": "double"
+          },
+          "cantidad": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "iva": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PresupuestoDto": {
+        "type": "object",
+        "properties": {
+          "ordenId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "detalles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PresupuestoDetalleDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PresupuestosProveedore": {
+        "type": "object",
+        "properties": {
+          "idPresupuesto": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "ordenId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "proveedorId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "fechaEnvio": {
+            "type": "string",
+            "format": "date"
+          },
+          "proveedor": {
+            "$ref": "#/components/schemas/Proveedore"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Producto": {
+        "type": "object",
+        "properties": {
+          "idProducto": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idCategoria": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "idStock": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "marca": {
+            "type": "string",
+            "nullable": true
+          },
+          "cantidadTotal": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "cantidadMinima": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "bajasProductos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BajasProducto"
+            },
+            "nullable": true
+          },
+          "detalleAjusteStocks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DetalleAjusteStock"
+            },
+            "nullable": true
+          },
+          "facturaDetalles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FacturaDetalle"
+            },
+            "nullable": true
+          },
+          "idCategoriaNavigation": {
+            "$ref": "#/components/schemas/Categorium"
+          },
+          "idStockNavigation": {
+            "$ref": "#/components/schemas/Stock"
+          },
+          "notaCreditoDetalles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NotaCreditoDetalle"
+            },
+            "nullable": true
+          },
+          "ordenDetalles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrdenDetalle"
+            },
+            "nullable": true
+          },
+          "pedidoDetalles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PedidoDetalle"
+            },
+            "nullable": true
+          },
+          "precios": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Precio"
+            },
+            "nullable": true
+          },
+          "presupuestoDetalles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PresupuestoDetalle"
+            },
+            "nullable": true
+          },
+          "productoProveedors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductoProveedor"
+            },
+            "nullable": true
+          },
+          "serviciosProductosUtilizados": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ServiciosProductosUtilizado"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProductoProveedor": {
+        "type": "object",
+        "properties": {
+          "idProductoProveedor": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idProveedor": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "idProducto": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "fechaCompra": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "cantidad": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "idProductoNavigation": {
+            "$ref": "#/components/schemas/Producto"
+          },
+          "idProveedorNavigation": {
+            "$ref": "#/components/schemas/Proveedore"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProductoRecibidoDTO": {
+        "type": "object",
+        "properties": {
+          "productoId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "cantidadRecibida": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Proveedore": {
+        "type": "object",
+        "properties": {
+          "idProveedor": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "ruc": {
+            "type": "string",
+            "nullable": true
+          },
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "telefono": {
+            "type": "string",
+            "nullable": true
+          },
+          "correo": {
+            "type": "string",
+            "nullable": true
+          },
+          "nombreContacto": {
+            "type": "string",
+            "nullable": true
+          },
+          "categoriaProveedors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CategoriaProveedor"
+            },
+            "nullable": true
+          },
+          "facturas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Factura"
+            },
+            "nullable": true
+          },
+          "notasCreditos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NotasCredito"
+            },
+            "nullable": true
+          },
+          "pedidos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Pedido"
+            },
+            "nullable": true
+          },
+          "presupuestos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Presupuesto"
+            },
+            "nullable": true
+          },
+          "presupuestosProveedores": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PresupuestosProveedore"
+            },
+            "nullable": true
+          },
+          "productoProveedors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductoProveedor"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RecepcionDTO": {
+        "type": "object",
+        "properties": {
+          "ordenId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "numeroFactura": {
+            "type": "string",
+            "nullable": true
+          },
+          "timbrado": {
+            "type": "string",
+            "nullable": true
+          },
+          "productos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductoRecibidoDTO"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RechazoRecepcionDTO": {
+        "type": "object",
+        "properties": {
+          "ordenId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Role": {
+        "type": "object",
+        "properties": {
+          "idRol": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "descripcion": {
+            "type": "string",
+            "nullable": true
+          },
+          "personals": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Personal"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Servicio": {
+        "type": "object",
+        "properties": {
+          "idServicio": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "descripcion": {
+            "type": "string",
+            "nullable": true
+          },
+          "costo": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "serviciosRealizados": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ServiciosRealizado"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ServiciosProductosUtilizado": {
+        "type": "object",
+        "properties": {
+          "idServicioProducto": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idServicioRealizado": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "idProducto": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "cantidad": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "idProductoNavigation": {
+            "$ref": "#/components/schemas/Producto"
+          },
+          "idServicioRealizadoNavigation": {
+            "$ref": "#/components/schemas/ServiciosRealizado"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ServiciosRealizado": {
+        "type": "object",
+        "properties": {
+          "idServicioRealizado": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idPersonal": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "idServicio": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "estado": {
+            "type": "string",
+            "nullable": true
+          },
+          "idPersonalNavigation": {
+            "$ref": "#/components/schemas/Personal"
+          },
+          "idServicioNavigation": {
+            "$ref": "#/components/schemas/Servicio"
+          },
+          "serviciosProductosUtilizados": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ServiciosProductosUtilizado"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Stock": {
+        "type": "object",
+        "properties": {
+          "idStock": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idPersonal": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "ubicacion": {
+            "type": "string",
+            "nullable": true
+          },
+          "idPersonalNavigation": {
+            "$ref": "#/components/schemas/Personal"
+          },
+          "productos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Producto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Usuario": {
+        "type": "object",
+        "properties": {
+          "idUser": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "personals": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Personal"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
