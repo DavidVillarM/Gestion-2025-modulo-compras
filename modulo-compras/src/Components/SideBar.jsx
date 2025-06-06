@@ -43,7 +43,10 @@ export const SideBar = () => {
     <FaClipboardList className="mr-2" />
     <span>Ordenes</span>
   </Link>
-
+  <Link to="/presupuestos" className="flex items-center text-left hover:bg-sky-800 p-2 rounded text-[20px]">
+    <FaClipboardList className="mr-2" />
+    <span>Presupuesto</span>
+  </Link>
   <Link to="/ordenes-pago" className="flex items-center text-left hover:bg-sky-800 p-2 rounded text-[20px]">
     <FaMoneyCheckAlt className="mr-2" />
     <span>Gestion Pedidos</span>

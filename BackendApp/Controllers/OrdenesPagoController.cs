@@ -24,7 +24,7 @@ namespace BackendApp.Controllers
 
         // GET api/OrdenesPago
         [HttpGet]
-        //[Authorize]
+        [Authorize]
         public async Task<ActionResult<List<OrdenPagoDto>>> GetOrdenesPago()
         {
             var ordenes = await _ordenPagoService.GetOrdenesPagoAsync();
