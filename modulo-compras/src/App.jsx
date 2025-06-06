@@ -30,8 +30,8 @@ import ListaPedidosFinales from "./pages/ListaPedidosFinales.jsx";
 import ListaPresupuestos from "./pages/ListaPresupuestos";
 import { FormProveedores } from './Pages/FormProveedores.jsx';
 import { DetallesProveedores } from './Pages/DetallesProveedores.jsx';
-import CargarNota from './Pages/CargarNota.jsx'
-import ListaNotas from './Pages/ListaNotas.jsx'
+import {CargarNota} from './Pages/CargarNota.jsx'
+import {ListaNotas} from './Pages/ListaNotas.jsx'
 
 
 function App() {
@@ -43,7 +43,7 @@ function App() {
       {!isLoginPage && <SideBar />}
       <div className="flex-1 overflow-y-auto bg-gray-100">
         <Routes>
-          <Route path="/" element={<Dashboard />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/categorias" element={<Categorias />} />
           <Route path="/recepcion" element={<RecepcionProductos />} />
           <Route path="/ordenes-pago" element={<OrdenesPago />} />

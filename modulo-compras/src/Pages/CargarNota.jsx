@@ -214,7 +214,7 @@ export const CargarNota = () => {
 
             alert('Nota de crédito guardada exitosamente');
             resetForm();
-            navigate('/CargarNota');
+            navigate('/notas-credito/cargar');
         } catch (error) {
             console.error('Error:', error);
             alert(error.message);
