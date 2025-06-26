@@ -42,6 +42,8 @@ namespace BackendApp.Services
         public string Proveedor { get; set; } = "";
         public DateOnly FechaPedido { get; set; }
         public DateOnly? FechaEntrega { get; set; }
+
+        public string? CorreoProveedor { get; set; }
         public List<PedidoDetalleSimpleDto> Detalles { get; set; } = new();
         public decimal MontoTotal { get; set; }
     }
@@ -231,9 +233,10 @@ namespace BackendApp.Services
                 {
                     IdPedido = pedido.IdPedido,
                     Proveedor = pedido.IdProveedorNavigation?.Nombre ?? "",
-                    FechaPedido = pedido.FechaPedido ?? default(DateOnly), // Explicit conversion with default value
+                    FechaPedido = pedido.FechaPedido ?? default(DateOnly),
                     FechaEntrega = pedido.FechaEntrega,
                     MontoTotal = pedido.MontoTotal ?? 0m,
+                    CorreoProveedor = pedido.IdProveedorNavigation?.Correo ?? "", // 👈 Agregado
                     Detalles = pedido.PedidoDetalles.Select(d => new PedidoDetalleSimpleDto
                     {
                         IdPedidoDetalle = d.IdPedidoDetalle,
