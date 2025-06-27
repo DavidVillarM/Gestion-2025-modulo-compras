@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaHome, FaPeopleCarry, FaBoxes, FaBoxOpen, FaTags, FaClipboardList, FaMoneyCheckAlt, FaHotel, FaFileInvoice } from "react-icons/fa";
-
+import logoImg from "../assets/logo-removebg-preview (1).png"
 import { Link } from 'react-router-dom';
 
 export const SideBar = () => {
@@ -10,7 +10,7 @@ export const SideBar = () => {
       <aside className="w-64 bg-sky-600 text-white p-4">
         <div className="flex justify-center mb-6">
           <h1 className="text-[100px] text-black">
-            <FaHotel />
+            <img src={logoImg} alt="lOGO" />
           </h1>
         </div>
 <nav className="flex flex-col gap-4">

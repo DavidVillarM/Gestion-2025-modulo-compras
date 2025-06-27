@@ -19,6 +19,8 @@ public partial class NotaCreditoDetalle
 
     public decimal? Iva10 { get; set; }
 
+    public string? Motivo { get; set; }
+
     public virtual NotasCredito IdNotaNavigation { get; set; } = null!;
 
     public virtual Producto IdProductoNavigation { get; set; } = null!;

@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { generarPDFOrden } from './GenerarPDFOrden';
 
 export const OrdenesPresupuestoFinal = () => {
   const location = useLocation();
@@ -61,24 +62,28 @@ export const OrdenesPresupuestoFinal = () => {
   const confirmDialog = () => setShowDialog(true);
 
   // 5) Cuando el usuario confirma, envío el POST a /api/OrdenPago/crear
-  const handleConfirm = async () => {
-    setShowDialog(false);
-    setError('');
+const handleConfirm = async () => {
+  setShowDialog(false);
+  setError('');
 
-    try {
-      // Aquí cambiamos la URL al endpoint correcto:
-      await axios.post('http://localhost:5000/api/OrdenesPago/crear', {
-        ordenId: parseInt(ordenId, 10),
-        detalles: lineas
-      });
-      // Si todo sale bien, limpio detalles y navego a la lista de órdenes de pago
-      localStorage.removeItem('detalles');
-      navigate('/ordenes-pago');
-    } catch (e) {
-      console.error(e);
-      setError('Error al confirmar pedido.');
-    }
-  };
+  try {
+    // 1. Confirmar pedido en backend
+    await axios.post('http://localhost:5000/api/OrdenesPago/crear', {
+      ordenId: parseInt(ordenId, 10),
+      detalles: lineas
+    });
+
+    // 2. Generar el PDF luego de confirmación exitosa
+    await generarPDFOrden(ordenId);
+
+    // 3. Limpiar localStorage y redirigir
+    localStorage.removeItem('detalles');
+    navigate('/ordenes-pago');
+  } catch (e) {
+    console.error(e);
+    setError('Error al confirmar pedido.');
+  }
+};
 
   if (loading) return <p className="text-center text-lg">Cargando resumen...</p>;
   if (error)   return <p className="text-center text-red-600 text-lg">{error}</p>;

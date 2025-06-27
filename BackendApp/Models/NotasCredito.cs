@@ -29,6 +29,8 @@ public partial class NotasCredito
 
     public string? Estado { get; set; }
 
+    public virtual ICollection<Asiento> Asientos { get; set; } = new List<Asiento>();
+
     public virtual Factura IdFacturaNavigation { get; set; } = null!;
 
     public virtual Proveedore IdProveedorNavigation { get; set; } = null!;

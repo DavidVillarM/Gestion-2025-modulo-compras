@@ -109,7 +109,7 @@ export const OrdenesVista = () => {
           <table className="min-w-full border mb-4">
             <thead>
               <tr className="bg-gray-100">
-                <th className="border px-4 py-2">ID Detalle</th>
+
                 <th className="border px-4 py-2">Producto</th>
                 <th className="border px-4 py-2">Cotizacion</th>
                 <th className="border px-4 py-2">Cantidad</th>
@@ -120,7 +120,7 @@ export const OrdenesVista = () => {
             <tbody>
               {pedido.detalles.map((d) => (
                 <tr key={d.idPedidoDetalle}>
-                  <td className="border px-4 py-2">{d.idPedidoDetalle}</td>
+                 
                   <td className="border px-4 py-2">{d.producto}</td>
                   <td className="border px-4 py-2">
                     ${d.cotizacion.toFixed(2)}

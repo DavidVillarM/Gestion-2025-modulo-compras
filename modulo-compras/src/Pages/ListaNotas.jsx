@@ -16,7 +16,7 @@ export const ListaNotas = () => {
         try {
             setIsLoading(true);
             const token = localStorage.getItem('token');
-            const response = await fetch(`http://localhost:5000/api/Notasredito`, {
+            const response = await fetch('http://localhost:5000/api/NotaCredito/listado-simple', {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -25,8 +25,8 @@ export const ListaNotas = () => {
                 throw new Error('Error al cargar las notas de crédito');
             }
             const data = await response.json();
-            setNotas(data.items || []);
-            setTotalPages(Math.ceil((data.totalCount || 0) / 10));
+            setNotas(data || []);
+            setTotalPages(Math.ceil((data.length || 0) / 10));
         } catch (error) {
             console.error('Error:', error);
             alert('Error al cargar las notas de crédito');
@@ -60,7 +60,7 @@ export const ListaNotas = () => {
             <div className="flex justify-between items-center mb-6">
                 <h1 className="text-2xl font-bold">Notas de Crédito</h1>
                 <button
-                    onClick={() => navigate('/CargarNota')}
+                    onClick={() => navigate('/notas-credito/cargar')}
                     className="px-4 py-2 bg-sky-600 text-white rounded-md hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2"
                 >
                     Nueva Nota
@@ -77,37 +77,27 @@ export const ListaNotas = () => {
                         <table className="min-w-full divide-y divide-gray-200">
                             <thead className="bg-gray-50">
                                 <tr>
-                                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID Nota</th>
+                                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID Factura</th>
+                                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nombre Proveedor</th>
                                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Fecha</th>
                                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">RUC</th>
-                                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Proveedor</th>
                                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Monto Total</th>
-                                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Estado</th>
                                 </tr>
                             </thead>
                             <tbody className="bg-white divide-y divide-gray-200">
                                 {notas && notas.length > 0 ? (
-                                    notas.map((nota) => (
-                                        <tr key={nota.idNota} className="hover:bg-gray-50">
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{nota.idNota}</td>
+                                    notas.map((nota, idx) => (
+                                        <tr key={idx} className="hover:bg-gray-50">
+                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{nota.idFactura}</td>
+                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{nota.nombreProveedor}</td>
                                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{formatDate(nota.fecha)}</td>
                                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{nota.ruc}</td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{nota.nombreProveedor}</td>
                                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{formatCurrency(nota.montoTotal)}</td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm">
-                                                <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                                                    nota.estado === 'Completado' 
-                                                        ? 'bg-green-100 text-green-800' 
-                                                        : 'bg-yellow-100 text-yellow-800'
-                                                }`}>
-                                                    {nota.estado}
-                                                </span>
-                                            </td>
                                         </tr>
                                     ))
                                 ) : (
                                     <tr>
-                                        <td colSpan="6" className="px-6 py-4 text-center text-sm text-gray-500">
+                                        <td colSpan="5" className="px-6 py-4 text-center text-sm text-gray-500">
                                             No hay notas de crédito disponibles
                                         </td>
                                     </tr>
@@ -145,3 +135,5 @@ export const ListaNotas = () => {
         </div>
     );
 };
+
+export default ListaNotas;

@@ -214,7 +214,7 @@ export const CargarNota = () => {
 
             alert('Nota de crédito guardada exitosamente');
             resetForm();
-            navigate('/notas-credito/cargar');
+            navigate('/notas-credito');
         } catch (error) {
             console.error('Error:', error);
             alert(error.message);
@@ -379,7 +379,7 @@ export const CargarNota = () => {
             <div className="flex justify-end space-x-4 mt-6">
                 <button
                     type="button"
-                    onClick={() => navigate('/home/NotaCredito')}
+                    onClick={() => navigate('/notas-credito/cargar')}
                     className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50"
                 >
                     Volver

@@ -27,7 +27,7 @@ export default function PocoStock() {
         if (copia.has(prod.idProducto)) {
             copia.delete(prod.idProducto);
         } else {
-            // calculamos cantidad = mínima - actual (al menos 1)
+            // calculamos cantidad = mï¿½nima - actual (al menos 1)
             const cant = Math.max(prod.cantidadMinima - prod.cantidadTotal, 1);
             copia.set(prod.idProducto, { idProducto: prod.idProducto, cantidad: cant });
         }
@@ -55,7 +55,7 @@ export default function PocoStock() {
             });
     };
 
-    if (loading) return <p className="p-4">Cargando productos de poco stock…</p>;
+    if (loading) return <p className="p-4">Cargando productos de poco stock</p>;
     if (bajos.length === 0) return <p className="p-4">No hay productos con stock bajo.</p>;
 
     const columns = [
@@ -73,9 +73,9 @@ export default function PocoStock() {
             width: '100px'
         },
         { name: 'Producto', selector: row => row.nombre, sortable: true },
-        { name: 'Categoría', selector: row => row.nombreCategoria, sortable: true },
+        { name: 'Categoriaa', selector: row => row.nombreCategoria, sortable: true },
         { name: 'Stock Actual', selector: row => row.cantidadTotal, sortable: true },
-        { name: 'Stock Mínimo', selector: row => row.cantidadMinima, sortable: true }
+        { name: 'Stock Minimo', selector: row => row.cantidadMinima, sortable: true }
     ];
 
     return (

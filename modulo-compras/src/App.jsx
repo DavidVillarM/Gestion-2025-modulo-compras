@@ -32,6 +32,7 @@ import { FormProveedores } from './Pages/FormProveedores.jsx';
 import { DetallesProveedores } from './Pages/DetallesProveedores.jsx';
 import {CargarNota} from './Pages/CargarNota.jsx'
 import {ListaNotas} from './Pages/ListaNotas.jsx'
+import RecepcionNueva from './Pages/RecepcionNueva';
 
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/categorias" element={<Categorias />} />
           <Route path="/recepcion" element={<RecepcionProductos />} />
+          <Route path="/recepciones/nueva" element={<RecepcionNueva />} />
           <Route path="/ordenes-pago" element={<OrdenesPago />} />
           <Route path="/ordenes-presupuesto/" element={<OrdenesPresupuesto />} />
           <Route path="/ordenes-vista/:id" element={<OrdenesVista />} />

@@ -26,14 +26,14 @@
 //            setOrdenes(list);
 //        } catch (e) {
 //            console.error(e);
-//            alert('Error cargando órdenes: ' + e.message);
+//            alert('Error cargando ï¿½rdenes: ' + e.message);
 //        } finally {
 //            setLoading(false);
 //        }
 //    }
 
 //    async function handleDelete(idOrden) {
-//        if (!window.confirm('¿Eliminar esta orden?')) return;
+//        if (!window.confirm('ï¿½Eliminar esta orden?')) return;
 //        try {
 //            await deleteOrden(idOrden);
 //            load();
@@ -44,7 +44,7 @@
 //    }
 
 //    const handleSolicitar = (idOrden) => {
-//        if (!window.confirm('¿Seguro que quieres solicitar cotización para esta orden?'))
+//        if (!window.confirm('ï¿½Seguro que quieres solicitar cotizaciï¿½n para esta orden?'))
 //            return;
 
 //        fetchProveedoresParaOrden(idOrden)
@@ -56,7 +56,7 @@
 //            })
 //            .catch(err => {
 //                console.error(err);
-//                alert('Error al obtener proveedores para cotización.');
+//                alert('Error al obtener proveedores para cotizaciï¿½n.');
 //            });
 //    };
 
@@ -80,7 +80,7 @@
 //                    <button
 //                        onClick={() => {
 //                            const lista = row.detalles
-//                                .map(d => `• ${d.nombreProducto} x ${d.cantidad}`)
+//                                .map(d => `ï¿½ ${d.nombreProducto} x ${d.cantidad}`)
 //                                .join('\n');
 //                            alert(`Detalles Orden #${row.idOrden}:\n` + lista);
 //                        }}
@@ -101,7 +101,7 @@
 //                    {row.estado === 'INCOMPLETA' && (
 //                        <button
 //                            onClick={() => handleSolicitar(row.idOrden)}
-//                            title="Solicitar Cotización"
+//                            title="Solicitar Cotizaciï¿½n"
 //                            className="text-blue-600 hover:text-blue-800"
 //                        >
 //                            <FaCartPlus size={18} />
@@ -133,14 +133,14 @@
 //        }
 //    ];
 
-//    if (loading) return <p className="p-4">Cargando órdenes…</p>;
-//    if (ordenes.length === 0) return <p className="p-4">No hay órdenes creadas.</p>;
+//    if (loading) return <p className="p-4">Cargando ï¿½rdenesï¿½</p>;
+//    if (ordenes.length === 0) return <p className="p-4">No hay ï¿½rdenes creadas.</p>;
 
 //    return (
 //        <div className="p-6 bg-gray-100 min-h-screen">
 //            <div className="flex justify-between items-center mb-4">
 //                <h2 className="text-xl font-bold text-sky-600">
-//                    Órdenes de Compra (Solicitudes)
+//                    ï¿½rdenes de Compra (Solicitudes)
 //                </h2>
 //                <Link to="/ordenes/nueva">
 //                    <button className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
@@ -186,14 +186,14 @@ export default function ListaOrdenes() {
             setOrdenes(list);
         } catch (e) {
             console.error(e);
-            alert("Error cargando órdenes");
+            alert("Error cargando ordenes");
         } finally {
             setLoading(false);
         }
     }
 
     async function handleDelete(idOrden) {
-        if (!window.confirm("¿Eliminar esta orden?")) return;
+        if (!window.confirm("Eliminar esta orden?")) return;
         try {
             await deleteOrden(idOrden);
             load();
@@ -223,7 +223,7 @@ export default function ListaOrdenes() {
                     <button
                         onClick={() => {
                             const lista = row.detalles
-                                .map((d) => `• ${d.nombreProducto} x ${d.cantidad}`)
+                                .map((d) => `ï¿½ ${d.nombreProducto} x ${d.cantidad}`)
                                 .join("\n");
                             alert(`Detalles Orden #${row.idOrden}:\n` + lista);
                         }}
@@ -246,7 +246,7 @@ export default function ListaOrdenes() {
                             onClick={() =>
                                 navigate(`/ordenes/${row.idOrden}/proveedores`)
                             }
-                            title="Solicitar Cotización"
+                            title="Solicitar Cotizacion"
                             className="text-blue-600 hover:text-blue-800"
                         >
                             <FaCartPlus size={18} />
@@ -280,14 +280,14 @@ export default function ListaOrdenes() {
         },
     ];
 
-    if (loading) return <p className="p-4">Cargando órdenes…</p>;
-    if (ordenes.length === 0) return <p className="p-4">No hay órdenes creadas.</p>;
+    if (loading) return <p className="p-4">Cargando ordenes</p>;
+    if (ordenes.length === 0) return <p className="p-4">No hay ordenes creadas.</p>;
 
     return (
         <div className="p-6 bg-gray-100 min-h-screen">
             <div className="flex justify-between items-center mb-4">
                 <h2 className="text-xl font-bold text-sky-600">
-                    Órdenes de Compra (Solicitudes)
+                    ordenes de Compra (Solicitudes)
                 </h2>
                 <Link to="/ordenes/nueva">
                     <button className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">

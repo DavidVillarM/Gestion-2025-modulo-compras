@@ -301,7 +301,6 @@
 //}
 
 
-// src/pages/FormPresupuestos.jsx
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import DatePicker from "react-datepicker";
@@ -317,16 +316,13 @@ export default function FormPresupuesto() {
     const { ordenId, idPresupuesto } = useParams();
     const navigate = useNavigate();
 
-    // Siempre es edición (nunca es “crear” aquí, pues ya se creó vacío en ProveedoresParaOrden)
     const [loading, setLoading] = useState(true);
     const [, setOrden] = useState(null);
     const [presupuesto, setPresupuesto] = useState(null);
 
-    // Campos de formulario
     const [fechaEntrega, setFechaEntrega] = useState(new Date());
-    const [detalles, setDetalles] = useState([]); // cada item: { idPresupuestoDetalle?, idProducto, nombreProducto, cantidad, precio, iva5, iva10 }
+    const [detalles, setDetalles] = useState([]);
     const [subtotal, setSubtotal] = useState(0);
-    const [iva5, setIva5] = useState(0);
     const [iva10, setIva10] = useState(0);
     const [total, setTotal] = useState(0);
 
@@ -334,27 +330,18 @@ export default function FormPresupuesto() {
         async function cargarTodo() {
             try {
                 setLoading(true);
-
-                // 1) Obtener la orden (para ver qué productos y cantidades trae)
                 const o = await fetchOrden(ordenId);
-                // o.detalles = [ { idOrdenDetalle, idProducto, nombreProducto, cantidad } ]
                 setOrden(o);
 
-                // 2) Obtener el presupuesto existente
                 const presu = await fetchPresupuesto(ordenId, idPresupuesto);
                 setPresupuesto(presu);
 
-                // 3) Llenar “fechaEntrega” y totales si ya estaban guardados
                 setFechaEntrega(new Date(presu.fechaEntrega || new Date().toISOString()));
                 setSubtotal(presu.subtotal);
-                setIva5(presu.iva5);
                 setIva10(presu.iva10);
                 setTotal(presu.total);
 
-                // 4) Si “presu.detalles” trae elementos, usamos esos. 
-                //    Si no, inicializamos partiendo de “o.detalles”
                 if (presu.detalles && presu.detalles.length > 0) {
-                    // cada detalle ya viene con idPresupuestoDetalle, idProducto, nombreProducto, cantidad, precio, iva5, iva10
                     setDetalles(
                         presu.detalles.map((d) => ({
                             idPresupuestoDetalle: d.idPresupuestoDetalle,
@@ -362,20 +349,16 @@ export default function FormPresupuesto() {
                             nombreProducto: d.nombreProducto,
                             cantidad: d.cantidad,
                             precio: d.precio,
-                            iva5: d.iva5,
-                            iva10: d.iva10,
+                            iva10: +(d.precio * d.cantidad * 0.1).toFixed(2),
                         }))
                     );
                 } else {
-                    // No hay detalles aún => creamos uno por cada producto de la orden, con precio/IVA en 0
                     const arr = o.detalles.map((d) => ({
-                        // idPresupuestoDetalle no existe porque es vacio
                         idPresupuestoDetalle: null,
                         idProducto: d.idProducto,
                         nombreProducto: d.nombreProducto,
                         cantidad: d.cantidad,
                         precio: 0,
-                        iva5: 0,
                         iva10: 0,
                     }));
                     setDetalles(arr);
@@ -392,54 +375,50 @@ export default function FormPresupuesto() {
         cargarTodo();
     }, [ordenId, idPresupuesto, navigate]);
 
-    // Cada vez que cambian precios o IVA, recalcular totales:
     useEffect(() => {
-        let st = 0,
-            i5 = 0,
-            i10 = 0;
+        let st = 0, i10 = 0;
         detalles.forEach((d) => {
             st += (parseFloat(d.precio) || 0) * d.cantidad;
-            i5 += parseFloat(d.iva5 || 0);
             i10 += parseFloat(d.iva10 || 0);
         });
         setSubtotal(st);
-        setIva5(i5);
         setIva10(i10);
-        setTotal(st + i5 + i10);
+        setTotal(st + i10);
     }, [detalles]);
 
     const handleDetalleChange = (idx, field, value) => {
         const copia = [...detalles];
-        if (field === "precio") copia[idx].precio = parseFloat(value) || 0;
-        if (field === "iva5") copia[idx].iva5 = parseFloat(value) || 0;
-        if (field === "iva10") copia[idx].iva10 = parseFloat(value) || 0;
+        const detalle = copia[idx];
+
+        if (field === "precio") {
+            detalle.precio = parseFloat(value) || 0;
+            detalle.iva10 = +(detalle.precio * detalle.cantidad * 0.1).toFixed(2);
+        }
+
         setDetalles(copia);
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            // Armar DTO para PUT:
             const dto = {
                 idProveedor: presupuesto.idProveedor,
                 fechaEntrega: fechaEntrega.toISOString(),
                 subtotal,
-                iva5,
+                iva5: 0,
                 iva10,
                 total,
                 detalles: detalles.map((d) => ({
                     idProducto: d.idProducto,
                     cantidad: d.cantidad,
                     precio: d.precio,
-                    iva5: d.iva5,
+                    iva5: 0,
                     iva10: d.iva10,
                 })),
             };
 
             await updatePresupuesto(ordenId, idPresupuesto, dto);
             alert("Cotización actualizada correctamente.");
-
-            // Volver a la lista global:
             navigate("/presupuestos");
         } catch (err) {
             console.error(err);
@@ -469,14 +448,15 @@ export default function FormPresupuesto() {
                     />
                 </div>
 
+            
+
                 <table className="w-full bg-white border mb-4">
                     <thead>
                         <tr className="bg-gray-200">
                             <th className="p-2">Producto</th>
                             <th className="p-2">Cantidad</th>
                             <th className="p-2">Precio</th>
-                            <th className="p-2">IVA5</th>
-                            <th className="p-2">IVA10</th>
+                            <th className="p-2">IVA 10%</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -490,7 +470,9 @@ export default function FormPresupuesto() {
                                         min="0"
                                         step="0.01"
                                         value={d.precio}
-                                        onChange={(e) => handleDetalleChange(idx, "precio", e.target.value)}
+                                        onChange={(e) =>
+                                            handleDetalleChange(idx, "precio", e.target.value)
+                                        }
                                         className="w-full border px-1 py-1 rounded"
                                         required
                                     />
@@ -498,21 +480,9 @@ export default function FormPresupuesto() {
                                 <td className="p-2">
                                     <input
                                         type="number"
-                                        min="0"
-                                        step="0.01"
-                                        value={d.iva5}
-                                        onChange={(e) => handleDetalleChange(idx, "iva5", e.target.value)}
-                                        className="w-full border px-1 py-1 rounded"
-                                    />
-                                </td>
-                                <td className="p-2">
-                                    <input
-                                        type="number"
-                                        min="0"
-                                        step="0.01"
                                         value={d.iva10}
-                                        onChange={(e) => handleDetalleChange(idx, "iva10", e.target.value)}
-                                        className="w-full border px-1 py-1 rounded"
+                                        readOnly
+                                        className="w-full border px-1 py-1 rounded bg-gray-100 text-gray-800 font-medium"
                                     />
                                 </td>
                             </tr>
@@ -526,10 +496,7 @@ export default function FormPresupuesto() {
                             <span className="font-medium">Subtotal:</span> {subtotal.toFixed(2)}
                         </p>
                         <p>
-                            <span className="font-medium">IVA5:</span> {iva5.toFixed(2)}
-                        </p>
-                        <p>
-                            <span className="font-medium">IVA10:</span> {iva10.toFixed(2)}
+                            <span className="font-medium">IVA 10%:</span> {iva10.toFixed(2)}
                         </p>
                         <p>
                             <span className="font-medium">Total:</span> {total.toFixed(2)}

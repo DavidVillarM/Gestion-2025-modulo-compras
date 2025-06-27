@@ -17,6 +17,8 @@ public partial class PostgresContext : DbContext
 
     public virtual DbSet<AjustesStock> AjustesStocks { get; set; }
 
+    public virtual DbSet<Asiento> Asientos { get; set; }
+
     public virtual DbSet<AuditLogEntry> AuditLogEntries { get; set; }
 
     public virtual DbSet<BajasProducto> BajasProductos { get; set; }
@@ -53,6 +55,8 @@ public partial class PostgresContext : DbContext
 
     public virtual DbSet<NotaCreditoDetalle> NotaCreditoDetalles { get; set; }
 
+    public virtual DbSet<NotaDeDevolucion> NotaDeDevolucions { get; set; }
+
     public virtual DbSet<NotasCredito> NotasCreditos { get; set; }
 
     public virtual DbSet<Object> Objects { get; set; }
@@ -82,6 +86,10 @@ public partial class PostgresContext : DbContext
     public virtual DbSet<ProductoProveedor> ProductoProveedors { get; set; }
 
     public virtual DbSet<Proveedore> Proveedores { get; set; }
+
+    public virtual DbSet<Recepcion> Recepcions { get; set; }
+
+    public virtual DbSet<RecepcionDetalle> RecepcionDetalles { get; set; }
 
     public virtual DbSet<RefreshToken> RefreshTokens { get; set; }
 
@@ -158,6 +166,36 @@ public partial class PostgresContext : DbContext
             entity.HasOne(d => d.IdPersonalNavigation).WithMany(p => p.AjustesStocks)
                 .HasForeignKey(d => d.IdPersonal)
                 .HasConstraintName("ajustes_stock_id_personal_fkey");
+        });
+
+        modelBuilder.Entity<Asiento>(entity =>
+        {
+            entity.HasKey(e => e.IdAsiento).HasName("asientos_pkey");
+
+            entity.ToTable("asientos");
+
+            entity.Property(e => e.IdAsiento)
+                .UseIdentityAlwaysColumn()
+                .HasColumnName("id_asiento");
+            entity.Property(e => e.Fecha).HasColumnName("fecha");
+            entity.Property(e => e.IdNota).HasColumnName("id_nota");
+            entity.Property(e => e.IdOrden).HasColumnName("id_orden");
+            entity.Property(e => e.IdProveedor).HasColumnName("id_proveedor");
+            entity.Property(e => e.MontoTotal)
+                .HasPrecision(12, 2)
+                .HasColumnName("monto_total");
+
+            entity.HasOne(d => d.IdNotaNavigation).WithMany(p => p.Asientos)
+                .HasForeignKey(d => d.IdNota)
+                .HasConstraintName("fk_asiento_nota");
+
+            entity.HasOne(d => d.IdOrdenNavigation).WithMany(p => p.Asientos)
+                .HasForeignKey(d => d.IdOrden)
+                .HasConstraintName("fk_asiento_orden");
+
+            entity.HasOne(d => d.IdProveedorNavigation).WithMany(p => p.Asientos)
+                .HasForeignKey(d => d.IdProveedor)
+                .HasConstraintName("fk_asiento_proveedor");
         });
 
         modelBuilder.Entity<AuditLogEntry>(entity =>
@@ -325,6 +363,9 @@ public partial class PostgresContext : DbContext
                 .HasPrecision(12, 2)
                 .HasColumnName("monto_total");
             entity.Property(e => e.NombreProveedor).HasColumnName("nombre_proveedor");
+            entity.Property(e => e.NroFactura)
+                .HasMaxLength(50)
+                .HasColumnName("nro_factura");
             entity.Property(e => e.Ruc).HasColumnName("ruc");
             entity.Property(e => e.Subtotal)
                 .HasPrecision(12, 2)
@@ -533,6 +574,19 @@ public partial class PostgresContext : DbContext
 
         modelBuilder.Entity<Migration>(entity =>
         {
+            entity.HasKey(e => e.Version).HasName("migrations_pkey");
+
+            entity.ToTable("migrations", "meta");
+
+            entity.Property(e => e.Version).HasColumnName("version");
+            entity.Property(e => e.AppliedAt)
+                .HasDefaultValueSql("now()")
+                .HasColumnName("applied_at");
+            entity.Property(e => e.Name).HasColumnName("name");
+        });
+
+        modelBuilder.Entity<Migration1>(entity =>
+        {
             entity.HasKey(e => e.Id).HasName("migrations_pkey");
 
             entity.ToTable("migrations", "storage");
@@ -554,19 +608,6 @@ public partial class PostgresContext : DbContext
                 .HasColumnName("name");
         });
 
-        modelBuilder.Entity<Migration1>(entity =>
-        {
-            entity.HasKey(e => e.Version).HasName("migrations_pkey");
-
-            entity.ToTable("migrations", "meta");
-
-            entity.Property(e => e.Version).HasColumnName("version");
-            entity.Property(e => e.AppliedAt)
-                .HasDefaultValueSql("now()")
-                .HasColumnName("applied_at");
-            entity.Property(e => e.Name).HasColumnName("name");
-        });
-
         modelBuilder.Entity<NotaCreditoDetalle>(entity =>
         {
             entity.HasKey(e => e.IdNotaDetalle).HasName("nota_credito_detalle_pkey");
@@ -585,6 +626,7 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.Iva5)
                 .HasPrecision(12, 2)
                 .HasColumnName("iva5");
+            entity.Property(e => e.Motivo).HasColumnName("motivo");
             entity.Property(e => e.Precio)
                 .HasPrecision(12, 2)
                 .HasColumnName("precio");
@@ -596,6 +638,31 @@ public partial class PostgresContext : DbContext
             entity.HasOne(d => d.IdProductoNavigation).WithMany(p => p.NotaCreditoDetalles)
                 .HasForeignKey(d => d.IdProducto)
                 .HasConstraintName("fk_nota_credito_detalle_producto");
+        });
+
+        modelBuilder.Entity<NotaDeDevolucion>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("nota_de_devolucion_pkey");
+
+            entity.ToTable("nota_de_devolucion");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Fecha)
+                .HasDefaultValueSql("now()")
+                .HasColumnName("fecha");
+            entity.Property(e => e.Motivo).HasColumnName("motivo");
+            entity.Property(e => e.PedidoId).HasColumnName("pedido_id");
+            entity.Property(e => e.ProductoId).HasColumnName("producto_id");
+
+            entity.HasOne(d => d.Pedido).WithMany(p => p.NotaDeDevolucions)
+                .HasForeignKey(d => d.PedidoId)
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("nota_de_devolucion_pedido_id_fkey");
+
+            entity.HasOne(d => d.Producto).WithMany(p => p.NotaDeDevolucions)
+                .HasForeignKey(d => d.ProductoId)
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("nota_de_devolucion_producto_id_fkey");
         });
 
         modelBuilder.Entity<NotasCredito>(entity =>
@@ -991,6 +1058,58 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.NombreContacto).HasColumnName("nombre_contacto");
             entity.Property(e => e.Ruc).HasColumnName("ruc");
             entity.Property(e => e.Telefono).HasColumnName("telefono");
+        });
+
+        modelBuilder.Entity<Recepcion>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("recepcion_pkey");
+
+            entity.ToTable("recepcion");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Estado)
+                .HasDefaultValueSql("'Pendiente'::text")
+                .HasColumnName("estado");
+            entity.Property(e => e.FechaRecepcion)
+                .HasDefaultValueSql("now()")
+                .HasColumnType("timestamp without time zone")
+                .HasColumnName("fecha_recepcion");
+            entity.Property(e => e.IdOrden).HasColumnName("id_orden");
+            entity.Property(e => e.IdPedido).HasColumnName("id_pedido");
+            entity.Property(e => e.NumeroFactura).HasColumnName("numero_factura");
+            entity.Property(e => e.Timbrado).HasColumnName("timbrado");
+
+            entity.HasOne(d => d.IdOrdenNavigation).WithMany(p => p.Recepcions)
+                .HasForeignKey(d => d.IdOrden)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("recepcion_id_orden_fkey");
+
+            entity.HasOne(d => d.IdPedidoNavigation).WithMany(p => p.Recepcions)
+                .HasForeignKey(d => d.IdPedido)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("recepcion_id_pedido_fkey");
+        });
+
+        modelBuilder.Entity<RecepcionDetalle>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("recepcion_detalle_pkey");
+
+            entity.ToTable("recepcion_detalle");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.CantidadRecibida).HasColumnName("cantidad_recibida");
+            entity.Property(e => e.IdProducto).HasColumnName("id_producto");
+            entity.Property(e => e.IdRecepcion).HasColumnName("id_recepcion");
+
+            entity.HasOne(d => d.IdProductoNavigation).WithMany(p => p.RecepcionDetalles)
+                .HasForeignKey(d => d.IdProducto)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("recepcion_detalle_id_producto_fkey");
+
+            entity.HasOne(d => d.IdRecepcionNavigation).WithMany(p => p.RecepcionDetalles)
+                .HasForeignKey(d => d.IdRecepcion)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("recepcion_detalle_id_recepcion_fkey");
         });
 
         modelBuilder.Entity<RefreshToken>(entity =>

@@ -1,260 +1,299 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import jsPDF from 'jspdf';
+import Modal from 'react-modal';
+import { useNavigate } from 'react-router-dom';
 
 const RecepcionProductos = () => {
-  const [ordenes, setOrdenes] = useState([]);
-  const [ordenSeleccionada, setOrdenSeleccionada] = useState(null);
-  const [facturaInfo, setFacturaInfo] = useState({ numero: '', timbrado: '' });
-  //const [motivoRechazo, setMotivoRechazo] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
+  const [recepciones, setRecepciones] = useState([]);
+  const [detalleRecepcion, setDetalleRecepcion] = useState(null);
+  const [filtros, setFiltros] = useState({ proveedor: '', estado: '', fechaDesde: '', fechaHasta: '' });
+  const [modalAbierto, setModalAbierto] = useState(false);
+  const [modalRechazoAbierto, setModalRechazoAbierto] = useState(false);
+  const [productosRechazo, setProductosRechazo] = useState([]);
+  const [motivoGeneral, setMotivoGeneral] = useState('');
 
 
-  useEffect(() => {
-    cargarOrdenes();
-  }, []);
+  const irANuevaRecepcion = () => {
+    navigate('/recepciones/nueva');
+  };
 
-  const cargarOrdenes = async () => {
-    setIsLoading(true);
+  const cargarRecepciones = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/recepciones/ordenes-pendientes');
-      console.log("Respuesta:", res.data); 
-      setOrdenes(res.data);
+      const params = new URLSearchParams(filtros);
+      const res = await axios.get(`http://localhost:5000/api/recepciones/buscar?${params.toString()}`);
+      setRecepciones(res.data);
     } catch (err) {
-      console.error('Error cargando órdenes pendientes', err);
+      console.error('Error al cargar recepciones', err);
     }
-    setIsLoading(false);
-  };
-  
-  /*const cargarOrdenes = async () => {
-    // Datos estáticos de prueba
-    const datosFalsos = Array.from({ length: 20 }, (_, i) => ({
-      id: i + 1,
-      proveedorNombre: `Proveedor ${i + 1}`,
-      fecha: new Date(2025, 3, i + 1).toISOString(),
-      productos: [
-        {
-          id: i * 3 + 1,
-          nombre: `Producto A${i + 1}`,
-          cantidadSolicitada: Math.floor(Math.random() * 20) + 1,
-        },
-        {
-          id: i * 3 + 2,
-          nombre: `Producto B${i + 1}`,
-          cantidadSolicitada: Math.floor(Math.random() * 20) + 1,
-        },
-        {
-          id: i * 3 + 3,
-          nombre: `Producto C${i + 1}`,
-          cantidadSolicitada: Math.floor(Math.random() * 20) + 1,
-        }
-      ]
-    }));
-  
-    setOrdenes(datosFalsos);
-  };*/
-
-  useEffect(() => {
-    cargarOrdenes();
-  }, []);
-
-  const seleccionarOrden = (orden) => {
-    setOrdenSeleccionada({
-      ...orden,
-      productos: orden.productos.map(det => ({
-        id: det.id,
-        nombre: det.nombre,
-        cantidadSolicitada: det.cantidadSolicitada,
-        cantidadRecibida: 0
-      }))
-    });
   };
 
-  const manejarCambioCantidad = (productoId, valor) => {
-    const productosActualizados = ordenSeleccionada.productos.map(prod =>
-      prod.id === productoId ? { ...prod, cantidadRecibida: parseInt(valor) || 0 } : prod
-    );
-    setOrdenSeleccionada({ ...ordenSeleccionada, productos: productosActualizados });
+  const abrirModal = async (id) => {
+    try {
+      const res = await axios.get(`http://localhost:5000/api/recepciones/${id}`);
+      const data = res.data;
+      data.productos = data.productos.map(p => ({ ...p, cantidadFinal: p.cantidadRecibida }));
+      setDetalleRecepcion(data);
+      setModalAbierto(true);
+    } catch (err) {
+      console.error('Error al cargar detalle', err);
+    }
   };
-
 
   const confirmarRecepcion = async () => {
-    const exceso = ordenSeleccionada.productos.find(p => p.cantidadRecibida > p.cantidadSolicitada);
-      if (exceso) {
-        alert(`La cantidad recibida del producto "${exceso.nombre}" supera la cantidad solicitada.`);
-        return;
-      }
-    const payload = {
-      ordenId: ordenSeleccionada.idOrden,
-      numeroFactura: facturaInfo.numero,
-      timbrado: facturaInfo.timbrado,
-      productos: ordenSeleccionada.productos.map(p => ({
-        productoId: p.id,
-        cantidadRecibida: p.cantidadRecibida,
-      }))
-    };
-
+    const confirmar = confirm("¿Estás seguro de confirmar esta recepción?");
+    if (!confirmar) return;
     try {
-      await axios.post('http://localhost:5000/api/recepciones/registrar', payload);
-      alert('Recepción registrada correctamente');
-      setOrdenSeleccionada(null);
-      setFacturaInfo({ numero: '', timbrado: '' });
-      cargarOrdenes();
+      await axios.put(`http://localhost:5000/api/recepciones/${detalleRecepcion.id}/confirmar`, {
+        productos: detalleRecepcion.productos.map(p => ({ productoId: p.idProducto, cantidadFinal: p.cantidadFinal }))
+      });
+      alert('Recepcion confirmada');
+      cerrarModal();
+      cargarRecepciones();
     } catch (err) {
-      console.error('Error al confirmar recepción', err);
-      alert('Ocurrió un error al confirmar la recepción');
+      console.error('Error al confirmar', err);
     }
   };
+
+  const abrirModalRechazo = () => {
+  const productosIniciales = detalleRecepcion.productos.map(p => ({
+    productoId: p.idProducto,
+    nombre: p.nombre,
+    cantidad: 0,
+    motivo: ''
+  }));
+  setProductosRechazo(productosIniciales);
+  setModalRechazoAbierto(true);
+};
+
 
   const rechazarRecepcion = async () => {
-    const payload = {
-      ordenId: ordenSeleccionada.idOrden
-    };
-  
+    const motivo = prompt("Motivo de rechazo:");
+    if (!motivo) return;
     try {
-      await axios.post('http://localhost:5000/api/recepciones/rechazar', payload);
-      alert('Orden rechazada correctamente');
-      setOrdenSeleccionada(null);
-      cargarOrdenes();
+      await axios.post(`http://localhost:5000/api/recepciones/${detalleRecepcion.id}/rechazar`, { motivo });
+      alert('Recepcion rechazada');
+      cerrarModal();
+      cargarRecepciones();
     } catch (err) {
-      console.error('Error al rechazar recepción', err);
-      alert('Ocurrió un error al rechazar la orden');
+      console.error('Error al rechazar', err);
     }
   };
+
+  const confirmarRechazo = async () => {
+    const confirmar = confirm("¿Estás seguro de rechazar esta recepción?");
+    if (!confirmar) return;
+    if (detalleRecepcion?.productos?.length === 0) {
+      console.log("Rechazo sin productos, motivo:", motivoGeneral); // DEBUG
+
+      if (!motivoGeneral.trim()) return alert("Debes ingresar un motivo de rechazo");
+
+      try {
+        await axios.post(`http://localhost:5000/api/recepciones/${detalleRecepcion.id}/rechazar`, {
+          motivo: motivoGeneral
+        });
+        alert("Recepción rechazada correctamente");
+        setModalRechazoAbierto(false);
+        cerrarModal();
+        cargarRecepciones();
+      } catch (err) {
+        console.error("Error al rechazar recepción vacía", err);
+        alert("Error al rechazar recepción vacía");
+      }
+
+    } else {
+      const productos = productosRechazo.filter(p => p.cantidad > 0 && p.motivo.trim() !== '');
+      if (productos.length === 0) {
+        alert("Debes ingresar al menos un producto con cantidad y motivo");
+        return;
+      }
+
+      try {
+        await axios.post(`http://localhost:5000/api/recepciones/${detalleRecepcion.id}/rechazar`, { productos });
+        alert("Recepción rechazada correctamente");
+        setModalRechazoAbierto(false);
+        cerrarModal();
+        cargarRecepciones();
+      } catch (err) {
+        console.error("Error al rechazar recepción", err);
+        alert("Error al rechazar recepción");
+      }
+    }
+  };
+
   
-  const [paginaActual, setPaginaActual] = useState(1);
-  const ordenesPorPagina = 10;
-  const indexUltimaOrden = paginaActual * ordenesPorPagina;
-  const indexPrimeraOrden = indexUltimaOrden - ordenesPorPagina;
-  //console.log("ORDENES:", ordenes); 
-  const ordenesFiltradas = ordenes.filter(o => o.estado === 'Pendiente' || o.estado === 'Incompleta');
-  const ordenesActuales = ordenesFiltradas.slice(indexPrimeraOrden, indexUltimaOrden);
-  const totalPaginas = ordenes?.length ? Math.ceil(ordenes.length / ordenesPorPagina) : 1;
+  const exportarPDF = () => {
+    const doc = new jsPDF();
+    doc.setFontSize(12);
+    doc.text(`Recepcion #${detalleRecepcion.id}`, 10, 10);
+    doc.text(`Proveedor: ${detalleRecepcion.proveedor.nombre} (${detalleRecepcion.proveedor.ruc})`, 10, 20);
+    doc.text(`Factura: ${detalleRecepcion.numeroFactura}`, 10, 30);
+    doc.text(`Timbrado: ${detalleRecepcion.timbrado}`, 10, 40);
+    doc.text(`Fecha: ${detalleRecepcion.fecha}`, 10, 50);
+    doc.text(`Estado: ${detalleRecepcion.estado}`, 10, 60);
+    doc.text(`Productos:`, 10, 70);
+    let y = 80;
+    detalleRecepcion.productos.forEach(p => {
+      doc.text(`- ${p.nombre}: ${p.cantidadFinal}`, 12, y);
+      y += 8;
+    });
+    doc.save(`recepcion-${detalleRecepcion.id}.pdf`);
+  };
+
+  const cerrarModal = () => {
+    setModalAbierto(false);
+    setDetalleRecepcion(null);
+  };
+
+  useEffect(() => { cargarRecepciones(); }, []);
 
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold mb-4">Recepción de Productos</h1>
+      <div className="flex justify-between items-center mb-4">
+        <h1 className="text-2xl font-bold">Recepciones</h1>
+        <button className="bg-green-600 text-white px-4 py-2 rounded" onClick={irANuevaRecepcion}>+ Nueva Recepción</button>
+      </div>
 
-      {isLoading ? (
-        <div className="text-center py-10 text-gray-600">Cargando órdenes...</div>
-      ) : !ordenSeleccionada ? (
-        <div>
-          <h2 className="text-xl mb-2">Ordenes de Compra Pendientes</h2>
-          <ul className="divide-y">
-          {ordenesActuales.map((orden) => {
-            const detalles = orden.ordenDetalles;
-            const estado = orden.estado;
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2 mb-4">
+        <input type="text" placeholder="Proveedor o RUC" className="border px-2 py-1 rounded" value={filtros.proveedor} onChange={(e) => setFiltros({ ...filtros, proveedor: e.target.value })} />
+        <select className="border px-2 py-1 rounded" value={filtros.estado} onChange={(e) => setFiltros({ ...filtros, estado: e.target.value })}>
+          <option value="">Todos los estados</option>
+          <option value="PENDIENTE">Pendiente</option>
+          <option value="COMPLETA">Completa</option>
+          <option value="INCOMPLETA">Incompleta</option>
+          <option value="RECHAZADA">Rechazada</option>
+        </select>
+        <input type="date" className="border px-2 py-1 rounded" value={filtros.fechaDesde} onChange={(e) => setFiltros({ ...filtros, fechaDesde: e.target.value })} />
+        <input type="date" className="border px-2 py-1 rounded" value={filtros.fechaHasta} onChange={(e) => setFiltros({ ...filtros, fechaHasta: e.target.value })} />
+      </div>
+      <button className="mb-4 bg-blue-600 text-white px-4 py-2 rounded" onClick={cargarRecepciones}>Buscar</button>
 
-            const estadoColor = {
-              Completa: 'text-green-600',
-              Incompleta: 'text-yellow-600',
-              Rechazada: 'text-red-600',
-              Pendiente: 'text-gray-600'
-            };
-              return (
-                <li key={orden.idOrden} className="py-3 px-2 flex justify-between items-center bg-white shadow-sm rounded mb-2">
-                  <div>
-                    <div><strong>Proveedor:</strong> {orden.proveedorNombre || 'N/A'}</div>
-                    <div><strong>Fecha:</strong> {new Date(orden.fecha || Date.now()).toLocaleDateString()}</div>
-                    <div className={`font-semibold ${estadoColor[estado]}`}>Estado: {estado}</div>
-                  </div>
-                  <button
-                    className="bg-blue-600 text-white px-4 py-1 rounded hover:bg-blue-700"
-                    onClick={() => seleccionarOrden(orden)}
-                  >
-                    Recibir
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
-          <div className="flex justify-center mt-4 gap-2">
-            {Array.from({ length: totalPaginas }, (_, i) => (
-              <button
-                key={i}
-                className={`px-3 py-1 rounded ${paginaActual === i + 1 ? 'bg-blue-700 text-white' : 'bg-gray-200 hover:bg-gray-300'}`}
-                onClick={() => setPaginaActual(i + 1)}
-              >
-                {i + 1}
-              </button>
-            ))}
+      <ul className="divide-y">
+        {recepciones.map((r) => (
+          <li key={r.id} className="p-4 bg-white rounded shadow mb-2">
+            <p><strong>Proveedor:</strong> {r.proveedor.nombre}</p>
+            <p><strong>Factura:</strong> {r.numeroFactura}</p>
+            <p><strong>Fecha:</strong> {r.fecha}</p>
+            <p><strong>Estado:</strong> {r.estado}</p>
+            <button className="mt-2 bg-blue-600 text-white px-4 py-1 rounded" onClick={() => abrirModal(r.id)}>Ver Detalles</button>
+          </li>
+        ))}
+      </ul>
+
+      {/* Modal de Detalles */}
+      <Modal isOpen={modalAbierto} onRequestClose={cerrarModal} className="p-6 bg-white rounded shadow-lg max-w-2xl mx-auto mt-12">
+        {detalleRecepcion && (
+          <div>
+            <h2 className="text-xl font-bold mb-4">Recepción #{detalleRecepcion.id}</h2>
+            <p><strong>Proveedor:</strong> {detalleRecepcion.proveedor.nombre} ({detalleRecepcion.proveedor.ruc})</p>
+            <p><strong>Factura:</strong> {detalleRecepcion.numeroFactura}</p>
+            <p><strong>Timbrado:</strong> {detalleRecepcion.timbrado}</p>
+            <p><strong>Fecha:</strong> {detalleRecepcion.fecha}</p>
+            <p><strong>Estado:</strong> {detalleRecepcion.estado}</p>
+
+            <table className="w-full mt-4 border text-sm">
+              <thead className="bg-gray-100">
+                <tr>
+                  <th className="border px-2 py-1">Producto</th>
+                  <th className="border px-2 py-1">Cantidad Recibida</th>
+                  <th className="border px-2 py-1">Cantidad Final</th>
+                </tr>
+              </thead>
+              <tbody>
+                {detalleRecepcion.productos.map((p, idx) => (
+                  <tr key={p.idProducto}>
+                    <td className="border px-2 py-1">{p.nombre}</td>
+                    <td className="border px-2 py-1 text-center">{p.cantidadRecibida}</td>
+                    <td className="border px-2 py-1 text-center">
+                      <input
+                        type="number"
+                        value={p.cantidadFinal}
+                        min={0}
+                        max={p.cantidadRecibida}
+                        className="w-16 border px-1 rounded text-center"
+                        onChange={(e) => {
+                          const valor = parseInt(e.target.value) || 0;
+                          if (valor > p.cantidadRecibida) return; // Evita exceso
+                          const nuevos = [...detalleRecepcion.productos];
+                          nuevos[idx].cantidadFinal = valor;
+                          setDetalleRecepcion({ ...detalleRecepcion, productos: nuevos });
+                        }}
+                      />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <div className="mt-4 flex gap-4">
+              {!['COMPLETA', 'RECHAZADA'].includes(detalleRecepcion.estado) && (
+                <>
+                  <button className="bg-green-600 text-white px-4 py-2 rounded" onClick={confirmarRecepcion}>Aceptar</button>
+                  <button className="bg-red-600 text-white px-4 py-2 rounded" onClick={abrirModalRechazo}>Rechazar Productos</button>
+                </>
+              )}
+              <button className="bg-gray-600 text-white px-4 py-2 rounded" onClick={exportarPDF}>Exportar PDF</button>
+              <button className="ml-auto text-blue-600 underline" onClick={cerrarModal}>Cerrar</button>
+            </div>
           </div>
-        </div>
-      ) : (
-        <div>
-          <button
-            className="mb-4 text-blue-600 underline"
-            onClick={() => setOrdenSeleccionada(null)}
-          >
-            ← Volver a órdenes
-          </button>
+        )}
+      </Modal>
 
-          <h2 className="text-xl mb-2">Recepcionando orden #{ordenSeleccionada.idOrden}</h2>
-          <div className="mb-4">
-            <label className="block">N° Factura</label>
-            <input
-              type="text"
-              className="border px-2 py-1 rounded w-full"
-              value={facturaInfo.numero}
-              onChange={(e) => setFacturaInfo({ ...facturaInfo, numero: e.target.value })}
-            />
-            <label className="block mt-2">Timbrado</label>
-            <input
-              type="text"
-              className="border px-2 py-1 rounded w-full"
-              value={facturaInfo.timbrado}
-              onChange={(e) => setFacturaInfo({ ...facturaInfo, timbrado: e.target.value })}
-            />
-          </div>
+      {/* Modal de Rechazo */}
+      <Modal isOpen={modalRechazoAbierto} onRequestClose={() => setModalRechazoAbierto(false)} className="p-6 bg-white rounded shadow-lg max-w-2xl mx-auto mt-12">
+        <h2 className="text-xl font-bold mb-4">Rechazo de Recepción</h2>
 
-          <table className="w-full border mt-4 text-sm">
-            <thead>
-              <tr className="bg-gray-100">
+        {detalleRecepcion?.productos?.length > 0 ? (
+          <table className="w-full border text-sm">
+            <thead className="bg-gray-100">
+              <tr>
                 <th className="border px-2 py-1">Producto</th>
-                <th className="border px-2 py-1">Cantidad Solicitada</th>
-                <th className="border px-2 py-1">Cantidad Recibida</th>
+                <th className="border px-2 py-1">Cantidad Rechazada</th>
+                <th className="border px-2 py-1">Motivo</th>
               </tr>
             </thead>
             <tbody>
-              {ordenSeleccionada.productos.map((prod) => (
-                <tr key={prod.id}>
-                  <td className="border px-2 py-1">{prod.nombre}</td>
-                  <td className="border px-2 py-1 text-center">{prod.cantidadSolicitada}</td>
+              {productosRechazo.map((p, idx) => (
+                <tr key={p.productoId}>
+                  <td className="border px-2 py-1">{p.nombre}</td>
                   <td className="border px-2 py-1 text-center">
-                    <input
-                      type="number"
-                      min="0"
-                      max={prod.cantidadSolicitada}
-                      className="w-20 text-center border rounded"
-                      value={prod.cantidadRecibida}
-                      onChange={(e) => manejarCambioCantidad(prod.id, e.target.value)}
-                    />
+                    <input type="number" min={0} value={p.cantidad} onChange={(e) => {
+                      const copia = [...productosRechazo];
+                      copia[idx].cantidad = parseInt(e.target.value) || 0;
+                      setProductosRechazo(copia);
+                    }} className="w-20 text-center border rounded" />
+                  </td>
+                  <td className="border px-2 py-1 text-center">
+                    <input type="text" value={p.motivo} onChange={(e) => {
+                      const copia = [...productosRechazo];
+                      copia[idx].motivo = e.target.value;
+                      setProductosRechazo(copia);
+                    }} className="w-full border rounded px-2 py-1" />
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
-
-          <div className="flex gap-4 mt-4">
-            <button
-              className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
-              onClick={confirmarRecepcion}
-            >
-              Confirmar Recepción
-            </button>
-
-            <div className="flex">
-            <button
-              className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
-              onClick={rechazarRecepcion}
-            >
-              Rechazar Recepción
-            </button>
-            </div>
+        ) : (
+          <div className="mt-4">
+            <label className="block mb-2 font-medium">Motivo de rechazo</label>
+            <textarea
+              className="w-full border rounded px-2 py-1"
+              rows={3}
+              value={motivoGeneral}
+              onChange={(e) => setMotivoGeneral(e.target.value)}
+            />
           </div>
+        )}
+
+        <div className="flex justify-end mt-4 gap-3">
+          <button className="bg-red-600 text-white px-4 py-2 rounded" onClick={confirmarRechazo}>Confirmar Rechazo</button>
+          <button className="text-blue-600 underline" onClick={() => setModalRechazoAbierto(false)}>Cancelar</button>
         </div>
-      )}
+      </Modal>
     </div>
   );
+
 };
 
 export default RecepcionProductos;

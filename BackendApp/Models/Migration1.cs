@@ -5,9 +5,11 @@ namespace BackendApp.Models;
 
 public partial class Migration1
 {
-    public string Version { get; set; } = null!;
+    public int Id { get; set; }
 
-    public string? Name { get; set; }
+    public string Name { get; set; } = null!;
 
-    public DateTime AppliedAt { get; set; }
+    public string Hash { get; set; } = null!;
+
+    public DateTime? ExecutedAt { get; set; }
 }

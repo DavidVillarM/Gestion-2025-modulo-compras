@@ -25,5 +25,9 @@ public partial class Pedido
 
     public virtual Proveedore IdProveedorNavigation { get; set; } = null!;
 
+    public virtual ICollection<NotaDeDevolucion> NotaDeDevolucions { get; set; } = new List<NotaDeDevolucion>();
+
     public virtual ICollection<PedidoDetalle> PedidoDetalles { get; set; } = new List<PedidoDetalle>();
+
+    public virtual ICollection<Recepcion> Recepcions { get; set; } = new List<Recepcion>();
 }

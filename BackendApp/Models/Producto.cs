@@ -31,6 +31,8 @@ public partial class Producto
 
     public virtual ICollection<NotaCreditoDetalle> NotaCreditoDetalles { get; set; } = new List<NotaCreditoDetalle>();
 
+    public virtual ICollection<NotaDeDevolucion> NotaDeDevolucions { get; set; } = new List<NotaDeDevolucion>();
+
     public virtual ICollection<OrdenDetalle> OrdenDetalles { get; set; } = new List<OrdenDetalle>();
 
     public virtual ICollection<PedidoDetalle> PedidoDetalles { get; set; } = new List<PedidoDetalle>();
@@ -40,6 +42,8 @@ public partial class Producto
     public virtual ICollection<PresupuestoDetalle> PresupuestoDetalles { get; set; } = new List<PresupuestoDetalle>();
 
     public virtual ICollection<ProductoProveedor> ProductoProveedors { get; set; } = new List<ProductoProveedor>();
+
+    public virtual ICollection<RecepcionDetalle> RecepcionDetalles { get; set; } = new List<RecepcionDetalle>();
 
     public virtual ICollection<ServiciosProductosUtilizado> ServiciosProductosUtilizados { get; set; } = new List<ServiciosProductosUtilizado>();
 }

@@ -5,7 +5,9 @@ import { FiTrash2 } from 'react-icons/fi';
 import { FaEye } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import ReporteMensualMini from './ReporteMensualMini';
 
+import dayjs from 'dayjs';
 export const OrdenesPago = () => {
   const navigate = useNavigate();
   const [dataOriginal, setDataOriginal] = useState([]);
@@ -87,29 +89,31 @@ export const OrdenesPago = () => {
       allowOverflow: true,
       button: true,
     },
-    {
-      name: 'Acciones',
-      cell: row => (
-        <div className="flex gap-2">
-          {/* Aquí cambiamos row.id por row.idOrden */}
-          <button
-            onClick={() => navigate(`/ordenes-vista/${row.idOrden}`)}
-            className="text-blue-600 text-xl hover:text-blue-800"
-          >
-            <FaEye />
-          </button>
-          <button
-            onClick={() => handleEliminar(row.idOrden)}
-            className="text-red-600 text-xl hover:text-red-800"
-          >
-            <FiTrash2 />
-          </button>
-        </div>
-      ),
-      ignoreRowClick: true,
-      allowOverflow: true,
-      button: true,
-    },
+   {
+  name: 'Acciones',
+  cell: row => (
+    <div className="flex gap-2">
+      {/* Mostrar ícono del ojo solo si el estado es 'Completa' */}
+      {row.estado === 'COMPLETA' && (
+        <button
+          onClick={() => navigate(`/ordenes-vista/${row.idOrden}`)}
+          className="text-blue-600 text-xl hover:text-blue-800"
+        >
+          <FaEye />
+        </button>
+      )}
+      <button
+        onClick={() => handleEliminar(row.idOrden)}
+        className="text-red-600 text-xl hover:text-red-800"
+      >
+        <FiTrash2 />
+      </button>
+    </div>
+  ),
+  ignoreRowClick: true,
+  allowOverflow: true,
+  button: true,
+}
   ];
 
   return (
@@ -135,8 +139,11 @@ export const OrdenesPago = () => {
           <option value="Incompleta">Incompleta</option>
           <option value="Pendiente">Pendiente</option>
         </select>
-      </div>
 
+       <ReporteMensualMini />
+
+      </div>
+        
       <DataTable
         columns={columns}
         data={data}

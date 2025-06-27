@@ -17,6 +17,8 @@ public partial class Proveedore
 
     public string? NombreContacto { get; set; }
 
+    public virtual ICollection<Asiento> Asientos { get; set; } = new List<Asiento>();
+
     public virtual ICollection<CategoriaProveedor> CategoriaProveedors { get; set; } = new List<CategoriaProveedor>();
 
     public virtual ICollection<Factura> Facturas { get; set; } = new List<Factura>();

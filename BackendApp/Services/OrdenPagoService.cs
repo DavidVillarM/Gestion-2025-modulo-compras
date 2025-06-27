@@ -44,9 +44,12 @@ namespace BackendApp.Services
         public string Proveedor { get; set; } = "";
         public DateOnly FechaPedido { get; set; }
         public DateOnly? FechaEntrega { get; set; }
+
+        public string? CorreoProveedor { get; set; }
         public List<PedidoDetalleSimpleDto> Detalles { get; set; } = new();
         public decimal MontoTotal { get; set; }
     }
+
 
     // DTO que recibe la lista de líneas (agrupadas luego por proveedor)
     public class PedidoDetalleCreacionDto
@@ -158,27 +161,25 @@ namespace BackendApp.Services
                 {
                     var lineasParaEsteProveedor = lineasPorProveedor[proveedorId];
 
-                    // 3.1) Obtener la FechaEntrega común para este proveedor:
-                    //      asumimos que todas las líneas del mismo proveedor tienen la misma FechaEntrega.
+                    // 3.1) Obtener la FechaEntrega común para este proveedor
                     var fechaEntregaProveedor = lineasParaEsteProveedor
                         .Select(d => d.FechaEntrega)
                         .FirstOrDefault();
 
-                    // 3.2) Crear el Pedido (sin monto aún)
+                    // 3.2) Crear el Pedido
                     var nuevoPedido = new Pedido
                     {
                         IdOrden = dto.OrdenId,
                         IdProveedor = proveedorId,
                         FechaPedido = DateOnly.FromDateTime(DateTime.Today),
                         FechaEntrega = fechaEntregaProveedor,
-                        Estado = "PENDIENTE",    // o el estado que corresponda
-                        MontoTotal = 0m          // se calculará luego
+                        Estado = "PENDIENTE",
+                        MontoTotal = 0m
                     };
                     await _context.Pedidos.AddAsync(nuevoPedido);
                     await _context.SaveChangesAsync();
-                    // EF asigna nuevoPedido.IdPedido
 
-                    // 3.3) Crear todas las líneas (PedidoDetalle) para este pedido
+                    // 3.3) Crear los detalles del pedido
                     var detallesPedidos = lineasParaEsteProveedor
                         .Select(d => new PedidoDetalle
                         {
@@ -189,18 +190,42 @@ namespace BackendApp.Services
                             Iva = d.Iva
                         })
                         .ToList();
-
                     await _context.PedidoDetalles.AddRangeAsync(detallesPedidos);
                     await _context.SaveChangesAsync();
 
-                    // 3.4) Calcular y actualizar MontoTotal de este pedido
+                    // 3.4) Calcular el monto total del pedido
                     nuevoPedido.MontoTotal = detallesPedidos
                         .Sum(x => (x.Cotizacion * x.Cantidad) + x.Iva);
                     _context.Pedidos.Update(nuevoPedido);
                     await _context.SaveChangesAsync();
+
+                    // 3.5) Crear la Recepcion asociada al pedido
+                    var nuevaRecepcion = new Recepcion
+                    {
+                        IdOrden = dto.OrdenId,
+                        IdPedido = nuevoPedido.IdPedido,
+                        Estado = "PENDIENTE",
+                        FechaRecepcion = DateTime.Today,
+                        Timbrado = "A DEFINIR",        // puedes modificar según lógica real
+                        NumeroFactura = "A DEFINIR"
+                    };
+                    await _context.Recepcions.AddAsync(nuevaRecepcion);
+                    await _context.SaveChangesAsync();
+
+                    // 3.6) Crear los detalles de la recepción con CantidadRecibida = 0
+                    var detallesRecepcion = detallesPedidos
+                        .Select(dp => new RecepcionDetalle
+                        {
+                            IdRecepcion = nuevaRecepcion.Id,
+                            IdProducto = dp.IdProducto,
+                            CantidadRecibida = 0
+                        })
+                        .ToList();
+                    await _context.RecepcionDetalles.AddRangeAsync(detallesRecepcion);
+                    await _context.SaveChangesAsync();
                 }
 
-                // 4) Cambiar el estado de la orden a “Completa”
+                // 4) Cambiar el estado de la orden a COMPLETA
                 orden.Estado = "COMPLETA";
                 _context.Ordenes.Update(orden);
                 await _context.SaveChangesAsync();
@@ -233,9 +258,10 @@ namespace BackendApp.Services
                 {
                     IdPedido = pedido.IdPedido,
                     Proveedor = pedido.IdProveedorNavigation?.Nombre ?? "",
-                    FechaPedido = pedido.FechaPedido ?? default(DateOnly), // Explicit conversion with default value
+                    FechaPedido = pedido.FechaPedido ?? default(DateOnly),
                     FechaEntrega = pedido.FechaEntrega,
                     MontoTotal = pedido.MontoTotal ?? 0m,
+                    CorreoProveedor = pedido.IdProveedorNavigation?.Correo ?? "", // 👈 Agregado
                     Detalles = pedido.PedidoDetalles.Select(d => new PedidoDetalleSimpleDto
                     {
                         IdPedidoDetalle = d.IdPedidoDetalle,
@@ -252,6 +278,7 @@ namespace BackendApp.Services
 
             return resultado;
         }
+
 
         /// <summary>
         /// Elimina la orden, todos sus pedidos y todos los PedidoDetalle relacionados.
