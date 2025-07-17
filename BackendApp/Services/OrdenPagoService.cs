@@ -200,17 +200,43 @@ namespace BackendApp.Services
                     await _context.SaveChangesAsync();
 
                     // 3.5) Crear la Recepcion asociada al pedido
+                    // 3.5) Obtener o crear el contador por proveedor
+                    var contador = await _context.ContadorFacturas
+                        .FirstOrDefaultAsync(c => c.IdProveedor == proveedorId);
+
+                    if (contador == null)
+                    {
+                        contador = new ContadorFactura
+                        {
+                            IdProveedor = proveedorId,
+                            UltimoNumero = 1,
+                            Prefijo = "F001" // Puedes cambiar el prefijo si deseas
+                        };
+                        await _context.ContadorFacturas.AddAsync(contador);
+                    }
+                    else
+                    {
+                        contador.UltimoNumero++;
+                    }
+                    await _context.SaveChangesAsync(); // Guardar cambios del contador
+
+                    // 3.6) Generar número de factura y timbrado
+                    string numeroFactura = $"{contador.Prefijo}-{contador.UltimoNumero:D6}";
+                    string timbradoGenerado = $"TIM{DateTime.Now:yyyyMMddHHmmss}";
+
+                    // 3.7) Crear la Recepcion asociada al pedido
                     var nuevaRecepcion = new Recepcion
                     {
                         IdOrden = dto.OrdenId,
                         IdPedido = nuevoPedido.IdPedido,
                         Estado = "PENDIENTE",
                         FechaRecepcion = DateTime.Today,
-                        Timbrado = "A DEFINIR",        // puedes modificar según lógica real
-                        NumeroFactura = "A DEFINIR"
+                        Timbrado = timbradoGenerado,
+                        NumeroFactura = numeroFactura
                     };
                     await _context.Recepcions.AddAsync(nuevaRecepcion);
                     await _context.SaveChangesAsync();
+
 
                     // 3.6) Crear los detalles de la recepción con CantidadRecibida = 0
                     var detallesRecepcion = detallesPedidos

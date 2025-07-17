@@ -169,17 +169,44 @@ const RecepcionProductos = () => {
       </div>
       <button className="mb-4 bg-blue-600 text-white px-4 py-2 rounded" onClick={cargarRecepciones}>Buscar</button>
 
-      <ul className="divide-y">
-        {recepciones.map((r) => (
-          <li key={r.id} className="p-4 bg-white rounded shadow mb-2">
-            <p><strong>Proveedor:</strong> {r.proveedor.nombre}</p>
-            <p><strong>Factura:</strong> {r.numeroFactura}</p>
-            <p><strong>Fecha:</strong> {r.fecha}</p>
-            <p><strong>Estado:</strong> {r.estado}</p>
-            <button className="mt-2 bg-blue-600 text-white px-4 py-1 rounded" onClick={() => abrirModal(r.id)}>Ver Detalles</button>
-          </li>
-        ))}
-      </ul>
+      <table className="w-full text-sm border rounded shadow mt-4">
+        <thead className="bg-gray-50 text-gray-700">
+          <tr>
+            <th className="px-4 py-2 text-left">Proveedor</th>
+            <th className="px-4 py-2 text-left">Factura</th>
+            <th className="px-4 py-2 text-left">Fecha</th>
+            <th className="px-4 py-2 text-left">Estado</th>
+            <th className="px-4 py-2 text-left">Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          {recepciones.map((r) => (
+            <tr key={r.id} className="border-t hover:bg-gray-50">
+              <td className="px-4 py-2 font-medium">{r.proveedor?.nombre || '-'}</td>
+              <td className="px-4 py-2">{r.numeroFactura}</td>
+              <td className="px-4 py-2">{r.fecha}</td>
+              <td className="px-4 py-2">
+                <span className={`text-xs font-semibold px-2 py-1 rounded-full 
+                  ${r.estado === 'COMPLETA' ? 'bg-green-100 text-green-700' : ''}
+                  ${r.estado === 'PENDIENTE' ? 'bg-yellow-100 text-yellow-700' : ''}
+                  ${r.estado === 'INCOMPLETA' ? 'bg-orange-100 text-orange-700' : ''}
+                  ${r.estado === 'RECHAZADA' ? 'bg-red-100 text-red-700' : ''}`}>
+                  {r.estado}
+                </span>
+              </td>
+              <td className="px-4 py-2">
+                <button
+                  className="text-sm text-blue-600 hover:underline font-medium"
+                  onClick={() => abrirModal(r.id)}
+                >
+                  Ver Detalles
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
 
       {/* Modal de Detalles */}
       <Modal isOpen={modalAbierto} onRequestClose={cerrarModal} className="p-6 bg-white rounded shadow-lg max-w-2xl mx-auto mt-12">
@@ -212,9 +239,11 @@ const RecepcionProductos = () => {
                         min={0}
                         max={p.cantidadRecibida}
                         className="w-16 border px-1 rounded text-center"
+                        disabled={['COMPLETA', 'RECHAZADA'].includes(detalleRecepcion.estado)}
                         onChange={(e) => {
+                          if (['COMPLETA', 'RECHAZADA'].includes(detalleRecepcion.estado)) return;
                           const valor = parseInt(e.target.value) || 0;
-                          if (valor > p.cantidadRecibida) return; // Evita exceso
+                          if (valor > p.cantidadRecibida) return;
                           const nuevos = [...detalleRecepcion.productos];
                           nuevos[idx].cantidadFinal = valor;
                           setDetalleRecepcion({ ...detalleRecepcion, productos: nuevos });

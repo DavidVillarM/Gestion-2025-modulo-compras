@@ -21,6 +21,8 @@ public partial class Proveedore
 
     public virtual ICollection<CategoriaProveedor> CategoriaProveedors { get; set; } = new List<CategoriaProveedor>();
 
+    public virtual ContadorFactura? ContadorFactura { get; set; }
+
     public virtual ICollection<Factura> Facturas { get; set; } = new List<Factura>();
 
     public virtual ICollection<NotasCredito> NotasCreditos { get; set; } = new List<NotasCredito>();

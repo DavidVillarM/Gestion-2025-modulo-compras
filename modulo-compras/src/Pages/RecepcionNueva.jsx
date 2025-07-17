@@ -122,23 +122,33 @@ const NuevaRecepcion = () => {
       ) : !ordenSeleccionada ? (
         <div>
           <h2 className="text-lg font-semibold mb-2">Seleccionar Orden Pendiente</h2>
-          <ul className="divide-y">
-            {ordenes.map(o => (
-              <li key={o.idOrden} className="py-2 px-4 bg-white shadow rounded mb-2 flex justify-between">
-                <div>
-                  <p><strong>ID Orden:</strong> #{o.idOrden}</p>
-                  <p><strong>Proveedor:</strong> {o.proveedor?.nombre || 'N/A'}</p>
-                  <p><strong>Fecha:</strong> {o.fechaPedido || 'Sin fecha'}</p>
-                </div>
-                <button
-                  className="bg-blue-600 text-white px-4 py-1 rounded"
-                  onClick={() => seleccionarOrden(o)}
-                >
-                  Seleccionar
-                </button>
-              </li>
-            ))}
-          </ul>
+          <table className="w-full border text-sm rounded shadow bg-white">
+            <thead className="bg-gray-100 text-gray-700">
+              <tr>
+                <th className="px-4 py-2 text-left">ID Orden</th>
+                <th className="px-4 py-2 text-left">Proveedor</th>
+                <th className="px-4 py-2 text-left">Fecha</th>
+                <th className="px-4 py-2 text-left">Acción</th>
+              </tr>
+            </thead>
+            <tbody>
+              {ordenes.map(o => (
+                <tr key={o.idOrden} className="border-t hover:bg-gray-50">
+                  <td className="px-4 py-2 font-medium">#{o.idOrden}</td>
+                  <td className="px-4 py-2">{o.proveedor?.nombre || 'N/A'}</td>
+                  <td className="px-4 py-2">{o.fechaPedido || 'Sin fecha'}</td>
+                  <td className="px-4 py-2">
+                    <button
+                      className="text-sm bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded"
+                      onClick={() => seleccionarOrden(o)}
+                    >
+                      Seleccionar
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       ) : (
         <div>

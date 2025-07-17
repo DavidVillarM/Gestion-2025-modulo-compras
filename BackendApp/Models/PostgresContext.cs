@@ -29,6 +29,8 @@ public partial class PostgresContext : DbContext
 
     public virtual DbSet<Categorium> Categoria { get; set; }
 
+    public virtual DbSet<ContadorFactura> ContadorFacturas { get; set; }
+
     public virtual DbSet<DetalleAjusteStock> DetalleAjusteStocks { get; set; }
 
     public virtual DbSet<Embedding> Embeddings { get; set; }
@@ -303,6 +305,28 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.Nombre).HasColumnName("nombre");
         });
 
+        modelBuilder.Entity<ContadorFactura>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("contador_factura_pkey");
+
+            entity.ToTable("contador_factura");
+
+            entity.HasIndex(e => e.IdProveedor, "proveedor_unico").IsUnique();
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.IdProveedor).HasColumnName("id_proveedor");
+            entity.Property(e => e.Prefijo)
+                .HasDefaultValueSql("'F001'::text")
+                .HasColumnName("prefijo");
+            entity.Property(e => e.UltimoNumero)
+                .HasDefaultValue(0)
+                .HasColumnName("ultimo_numero");
+
+            entity.HasOne(d => d.IdProveedorNavigation).WithOne(p => p.ContadorFactura)
+                .HasForeignKey<ContadorFactura>(d => d.IdProveedor)
+                .HasConstraintName("fk_contador_proveedor");
+        });
+
         modelBuilder.Entity<DetalleAjusteStock>(entity =>
         {
             entity.HasKey(e => e.IdDetalle).HasName("detalle_ajuste_stock_pkey");
@@ -574,19 +598,6 @@ public partial class PostgresContext : DbContext
 
         modelBuilder.Entity<Migration>(entity =>
         {
-            entity.HasKey(e => e.Version).HasName("migrations_pkey");
-
-            entity.ToTable("migrations", "meta");
-
-            entity.Property(e => e.Version).HasColumnName("version");
-            entity.Property(e => e.AppliedAt)
-                .HasDefaultValueSql("now()")
-                .HasColumnName("applied_at");
-            entity.Property(e => e.Name).HasColumnName("name");
-        });
-
-        modelBuilder.Entity<Migration1>(entity =>
-        {
             entity.HasKey(e => e.Id).HasName("migrations_pkey");
 
             entity.ToTable("migrations", "storage");
@@ -606,6 +617,19 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.Name)
                 .HasMaxLength(100)
                 .HasColumnName("name");
+        });
+
+        modelBuilder.Entity<Migration1>(entity =>
+        {
+            entity.HasKey(e => e.Version).HasName("migrations_pkey");
+
+            entity.ToTable("migrations", "meta");
+
+            entity.Property(e => e.Version).HasColumnName("version");
+            entity.Property(e => e.AppliedAt)
+                .HasDefaultValueSql("now()")
+                .HasColumnName("applied_at");
+            entity.Property(e => e.Name).HasColumnName("name");
         });
 
         modelBuilder.Entity<NotaCreditoDetalle>(entity =>
@@ -1082,12 +1106,12 @@ public partial class PostgresContext : DbContext
             entity.HasOne(d => d.IdOrdenNavigation).WithMany(p => p.Recepcions)
                 .HasForeignKey(d => d.IdOrden)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("recepcion_id_orden_fkey");
+                .HasConstraintName("fk_recepcion_orden");
 
             entity.HasOne(d => d.IdPedidoNavigation).WithMany(p => p.Recepcions)
                 .HasForeignKey(d => d.IdPedido)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("recepcion_id_pedido_fkey");
+                .HasConstraintName("fk_recepcion_pedido");
         });
 
         modelBuilder.Entity<RecepcionDetalle>(entity =>
