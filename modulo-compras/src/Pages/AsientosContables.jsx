@@ -17,16 +17,15 @@ export const AsientosContables = () => {
           headers: { Authorization: `Bearer ${token}` }
         });
 
-        // Mapear respuesta a UI
         const formateados = data.map(a => ({
           id: a.idAsiento,
-          fecha: a.fecha,              // 'YYYY-MM-DD'
+          fecha: a.fecha,
           proveedor: a.proveedor,
           idFactura: a.id_Factura,
           notaId: a.idNota,
           montoTotal: a.montoTotal,
           descripcion: a.idNota
-            ? `Nota de crédito #${a.idNota} a ${a.proveedor}`
+            ? `Nota de credito #${a.idNota} a ${a.proveedor}`
             : `Factura #${a.idFactura} a ${a.proveedor}`,
           detalles: a.detalles.map(d => ({
             cuenta: d.cuentaContable,
@@ -54,7 +53,7 @@ export const AsientosContables = () => {
 
   const columns = [
     { name: 'Fecha', selector: row => row.fecha, sortable: true },
-    { name: 'Descripción', selector: row => row.descripcion, sortable: true },
+    { name: 'Descripcion', selector: row => row.descripcion, sortable: true },
     { name: 'Total', selector: row => row.montoTotal, sortable: true },
     {
       name: 'Acciones',
@@ -76,11 +75,11 @@ export const AsientosContables = () => {
 
   const ExpandibleDetalle = ({ data }) => (
     <div className="p-4 bg-gray-100 rounded-md border mt-2">
-      <h4 className="font-semibold mb-2">Detalle del Asiento</h4>
+      <h4 className="font-semibold mb-2">Detalle del asiento</h4>
       <table className="w-full text-sm border">
         <thead className="bg-gray-200">
           <tr>
-            <th className="p-2 border">Cuenta Contable</th>
+            <th className="p-2 border">Cuenta contable</th>
             <th className="p-2 border text-right">Debe</th>
             <th className="p-2 border text-right">Haber</th>
           </tr>
@@ -104,12 +103,12 @@ export const AsientosContables = () => {
 
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
-      <h2 className="text-2xl font-semibold mb-4">Asientos Contables</h2>
+      <h2 className="text-2xl font-semibold mb-4">Asientos contables</h2>
 
       <div className="flex flex-wrap gap-4 mb-4">
         <input
           type="text"
-          placeholder="Buscar por descripción"
+          placeholder="Buscar por descripcion"
           value={search}
           onChange={e => setSearch(e.target.value)}
           className="px-4 py-2 border rounded shadow-sm"
