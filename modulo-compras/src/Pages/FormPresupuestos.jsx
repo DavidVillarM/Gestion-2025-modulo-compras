@@ -434,6 +434,9 @@ export default function FormPresupuesto() {
         <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md mt-6">
             <h2 className="text-2xl font-semibold mb-4">
                 {`Editar Cotización (ID ${idPresupuesto}) para Orden #${ordenId}`}
+                {presupuesto.nombreProveedor && (
+                    <> — Proveedor: {presupuesto.nombreProveedor}</>
+                )}
             </h2>
 
             <form onSubmit={handleSubmit} className="space-y-4">

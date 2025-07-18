@@ -33,6 +33,7 @@ import { DetallesProveedores } from './Pages/DetallesProveedores.jsx';
 import {CargarNota} from './Pages/CargarNota.jsx'
 import {ListaNotas} from './Pages/ListaNotas.jsx'
 import RecepcionNueva from './Pages/RecepcionNueva';
+import { AsientosContables } from './Pages/AsientosContables.jsx';
 
 
 function App() {
@@ -109,6 +110,7 @@ function App() {
 
                     <Route path="/notas-credito" element={<ListaNotas/>} />
                     <Route path="/notas-credito/cargar" element={<CargarNota/>} />
+                   <Route path="/asientos" element={<AsientosContables />} />
 
 
                     

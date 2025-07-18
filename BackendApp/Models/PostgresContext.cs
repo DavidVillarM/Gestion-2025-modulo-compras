@@ -19,6 +19,8 @@ public partial class PostgresContext : DbContext
 
     public virtual DbSet<Asiento> Asientos { get; set; }
 
+    public virtual DbSet<AsientoDetalle> AsientoDetalles { get; set; }
+
     public virtual DbSet<AuditLogEntry> AuditLogEntries { get; set; }
 
     public virtual DbSet<BajasProducto> BajasProductos { get; set; }
@@ -180,24 +182,51 @@ public partial class PostgresContext : DbContext
                 .UseIdentityAlwaysColumn()
                 .HasColumnName("id_asiento");
             entity.Property(e => e.Fecha).HasColumnName("fecha");
+            entity.Property(e => e.IdFactura).HasColumnName("id_factura");
             entity.Property(e => e.IdNota).HasColumnName("id_nota");
-            entity.Property(e => e.IdOrden).HasColumnName("id_orden");
             entity.Property(e => e.IdProveedor).HasColumnName("id_proveedor");
             entity.Property(e => e.MontoTotal)
                 .HasPrecision(12, 2)
                 .HasColumnName("monto_total");
 
+            entity.HasOne(d => d.IdFacturaNavigation).WithMany(p => p.Asientos)
+                .HasForeignKey(d => d.IdFactura)
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("fk_asiento_factura");
+
             entity.HasOne(d => d.IdNotaNavigation).WithMany(p => p.Asientos)
                 .HasForeignKey(d => d.IdNota)
+                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("fk_asiento_nota");
-
-            entity.HasOne(d => d.IdOrdenNavigation).WithMany(p => p.Asientos)
-                .HasForeignKey(d => d.IdOrden)
-                .HasConstraintName("fk_asiento_orden");
 
             entity.HasOne(d => d.IdProveedorNavigation).WithMany(p => p.Asientos)
                 .HasForeignKey(d => d.IdProveedor)
                 .HasConstraintName("fk_asiento_proveedor");
+        });
+
+        modelBuilder.Entity<AsientoDetalle>(entity =>
+        {
+            entity.HasKey(e => e.IdDetalle).HasName("asiento_detalle_pkey");
+
+            entity.ToTable("asiento_detalle");
+
+            entity.Property(e => e.IdDetalle)
+                .UseIdentityAlwaysColumn()
+                .HasColumnName("id_detalle");
+            entity.Property(e => e.CuentaContable).HasColumnName("cuenta_contable");
+            entity.Property(e => e.Debe)
+                .HasPrecision(12, 2)
+                .HasDefaultValueSql("0")
+                .HasColumnName("debe");
+            entity.Property(e => e.Haber)
+                .HasPrecision(12, 2)
+                .HasDefaultValueSql("0")
+                .HasColumnName("haber");
+            entity.Property(e => e.IdAsiento).HasColumnName("id_asiento");
+
+            entity.HasOne(d => d.IdAsientoNavigation).WithMany(p => p.AsientoDetalles)
+                .HasForeignKey(d => d.IdAsiento)
+                .HasConstraintName("fk_detalle_asiento");
         });
 
         modelBuilder.Entity<AuditLogEntry>(entity =>

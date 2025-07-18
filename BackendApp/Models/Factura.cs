@@ -31,6 +31,8 @@ public partial class Factura
 
     public string? NroFactura { get; set; }
 
+    public virtual ICollection<Asiento> Asientos { get; set; } = new List<Asiento>();
+
     public virtual ICollection<FacturaDetalle> FacturaDetalles { get; set; } = new List<FacturaDetalle>();
 
     public virtual Pedido IdPedidoNavigation { get; set; } = null!;

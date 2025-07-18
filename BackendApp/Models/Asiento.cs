@@ -9,17 +9,19 @@ public partial class Asiento
 
     public long IdProveedor { get; set; }
 
-    public long IdOrden { get; set; }
-
-    public long IdNota { get; set; }
+    public long? IdNota { get; set; }
 
     public decimal? MontoTotal { get; set; }
 
     public DateOnly? Fecha { get; set; }
 
-    public virtual NotasCredito IdNotaNavigation { get; set; } = null!;
+    public long? IdFactura { get; set; }
 
-    public virtual Ordene IdOrdenNavigation { get; set; } = null!;
+    public virtual ICollection<AsientoDetalle> AsientoDetalles { get; set; } = new List<AsientoDetalle>();
+
+    public virtual Factura? IdFacturaNavigation { get; set; }
+
+    public virtual NotasCredito? IdNotaNavigation { get; set; }
 
     public virtual Proveedore IdProveedorNavigation { get; set; } = null!;
 }
